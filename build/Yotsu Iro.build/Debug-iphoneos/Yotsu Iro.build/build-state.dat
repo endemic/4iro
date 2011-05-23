@@ -1,2187 +1,0 @@
-TYotsu Iro
-v7
-r0
-t327577707.507679
-cCheck dependencies
-cCpResource "build/Debug-iphoneos/Yotsu Iro.app/ResourceRules.plist" /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/ResourceRules.plist
-cProcessInfoPlistFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Info.plist" Resources/Info.plist
-cCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Default.png" Resources/Default.png
-cCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/fps_images.png" Resources/fps_images.png
-cCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Icon.png" Resources/Icon.png
-cCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Icon@2x.png" Resources/Icon@2x.png
-cCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Icon-Small@2x.png" Resources/Icon-Small@2x.png
-cCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Icon-Small.png" Resources/Icon-Small.png
-cCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Icon-Small-50.png" Resources/Icon-Small-50.png
-cCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Icon-72.png" Resources/Icon-72.png
-cCpResource "build/Debug-iphoneos/Yotsu Iro.app/iTunesArtwork" Resources/iTunesArtwork
-cCpResource "build/Debug-iphoneos/Yotsu Iro.app/todo.rtf" Resources/todo.rtf
-cCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/top-background.png" Resources/images/top-background.png
-cCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/blue-clover.png" Resources/images/blue-clover.png
-cCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/blue-diamond.png" Resources/images/blue-diamond.png
-cCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/blue-heart.png" Resources/images/blue-heart.png
-cCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/blue-star.png" Resources/images/blue-star.png
-cCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/green-clover.png" Resources/images/green-clover.png
-cCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/green-diamond.png" Resources/images/green-diamond.png
-cCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/green-heart.png" Resources/images/green-heart.png
-cCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/green-star.png" Resources/images/green-star.png
-cCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/red-clover.png" Resources/images/red-clover.png
-cCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/red-diamond.png" Resources/images/red-diamond.png
-cCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/red-heart.png" Resources/images/red-heart.png
-cCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/red-star.png" Resources/images/red-star.png
-cCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/yellow-clover.png" Resources/images/yellow-clover.png
-cCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/yellow-diamond.png" Resources/images/yellow-diamond.png
-cCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/yellow-heart.png" Resources/images/yellow-heart.png
-cCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/yellow-star.png" Resources/images/yellow-star.png
-cProcessPCH /var/folders/Kx/Kxr44TtEGY4nqFImPDe8U++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Yotsu_Iro_Prefix-gxjpajtmhgjfmydgjxyrtuzhyqpk/Yotsu_Iro_Prefix.pch.gch Yotsu_Iro_Prefix.pch normal armv6 objective-c com.apple.compilers.llvmgcc42
-cCompileC "build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Objects-normal/armv6/main.o" "/Users/ndemick/iPhone/Yotsu Iro/main.m" normal armv6 objective-c com.apple.compilers.llvmgcc42
-cCompileC "build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Objects-normal/armv6/Yotsu_IroAppDelegate.o" "/Users/ndemick/iPhone/Yotsu Iro/Classes/Yotsu_IroAppDelegate.m" normal armv6 objective-c com.apple.compilers.llvmgcc42
-cCompileC "build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Objects-normal/armv6/HelloWorldScene.o" "/Users/ndemick/iPhone/Yotsu Iro/Classes/HelloWorldScene.m" normal armv6 objective-c com.apple.compilers.llvmgcc42
-cCompileC "build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Objects-normal/armv6/RootViewController.o" "/Users/ndemick/iPhone/Yotsu Iro/Classes/RootViewController.m" normal armv6 objective-c com.apple.compilers.llvmgcc42
-cCompileC "build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Objects-normal/armv6/Block.o" "/Users/ndemick/iPhone/Yotsu Iro/Classes/Block.m" normal armv6 objective-c com.apple.compilers.llvmgcc42
-cLd "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Yotsu Iro" normal armv6
-cGenerateDSYMFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app.dSYM" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Yotsu Iro"
-cProcessProductPackaging "/Users/ndemick/Library/MobileDevice/Provisioning Profiles/E880EC6D-B035-4B61-908C-EB9AAB3CF358.mobileprovision" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/embedded.mobileprovision"
-cTouch "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app"
-cProcessProductPackaging /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/Entitlements.plist "/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Yotsu Iro.xcent"
-cCodeSign "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app"
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk
-c000000004CC7DC9E0000000000000110
-t1288166558
-s272
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/Entitlements.plist
-c000000004CB3DFCF00000000000001A7
-t1286856655
-s423
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/ResourceRules.plist
-c000000004CB3DFCF00000000000001E5
-t1286856655
-s485
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/System/Library/Frameworks/AVFoundation.framework/AVFoundation
-c000000004CC11C42000000000020BF30
-t1287724098
-s2146096
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/System/Library/Frameworks/AudioToolbox.framework/AudioToolbox
-c000000004CC10EF400000000003B8CB0
-t1287720692
-s3902640
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
-c000000004CC10EF500000000003532B0
-t1287720693
-s3486384
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h
-c000000004CC10DCA00000000000022F0
-t1287720394
-s8944
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGImage.h
-c000000004CC10DCA0000000000002650
-t1287720394
-s9808
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/System/Library/Frameworks/Foundation.framework/Foundation
-c000000004CC10F4700000000003E1F20
-t1287720775
-s4071200
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
-c000000004CC10F1C0000000000001466
-t1287720732
-s5222
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/System/Library/Frameworks/OpenAL.framework/OpenAL
-c000000004CC10F3800000000000459B0
-t1287720760
-s285104
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/EAGL.h
-c000000004CC110BE000000000000094F
-t1287721150
-s2383
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/EAGLDrawable.h
-c000000004CC110BE0000000000000A61
-t1287721150
-s2657
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/ES1/gl.h
-c000000004CC110BE0000000000009369
-t1287721150
-s37737
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/ES1/glext.h
-c000000004CC110BE0000000000003C4A
-t1287721150
-s15434
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/System/Library/Frameworks/OpenGLES.framework/OpenGLES
-c000000004CC110CB000000000002C650
-t1287721163
-s181840
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.h
-c000000004CC1111C00000000000000C4
-t1287721244
-s196
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/System/Library/Frameworks/QuartzCore.framework/QuartzCore
-c000000004CC1127D0000000000267530
-t1287721597
-s2520368
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
-c000000004CC11AE60000000000000AA1
-t1287723750
-s2721
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/System/Library/Frameworks/UIKit.framework/UIKit
-c000000004CC11B750000000000C769F0
-t1287723893
-s13068784
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/include/Availability.h
-c000000004CB3FBB80000000000001ADD
-t1286863800
-s6877
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/include/inttypes.h
-c000000004CB3E4B800000000000027D1
-t1286857912
-s10193
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/include/math.h
-c000000004CB3E44400000000000004F1
-t1286857796
-s1265
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/include/objc/objc.h
-c000000004CC1098E0000000000000A2F
-t1287719310
-s2607
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/include/stddef.h
-c000000004CB3E4B80000000000001404
-t1286857912
-s5124
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/include/stdlib.h
-c000000004CB3E4B80000000000002DF5
-t1286857912
-s11765
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/include/string.h
-c000000004CB3E4B80000000000001731
-t1286857912
-s5937
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/include/sys/time.h
-c000000004CBFACD90000000000001E17
-t1287630041
-s7703
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/lib/libz.dylib
-c000000004CC105400000000000020FF0
-t1287718208
-s135152
-
-N/Users/ndemick/Library/MobileDevice/Provisioning Profiles/3B2CBAFB-52C4-4C35-9B54-6DCDDAA0E9ED.mobileprovision
-c000000004DCC83FA0000000000001FDB
-t1305248762
-s8155
-
-N/Users/ndemick/Library/MobileDevice/Provisioning Profiles/69C059AA-91AC-4162-87BF-C7A63E6A8DCB.mobileprovision
-c000000004D7A15F00000000000001FDB
-t1299846640
-s8155
-
-N/Users/ndemick/Library/MobileDevice/Provisioning Profiles/E880EC6D-B035-4B61-908C-EB9AAB3CF358.mobileprovision
-c000000004D7A15F10000000000001F9F
-t1299846641
-s8095
-
-N/Users/ndemick/iPhone/Yotsu Iro/Classes/Block.h
-c000000004DD285DC00000000000001E5
-t1305642460
-s485
-i<Foundation/Foundation.h>
-i"cocos2d.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/Classes/Block.m
-c000000004DD285E0000000000000026A
-t1305642464
-s618
-i"Block.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/Classes/GameConfig.h
-c000000004DA57BC10000000000000213
-t1302690753
-s531
-
-N/Users/ndemick/iPhone/Yotsu Iro/Classes/HelloWorldScene.h
-c000000004DD2AD0A000000000000030E
-t1305652490
-s782
-i"cocos2d.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/Classes/HelloWorldScene.m
-c000000004DD638EA00000000000043CF
-t1305884906
-s17359
-i"HelloWorldScene.h"
-i"Block.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/Classes/RootViewController.h
-c000000004DA5768200000000000000E7
-t1302689410
-s231
-i<UIKit/UIKit.h>
-
-N/Users/ndemick/iPhone/Yotsu Iro/Classes/RootViewController.m
-c000000004DA57682000000000000113B
-t1302689410
-s4411
-i"cocos2d.h"
-i"RootViewController.h"
-i"GameConfig.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/Classes/Yotsu_IroAppDelegate.h
-c000000004DA576820000000000000180
-t1302689410
-s384
-i<UIKit/UIKit.h>
-
-N/Users/ndemick/iPhone/Yotsu Iro/Classes/Yotsu_IroAppDelegate.m
-c000000004DA57B710000000000001194
-t1302690673
-s4500
-i"cocos2d.h"
-i"Yotsu_IroAppDelegate.h"
-i"GameConfig.h"
-i"HelloWorldScene.h"
-i"RootViewController.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/Default.png
-c000000004DAD59310000000000001D0C
-t1303206193
-s7436
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/Icon-72.png
-c000000004DA576820000000000002C96
-t1302689410
-s11414
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/Icon-Small-50.png
-c000000004DA576820000000000001F2B
-t1302689410
-s7979
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/Icon-Small.png
-c000000004DA57682000000000000135C
-t1302689410
-s4956
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/Icon-Small@2x.png
-c000000004DA5768200000000000024F9
-t1302689410
-s9465
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/Icon.png
-c000000004DB93FD4000000000000147E
-t1303986132
-s5246
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/Icon@2x.png
-c000000004DCFDC780000000000003885
-t1305468024
-s14469
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/fps_images.png
-c000000004DA57682000000000000183B
-t1302689410
-s6203
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/grid.png
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/iTunesArtwork
-c000000004DA57682000000000000F21E
-t1302689410
-s61982
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/0.png
-c000000004DC906D90000000000000690
-t1305020121
-s1680
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/1.png
-c000000004DCFAFE500000000000005FD
-t1305456613
-s1533
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/10.png
-c000000004DCFB03200000000000007A4
-t1305456690
-s1956
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/11.png
-c000000004DCFB036000000000000068B
-t1305456694
-s1675
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/12.png
-c000000004DCFB03A0000000000000507
-t1305456698
-s1287
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/13.png
-c000000004DCFB04A0000000000000610
-t1305456714
-s1552
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/14.png
-c000000004DCFB04F0000000000000784
-t1305456719
-s1924
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/15.png
-c000000004DCFB053000000000000065B
-t1305456723
-s1627
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/16.png
-c000000004DCFB058000000000000045E
-t1305456728
-s1118
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/17.png
-c000000004DC9078A000000000000063E
-t1305020298
-s1598
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/18.png
-c000000004DC907910000000000000736
-t1305020305
-s1846
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/19.png
-c000000004DC9079D00000000000006F9
-t1305020317
-s1785
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/2.png
-c000000004DCFAFF60000000000000777
-t1305456630
-s1911
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/3.png
-c000000004DCFAFFB0000000000000651
-t1305456635
-s1617
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/4.png
-c000000004DCFB000000000000000046F
-t1305456640
-s1135
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/5.png
-c000000004DCFB012000000000000066A
-t1305456658
-s1642
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/6.png
-c000000004DCFB01700000000000007A2
-t1305456663
-s1954
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/7.png
-c000000004DCFB01B0000000000000674
-t1305456667
-s1652
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/8.png
-c000000004DCFB01F0000000000000500
-t1305456671
-s1280
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/9.png
-c000000004DCFB02E0000000000000654
-t1305456686
-s1620
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/blue-clover.png
-c000000004DCFB03200000000000007A4
-t1305456690
-s1956
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/blue-diamond.png
-c000000004DCFB03A0000000000000507
-t1305456698
-s1287
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/blue-heart.png
-c000000004DCFB036000000000000068B
-t1305456694
-s1675
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/blue-star.png
-c000000004DCFB02E0000000000000654
-t1305456686
-s1620
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/clover.png
-c000000004DB939E10000000000000720
-t1303984609
-s1824
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/diamond.png
-c000000004DB93A110000000000000413
-t1303984657
-s1043
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/green-clover.png
-c000000004DCFB01700000000000007A2
-t1305456663
-s1954
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/green-diamond.png
-c000000004DCFB01F0000000000000500
-t1305456671
-s1280
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/green-heart.png
-c000000004DCFB01B0000000000000674
-t1305456667
-s1652
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/green-star.png
-c000000004DCFB012000000000000066A
-t1305456658
-s1642
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/heart.png
-c000000004DB939F600000000000005EC
-t1303984630
-s1516
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/red-clover.png
-c000000004DCFAFF60000000000000777
-t1305456630
-s1911
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/red-diamond.png
-c000000004DCFB000000000000000046F
-t1305456640
-s1135
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/red-heart.png
-c000000004DCFAFFB0000000000000651
-t1305456635
-s1617
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/red-star.png
-c000000004DCFAFE500000000000005FD
-t1305456613
-s1533
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/star.png
-c000000004DB93A200000000000000548
-t1303984672
-s1352
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/top-background.png
-c000000004DCE5A81000000000000042A
-t1305369217
-s1066
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/yellow-clover.png
-c000000004DCFB04F0000000000000784
-t1305456719
-s1924
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/yellow-diamond.png
-c000000004DCFB058000000000000045E
-t1305456728
-s1118
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/yellow-heart.png
-c000000004DCFB053000000000000065B
-t1305456723
-s1627
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/images/yellow-star.png
-c000000004DCFB04A0000000000000610
-t1305456714
-s1552
-
-N/Users/ndemick/iPhone/Yotsu Iro/Resources/todo.rtf
-c000000004DD2AA8C0000000000000177
-t1305651852
-s375
-
-N/Users/ndemick/iPhone/Yotsu Iro/Yotsu_Iro_Prefix.pch
-c000000004DA5768200000000000000B5
-t1302689410
-s181
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app
-t1305884907
-s2040
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app.dSYM
-t1305884907
-s102
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/0.png
-t1305251323
-s1800
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/1.png
-t1305471837
-s2018
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/10.png
-t1305471837
-s2423
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/11.png
-t1305471837
-s2021
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/12.png
-t1305471837
-s1352
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/13.png
-t1305471837
-s2007
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/14.png
-t1305471837
-s2362
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/15.png
-t1305471837
-s1953
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/16.png
-t1305471837
-s1185
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/17.png
-t1305251323
-s1843
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/18.png
-t1305251323
-s2063
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/19.png
-t1305251323
-s2002
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/2.png
-t1305471837
-s2383
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/3.png
-t1305471837
-s1967
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/4.png
-t1305471837
-s1279
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/5.png
-t1305471837
-s2105
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/6.png
-t1305471837
-s2470
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/7.png
-t1305471837
-s2040
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/8.png
-t1305471837
-s1344
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/9.png
-t1305471837
-s2080
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Default.png
-t1305471935
-s2978
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Icon-72.png
-t1302690183
-s12252
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Icon-Small-50.png
-t1302690183
-s8600
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Icon-Small.png
-t1302690183
-s5241
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Icon-Small@2x.png
-t1302690183
-s10151
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Icon.png
-t1305251323
-s4988
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Icon@2x.png
-t1305471837
-s16298
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Info.plist
-t1305471836
-s1047
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/PkgInfo
-t1305471836
-s8
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/ResourceRules.plist
-t1302690181
-s485
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Yotsu Iro
-t1305884907
-s1535676
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/blue-clover.png
-t1305649425
-s2423
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/blue-diamond.png
-t1305649425
-s1352
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/blue-heart.png
-t1305649425
-s2021
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/blue-star.png
-t1305649425
-s2080
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/clover.png
-t1303985664
-s1832
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/diamond.png
-t1303985664
-s903
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/embedded.mobileprovision
-t1305853116
-s8095
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/fps_images.png
-t1302690182
-s7188
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/green-clover.png
-t1305649425
-s2470
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/green-diamond.png
-t1305649425
-s1344
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/green-heart.png
-t1305649425
-s2040
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/green-star.png
-t1305649425
-s2105
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/grid.png
-t2
-s0
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/heart.png
-t1303985664
-s1529
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/iTunesArtwork
-t1302690183
-s61982
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/red-clover.png
-t1305649425
-s2383
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/red-diamond.png
-t1305649425
-s1279
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/red-heart.png
-t1305649425
-s1967
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/red-star.png
-t1305649425
-s2018
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/star.png
-t1303985664
-s1527
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/todo.rtf
-t1305654977
-s375
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/top-background.png
-t1305471837
-s1318
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/yellow-clover.png
-t1305649425
-s2362
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/yellow-diamond.png
-t1305649425
-s1185
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/yellow-heart.png
-t1305649425
-s1953
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/yellow-star.png
-t1305649425
-s2007
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/libcocos2d libraries.a
-c000000004DA5798500000000003A1340
-t1302690181
-s3806016
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Objects-normal/armv6/Block.o
-t1305642466
-s13480
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Objects-normal/armv6/HelloWorldScene.o
-t1305884906
-s85804
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Objects-normal/armv6/RootViewController.o
-t1302690755
-s39168
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Objects-normal/armv6/Yotsu Iro.LinkFileList
-c000000004DCC8DFB000000000000025F
-t1305251323
-s607
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Objects-normal/armv6/Yotsu_IroAppDelegate.o
-t1305654977
-s62144
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Objects-normal/armv6/main.o
-t1302690184
-s3348
-
-N/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Yotsu Iro.xcent
-t1305853116
-s424
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCAction.h
-c000000004DA57683000000000000167A
-t1302689411
-s5754
-i<sys/time.h>
-i<Foundation/Foundation.h>
-i"ccTypes.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCActionCamera.h
-c000000004DA5768300000000000009BC
-t1302689411
-s2492
-i"CCActionInterval.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCActionEase.h
-c000000004DA576830000000000001671
-t1302689411
-s5745
-i"CCActionInterval.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCActionGrid.h
-c000000004DA57683000000000000148B
-t1302689411
-s5259
-i"CCActionInterval.h"
-i"CCActionInstant.h"
-i"CCGrid.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCActionGrid3D.h
-c000000004DA576830000000000001A8A
-t1302689411
-s6794
-i"CCActionGrid.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCActionInstant.h
-c000000004DA5768300000000000013AA
-t1302689411
-s5034
-i"CCAction.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCActionInterval.h
-c000000004DA576830000000000003265
-t1302689411
-s12901
-i"CCNode.h"
-i"CCAction.h"
-i"CCProtocols.h"
-i<sys/time.h>
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCActionManager.h
-c000000004DA576830000000000001071
-t1302689411
-s4209
-i"CCAction.h"
-i"Support/ccCArray.h"
-i"Support/uthash.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCActionPageTurn3D.h
-c000000004DA576830000000000000644
-t1302689411
-s1604
-i"CCActionGrid3D.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCActionProgressTimer.h
-c000000004DA57683000000000000088D
-t1302689411
-s2189
-i<Foundation/Foundation.h>
-i"CCProgressTimer.h"
-i"CCActionInterval.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCActionTiledGrid.h
-c000000004DA576830000000000001A15
-t1302689411
-s6677
-i"CCActionGrid.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCActionTween.h
-c000000004DA576830000000000000931
-t1302689411
-s2353
-i<Foundation/Foundation.h>
-i"CCActionInterval.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCAnimation.h
-c000000004DA57683000000000000126D
-t1302689411
-s4717
-i<Foundation/Foundation.h>
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCAnimationCache.h
-c000000004DA5768300000000000008DD
-t1302689411
-s2269
-i<Foundation/Foundation.h>
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCAtlasNode.h
-c000000004DA576830000000000000C06
-t1302689411
-s3078
-i"CCTextureAtlas.h"
-i"CCNode.h"
-i"CCProtocols.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCBlockSupport.h
-c000000004DA57683000000000000066F
-t1302689411
-s1647
-i<Foundation/Foundation.h>
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCCamera.h
-c000000004DA576830000000000000C84
-t1302689411
-s3204
-i"CCNode.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCCompatibility.h
-c000000004DA576830000000000003891
-t1302689411
-s14481
-i<Foundation/Foundation.h>
-i"cocos2d.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCConfiguration.h
-c000000004DA576830000000000000D36
-t1302689411
-s3382
-i<Foundation/Foundation.h>
-i"Platforms/CCGL.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCDirector.h
-c000000004DA5768300000000000025C4
-t1302689411
-s9668
-i"ccConfig.h"
-i"ccTypes.h"
-i"Platforms/CCGL.h"
-i"CCProtocols.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCDrawingPrimitives.h
-c000000004DA576830000000000000C32
-t1302689411
-s3122
-i<Availability.h>
-i<Foundation/Foundation.h>
-i<CoreGraphics/CGGeometry.h>
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCGrabber.h
-c000000004DA5768300000000000005E4
-t1302689411
-s1508
-i"Platforms/CCGL.h"
-i<Foundation/Foundation.h>
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCGrid.h
-c000000004DA576830000000000000E5A
-t1302689411
-s3674
-i<Foundation/Foundation.h>
-i"CCNode.h"
-i"CCCamera.h"
-i"ccTypes.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCLabelAtlas.h
-c000000004DA576830000000000000B24
-t1302689411
-s2852
-i"CCAtlasNode.h"
-i"CCTextureAtlas.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCLabelBMFont.h
-c000000004DA576830000000000001641
-t1302689411
-s5697
-i"CCSpriteBatchNode.h"
-i"Support/uthash.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCLabelTTF.h
-c000000004DA576830000000000000A87
-t1302689411
-s2695
-i"CCTexture2D.h"
-i"CCSprite.h"
-i"Platforms/CCNS.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCLayer.h
-c000000004DA5768300000000000020E9
-t1302689411
-s8425
-i<Availability.h>
-i<UIKit/UIKit.h>
-i"Platforms/iOS/CCTouchDelegateProtocol.h"
-i"Platforms/Mac/CCEventDispatcher.h"
-i"CCProtocols.h"
-i"CCNode.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCMenu.h
-c000000004DA576830000000000000B29
-t1302689411
-s2857
-i"CCMenuItem.h"
-i"CCLayer.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCMenuItem.h
-c000000004DA5768300000000000033A8
-t1302689411
-s13224
-i"CCBlockSupport.h"
-i"CCNode.h"
-i"CCProtocols.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCMotionStreak.h
-c000000004DA576830000000000000B2A
-t1302689411
-s2858
-i<Foundation/Foundation.h>
-i"CCNode.h"
-i"CCRibbon.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCNode.h
-c000000004DA576830000000000004485
-t1302689411
-s17541
-i<Availability.h>
-i"Platforms/CCGL.h"
-i"CCAction.h"
-i"ccTypes.h"
-i"CCTexture2D.h"
-i"CCProtocols.h"
-i"ccConfig.h"
-i"Support/CCArray.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCParallaxNode.h
-c000000004DA57683000000000000075D
-t1302689411
-s1885
-i"CCNode.h"
-i"Support/ccCArray.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCParticleExamples.h
-c000000004DA576830000000000000AD0
-t1302689411
-s2768
-i<Availability.h>
-i"CCParticleSystemPoint.h"
-i"CCParticleSystemQuad.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCParticleSystem.h
-c000000004DA5768300000000000037B8
-t1302689411
-s14264
-i"CCProtocols.h"
-i"CCNode.h"
-i"ccTypes.h"
-i"ccConfig.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCParticleSystemPoint.h
-c000000004DA576830000000000000846
-t1302689411
-s2118
-i<Availability.h>
-i"CCParticleSystem.h"
-i"CCParticleSystemQuad.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCParticleSystemQuad.h
-c000000004DA5768300000000000009F8
-t1302689411
-s2552
-i"CCParticleSystem.h"
-i"ccConfig.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCProgressTimer.h
-c000000004DA576830000000000000B48
-t1302689411
-s2888
-i<Foundation/Foundation.h>
-i"CCSprite.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCProtocols.h
-c000000004DA576830000000000000F9A
-t1302689411
-s3994
-i"ccTypes.h"
-i"CCTexture2D.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCRenderTexture.h
-c000000004DA576830000000000000F2A
-t1302689411
-s3882
-i<Foundation/Foundation.h>
-i"CCNode.h"
-i"CCSprite.h"
-i"Support/OpenGL_Internal.h"
-i<Availability.h>
-i<UIKit/UIKit.h>
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCRibbon.h
-c000000004DA576830000000000000FCD
-t1302689411
-s4045
-i"CCNode.h"
-i"CCTexture2D.h"
-i"CCProtocols.h"
-i"Platforms/CCGL.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCScene.h
-c000000004DA576830000000000000676
-t1302689411
-s1654
-i"CCNode.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCScheduler.h
-c000000004DA5768300000000000019D7
-t1302689411
-s6615
-i"Support/uthash.h"
-i"ccTypes.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCSprite.h
-c000000004DA57683000000000000345C
-t1302689411
-s13404
-i"CCNode.h"
-i"CCProtocols.h"
-i"CCTextureAtlas.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCSpriteBatchNode.h
-c000000004DA5768300000000000018F8
-t1302689411
-s6392
-i"CCNode.h"
-i"CCProtocols.h"
-i"CCTextureAtlas.h"
-i"ccMacros.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCSpriteFrame.h
-c000000004DA576830000000000000D5A
-t1302689411
-s3418
-i<Foundation/Foundation.h>
-i"CCNode.h"
-i"CCProtocols.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCSpriteFrameCache.h
-c000000004DA576830000000000001394
-t1302689411
-s5012
-i<Foundation/Foundation.h>
-i"CCSpriteFrame.h"
-i"CCTexture2D.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCSpriteSheet.h
-c000000004DA5768300000000000009FE
-t1302689411
-s2558
-i"CCSpriteBatchNode.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCTMXLayer.h
-c000000004DA57683000000000000182A
-t1302689411
-s6186
-i"CCAtlasNode.h"
-i"CCSpriteBatchNode.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCTMXObjectGroup.h
-c000000004DA5768300000000000008D5
-t1302689411
-s2261
-i"CCSpriteSheet.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCTMXTiledMap.h
-c000000004DA5768300000000000014D4
-t1302689411
-s5332
-i"CCSpriteSheet.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCTMXXMLParser.h
-c000000004DA5768300000000000016B9
-t1302689411
-s5817
-i<Availability.h>
-i<Foundation/Foundation.h>
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCTexture2D.h
-c000000004DA576830000000000002C9A
-t1302689411
-s11418
-i<Availability.h>
-i<UIKit/UIKit.h>
-i<Foundation/Foundation.h>
-i"Platforms/CCGL.h"
-i"Platforms/CCNS.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCTextureAtlas.h
-c000000004DA57683000000000000145B
-t1302689411
-s5211
-i"CCTexture2D.h"
-i"ccTypes.h"
-i"ccConfig.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCTextureCache.h
-c000000004DA5768300000000000014C2
-t1302689411
-s5314
-i<Availability.h>
-i<CoreGraphics/CGImage.h>
-i<Foundation/Foundation.h>
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCTexturePVR.h
-c000000004DA576830000000000000FB9
-t1302689411
-s4025
-i<Foundation/Foundation.h>
-i"Platforms/CCGL.h"
-i"CCTextureCache.h"
-i"CCTexture2D.h"
-i"ccCArray.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCTileMapAtlas.h
-c000000004DA576830000000000000B86
-t1302689411
-s2950
-i"CCTextureAtlas.h"
-i"CCAtlasNode.h"
-i"Support/TGAlib.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCTransition.h
-c000000004DA576830000000000002134
-t1302689411
-s8500
-i"CCScene.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCTransitionPageTurn.h
-c000000004DA576830000000000000917
-t1302689411
-s2327
-i"CCTransition.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/CCTransitionRadial.h
-c000000004DA576830000000000000630
-t1302689411
-s1584
-i"CCTransition.h"
-i"CCProgressTimer.h"
-i"CCActionProgressTimer.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/Platforms/CCGL.h
-c000000004DA576830000000000000BF8
-t1302689411
-s3064
-i<Availability.h>
-i<OpenGLES/ES1/gl.h>
-i<OpenGLES/ES1/glext.h>
-i<OpenGLES/EAGL.h>
-i"iOS/glu.h"
-i"iOS/EAGLView.h"
-i<OpenGL/gl.h>
-i<OpenGL/glu.h>
-i<Cocoa/Cocoa.h>
-i"Mac/MacGLView.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/Platforms/CCNS.h
-c000000004DA576830000000000000965
-t1302689411
-s2405
-i<Availability.h>
-i<Foundation/Foundation.h>
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/Platforms/Mac/CCDirectorMac.h
-c000000004DA576830000000000000C84
-t1302689411
-s3204
-i<Availability.h>
-i<QuartzCore/CVDisplayLink.h>
-i"../../CCDirector.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/Platforms/Mac/CCEventDispatcher.h
-c000000004DA576830000000000001AA7
-t1302689411
-s6823
-i<Availability.h>
-i<Cocoa/Cocoa.h>
-i"MacGLView.h"
-i"../../Support/uthash.h"
-i"../../Support/utlist.h"
-i"../../ccConfig.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/Platforms/Mac/MacGLView.h
-c000000004DA576830000000000000B8C
-t1302689411
-s2956
-i<Availability.h>
-i<Cocoa/Cocoa.h>
-i"../../ccConfig.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/Platforms/iOS/CCDirectorIOS.h
-c000000004DA576830000000000002B53
-t1302689411
-s11091
-i<Availability.h>
-i"../../CCDirector.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/Platforms/iOS/CCTouchDelegateProtocol.h
-c000000004DA576830000000000000BC3
-t1302689411
-s3011
-i<Availability.h>
-i<UIKit/UIKit.h>
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/Platforms/iOS/CCTouchDispatcher.h
-c000000004DA5768300000000000010CA
-t1302689411
-s4298
-i<Availability.h>
-i"CCTouchDelegateProtocol.h"
-i"EAGLView.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/Platforms/iOS/CCTouchHandler.h
-c000000004DA576830000000000000D99
-t1302689411
-s3481
-i<Availability.h>
-i"CCTouchDelegateProtocol.h"
-i"CCTouchDispatcher.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/Platforms/iOS/EAGLView.h
-c000000004DA576830000000000001B69
-t1302689411
-s7017
-i<Availability.h>
-i<UIKit/UIKit.h>
-i<OpenGLES/EAGL.h>
-i<OpenGLES/EAGLDrawable.h>
-i<OpenGLES/ES1/gl.h>
-i<OpenGLES/ES1/glext.h>
-i"ESRenderer.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/Platforms/iOS/ESRenderer.h
-c000000004DA57683000000000000083A
-t1302689411
-s2106
-i<Availability.h>
-i<QuartzCore/QuartzCore.h>
-i<OpenGLES/EAGL.h>
-i<OpenGLES/EAGLDrawable.h>
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/Platforms/iOS/glu.h
-c000000004DA57683000000000000030D
-t1302689411
-s781
-i<Availability.h>
-i<OpenGLES/ES1/gl.h>
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/Support/CCArray.h
-c000000004DA576830000000000000BED
-t1302689411
-s3053
-i"ccCArray.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/Support/CCFileUtils.h
-c000000004DA5768300000000000007E8
-t1302689411
-s2024
-i<Foundation/Foundation.h>
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/Support/CCProfiling.h
-c000000004DA5768300000000000006E9
-t1302689411
-s1769
-i<Foundation/Foundation.h>
-i<sys/time.h>
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/Support/CGPointExtension.h
-c000000004DA576830000000000001EAB
-t1302689411
-s7851
-i<Availability.h>
-i<CoreGraphics/CGGeometry.h>
-i<Foundation/Foundation.h>
-i<math.h>
-i<objc/objc.h>
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/Support/OpenGL_Internal.h
-c000000004DA5768300000000000011A7
-t1302689411
-s4519
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/Support/TGAlib.h
-c000000004DA576830000000000000444
-t1302689411
-s1092
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/Support/ccCArray.h
-c000000004DA5768300000000000030F3
-t1302689411
-s12531
-i<Foundation/Foundation.h>
-i<stdlib.h>
-i<string.h>
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/Support/ccUtils.h
-c000000004DA576830000000000000204
-t1302689411
-s516
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/Support/uthash.h
-c000000004DA57683000000000000FB13
-t1302689411
-s64275
-i<string.h>
-i<stddef.h>
-i<inttypes.h>
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/Support/utlist.h
-c000000004DA576830000000000009091
-t1302689411
-s37009
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/ccConfig.h
-c000000004DA576830000000000002896
-t1302689411
-s10390
-i<Availability.h>
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/ccMacros.h
-c000000004DA576830000000000001DFE
-t1302689411
-s7678
-i<math.h>
-i"ccConfig.h"
-i<Foundation/Foundation.h>
-i<Availability.h>
-i"Platforms/iOS/CCDirectorIOS.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/ccTypes.h
-c000000004DA5768300000000000016D2
-t1302689411
-s5842
-i<Availability.h>
-i<Foundation/Foundation.h>
-i<CoreGraphics/CGGeometry.h>
-i"Platforms/CCGL.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/libs/cocos2d/cocos2d.h
-c000000004DA5768300000000000010FF
-t1302689411
-s4351
-i<Availability.h>
-i"ccConfig.h"
-i"CCActionManager.h"
-i"CCAction.h"
-i"CCActionInstant.h"
-i"CCActionInterval.h"
-i"CCActionEase.h"
-i"CCActionCamera.h"
-i"CCActionTween.h"
-i"CCActionEase.h"
-i"CCActionTiledGrid.h"
-i"CCActionGrid3D.h"
-i"CCActionGrid.h"
-i"CCActionProgressTimer.h"
-i"CCActionPageTurn3D.h"
-i"CCAnimation.h"
-i"CCAnimationCache.h"
-i"CCSprite.h"
-i"CCSpriteFrame.h"
-i"CCSpriteSheet.h"
-i"CCSpriteBatchNode.h"
-i"CCSpriteFrameCache.h"
-i"CCLabelTTF.h"
-i"CCLabelBMFont.h"
-i"CCLabelAtlas.h"
-i"CCParticleSystem.h"
-i"CCParticleSystemPoint.h"
-i"CCParticleSystemQuad.h"
-i"CCParticleExamples.h"
-i"CCTexture2D.h"
-i"CCTexturePVR.h"
-i"CCTextureCache.h"
-i"CCTextureAtlas.h"
-i"CCTransition.h"
-i"CCTransitionPageTurn.h"
-i"CCTransitionRadial.h"
-i"CCTMXTiledMap.h"
-i"CCTMXLayer.h"
-i"CCTMXObjectGroup.h"
-i"CCTMXXMLParser.h"
-i"CCTileMapAtlas.h"
-i"CCLayer.h"
-i"CCMenu.h"
-i"CCMenuItem.h"
-i"CCDrawingPrimitives.h"
-i"CCScene.h"
-i"CCScheduler.h"
-i"CCBlockSupport.h"
-i"CCCamera.h"
-i"CCProtocols.h"
-i"CCNode.h"
-i"CCDirector.h"
-i"CCAtlasNode.h"
-i"CCGrabber.h"
-i"CCGrid.h"
-i"CCParallaxNode.h"
-i"CCRenderTexture.h"
-i"CCMotionStreak.h"
-i"CCConfiguration.h"
-i"ccTypes.h"
-i"ccMacros.h"
-i"Platforms/CCGL.h"
-i"Platforms/CCNS.h"
-i"Platforms/iOS/CCTouchDispatcher.h"
-i"Platforms/iOS/CCTouchDelegateProtocol.h"
-i"Platforms/iOS/CCTouchHandler.h"
-i"Platforms/iOS/EAGLView.h"
-i"Platforms/iOS/CCDirectorIOS.h"
-i"Platforms/Mac/MacGLView.h"
-i"Platforms/Mac/CCDirectorMac.h"
-i"Support/OpenGL_Internal.h"
-i"Support/CCFileUtils.h"
-i"Support/CGPointExtension.h"
-i"Support/ccCArray.h"
-i"Support/CCArray.h"
-i"Support/ccUtils.h"
-i"Support/CCProfiling.h"
-i"CCCompatibility.h"
-
-N/Users/ndemick/iPhone/Yotsu Iro/main.m
-c000000004DA576830000000000000161
-t1302689411
-s353
-i<UIKit/UIKit.h>
-
-N/var/folders/Kx/Kxr44TtEGY4nqFImPDe8U++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Yotsu_Iro_Prefix-gxjpajtmhgjfmydgjxyrtuzhyqpk/Yotsu_Iro_Prefix.pch.gch
-t1302690183
-s7726808
-
-NResources/Info.plist
-c000000004DCFEB58000000000000050B
-t1305471832
-s1291
-
-CCheck dependencies
-r0
-lSLF07#2@18"Check dependencies327577706#327577706#0(0"0(0#1#0"8606558880#0"0#
-
-CCodeSign "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app"
-s327577707.251551
-e327577707.507636
-r1
-xCodeSign
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app
-lSLF07#2@45"CodeSign "build/Debug-iphoneos/Yotsu Iro.app"327577707#327577707#0(0"0(0#0#66"/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app8622884160#639"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    setenv _CODESIGN_ALLOCATE_ /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate    /usr/bin/codesign -f -s "iPhone Developer: Nathan Demick (NK8N934RTW)" "--resource-rules=/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/ResourceRules.plist" --entitlements "/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Yotsu Iro.xcent" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app"0#
-
-CCompileC "build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Objects-normal/armv6/Block.o" "/Users/ndemick/iPhone/Yotsu Iro/Classes/Block.m" normal armv6 objective-c com.apple.compilers.llvmgcc42
-s327335266.116763
-e327335266.288680
-r1
-xCompileC
-xbuild/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Objects-normal/armv6/Block.o
-x/Users/ndemick/iPhone/Yotsu Iro/Classes/Block.m
-xnormal
-xarmv6
-xobjective-c
-xcom.apple.compilers.llvmgcc42
-lSLF07#2@55"Compile /Users/ndemick/iPhone/Yotsu Iro/Classes/Block.m327335266#327335266#0(0"0(0#0#47"/Users/ndemick/iPhone/Yotsu Iro/Classes/Block.m8637965952#1852"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/llvm-gcc-4.2 -x objective-c -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -DDEBUG -DCOCOS2D_DEBUG=1 -DCD_DEBUG=1 -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -fvisibility=hidden -gdwarf-2 -mno-thumb -miphoneos-version-min=3.0 -iquote "/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Yotsu Iro-generated-files.hmap" "-I/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Yotsu Iro-own-target-headers.hmap" "-I/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Yotsu Iro-all-target-headers.hmap" -iquote "/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Yotsu Iro-project-headers.hmap" -Wall "-F/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos" "-I/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/include" "-I/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/DerivedSources/armv6" "-I/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/DerivedSources" -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -include /var/folders/Kx/Kxr44TtEGY4nqFImPDe8U++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Yotsu_Iro_Prefix-gxjpajtmhgjfmydgjxyrtuzhyqpk/Yotsu_Iro_Prefix.pch -c "/Users/ndemick/iPhone/Yotsu Iro/Classes/Block.m" -o "/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Objects-normal/armv6/Block.o"0#
-
-CCompileC "build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Objects-normal/armv6/HelloWorldScene.o" "/Users/ndemick/iPhone/Yotsu Iro/Classes/HelloWorldScene.m" normal armv6 objective-c com.apple.compilers.llvmgcc42
-s327577706.481087
-e327577706.852952
-r1
-xCompileC
-xbuild/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Objects-normal/armv6/HelloWorldScene.o
-x/Users/ndemick/iPhone/Yotsu Iro/Classes/HelloWorldScene.m
-xnormal
-xarmv6
-xobjective-c
-xcom.apple.compilers.llvmgcc42
-lSLF07#2@65"Compile /Users/ndemick/iPhone/Yotsu Iro/Classes/HelloWorldScene.m327577706#327577706#0(0"0(0#0#57"/Users/ndemick/iPhone/Yotsu Iro/Classes/HelloWorldScene.m8620225536#1872"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/llvm-gcc-4.2 -x objective-c -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -DDEBUG -DCOCOS2D_DEBUG=1 -DCD_DEBUG=1 -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -fvisibility=hidden -gdwarf-2 -mno-thumb -miphoneos-version-min=3.0 -iquote "/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Yotsu Iro-generated-files.hmap" "-I/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Yotsu Iro-own-target-headers.hmap" "-I/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Yotsu Iro-all-target-headers.hmap" -iquote "/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Yotsu Iro-project-headers.hmap" -Wall "-F/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos" "-I/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/include" "-I/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/DerivedSources/armv6" "-I/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/DerivedSources" -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -include /var/folders/Kx/Kxr44TtEGY4nqFImPDe8U++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Yotsu_Iro_Prefix-gxjpajtmhgjfmydgjxyrtuzhyqpk/Yotsu_Iro_Prefix.pch -c "/Users/ndemick/iPhone/Yotsu Iro/Classes/HelloWorldScene.m" -o "/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Objects-normal/armv6/HelloWorldScene.o"0#
-
-CCompileC "build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Objects-normal/armv6/RootViewController.o" "/Users/ndemick/iPhone/Yotsu Iro/Classes/RootViewController.m" normal armv6 objective-c com.apple.compilers.llvmgcc42
-s324383555.725071
-e324383555.874477
-r1
-xCompileC
-xbuild/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Objects-normal/armv6/RootViewController.o
-x/Users/ndemick/iPhone/Yotsu Iro/Classes/RootViewController.m
-xnormal
-xarmv6
-xobjective-c
-xcom.apple.compilers.llvmgcc42
-lSLF07#2@68"Compile /Users/ndemick/iPhone/Yotsu Iro/Classes/RootViewController.m324383555#324383555#0(0"0(0#0#60"/Users/ndemick/iPhone/Yotsu Iro/Classes/RootViewController.m8628048032#1878"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/llvm-gcc-4.2 -x objective-c -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -DDEBUG -DCOCOS2D_DEBUG=1 -DCD_DEBUG=1 -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -fvisibility=hidden -gdwarf-2 -mno-thumb -miphoneos-version-min=3.0 -iquote "/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Yotsu Iro-generated-files.hmap" "-I/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Yotsu Iro-own-target-headers.hmap" "-I/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Yotsu Iro-all-target-headers.hmap" -iquote "/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Yotsu Iro-project-headers.hmap" -Wall "-F/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos" "-I/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/include" "-I/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/DerivedSources/armv6" "-I/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/DerivedSources" -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -include /var/folders/Kx/Kxr44TtEGY4nqFImPDe8U++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Yotsu_Iro_Prefix-gxjpajtmhgjfmydgjxyrtuzhyqpk/Yotsu_Iro_Prefix.pch -c "/Users/ndemick/iPhone/Yotsu Iro/Classes/RootViewController.m" -o "/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Objects-normal/armv6/RootViewController.o"0#
-
-CCompileC "build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Objects-normal/armv6/Yotsu_IroAppDelegate.o" "/Users/ndemick/iPhone/Yotsu Iro/Classes/Yotsu_IroAppDelegate.m" normal armv6 objective-c com.apple.compilers.llvmgcc42
-s327347777.139908
-e327347777.394666
-r1
-xCompileC
-xbuild/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Objects-normal/armv6/Yotsu_IroAppDelegate.o
-x/Users/ndemick/iPhone/Yotsu Iro/Classes/Yotsu_IroAppDelegate.m
-xnormal
-xarmv6
-xobjective-c
-xcom.apple.compilers.llvmgcc42
-lSLF07#2@70"Compile /Users/ndemick/iPhone/Yotsu Iro/Classes/Yotsu_IroAppDelegate.m327347777#327347777#0(0"0(0#0#62"/Users/ndemick/iPhone/Yotsu Iro/Classes/Yotsu_IroAppDelegate.m8621175360#1882"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/llvm-gcc-4.2 -x objective-c -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -DDEBUG -DCOCOS2D_DEBUG=1 -DCD_DEBUG=1 -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -fvisibility=hidden -gdwarf-2 -mno-thumb -miphoneos-version-min=3.0 -iquote "/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Yotsu Iro-generated-files.hmap" "-I/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Yotsu Iro-own-target-headers.hmap" "-I/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Yotsu Iro-all-target-headers.hmap" -iquote "/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Yotsu Iro-project-headers.hmap" -Wall "-F/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos" "-I/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/include" "-I/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/DerivedSources/armv6" "-I/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/DerivedSources" -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -include /var/folders/Kx/Kxr44TtEGY4nqFImPDe8U++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Yotsu_Iro_Prefix-gxjpajtmhgjfmydgjxyrtuzhyqpk/Yotsu_Iro_Prefix.pch -c "/Users/ndemick/iPhone/Yotsu Iro/Classes/Yotsu_IroAppDelegate.m" -o "/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Objects-normal/armv6/Yotsu_IroAppDelegate.o"0#
-
-CCompileC "build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Objects-normal/armv6/main.o" "/Users/ndemick/iPhone/Yotsu Iro/main.m" normal armv6 objective-c com.apple.compilers.llvmgcc42
-s324382984.343251
-e324382984.401225
-r1
-xCompileC
-xbuild/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Objects-normal/armv6/main.o
-x/Users/ndemick/iPhone/Yotsu Iro/main.m
-xnormal
-xarmv6
-xobjective-c
-xcom.apple.compilers.llvmgcc42
-lSLF07#2@46"Compile /Users/ndemick/iPhone/Yotsu Iro/main.m324382984#324382984#0(0"0(0#0#38"/Users/ndemick/iPhone/Yotsu Iro/main.m8608371392#1842"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/llvm-gcc-4.2 -x objective-c -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -DDEBUG -DCOCOS2D_DEBUG=1 -DCD_DEBUG=1 -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -fvisibility=hidden -gdwarf-2 -mno-thumb -miphoneos-version-min=3.0 -iquote "/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Yotsu Iro-generated-files.hmap" "-I/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Yotsu Iro-own-target-headers.hmap" "-I/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Yotsu Iro-all-target-headers.hmap" -iquote "/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Yotsu Iro-project-headers.hmap" -Wall "-F/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos" "-I/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/include" "-I/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/DerivedSources/armv6" "-I/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/DerivedSources" -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -include /var/folders/Kx/Kxr44TtEGY4nqFImPDe8U++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Yotsu_Iro_Prefix-gxjpajtmhgjfmydgjxyrtuzhyqpk/Yotsu_Iro_Prefix.pch -c "/Users/ndemick/iPhone/Yotsu Iro/main.m" -o "/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Objects-normal/armv6/main.o"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/0.png" Resources/images/0.png
-s326944123.351385
-e326944123.426805
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/0.png
-xResources/images/0.png
-lSLF07#2@77"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/0.png" Resources/images/0.png326944123#326944123#0(0"0(0#0#54"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/0.png8604943520#554"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/0.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/0.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/1.png" Resources/images/1.png
-s327164636.904785
-e327164637.012139
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/1.png
-xResources/images/1.png
-lSLF07#2@77"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/1.png" Resources/images/1.png327164636#327164637#0(0"0(0#0#54"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/1.png8627320224#554"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/1.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/1.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/10.png" Resources/images/10.png
-s327164637.147401
-e327164637.174872
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/10.png
-xResources/images/10.png
-lSLF07#2@79"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/10.png" Resources/images/10.png327164637#327164637#0(0"0(0#0#55"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/10.png8617644160#556"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/10.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/10.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/11.png" Resources/images/11.png
-s327164637.167844
-e327164637.200087
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/11.png
-xResources/images/11.png
-lSLF07#2@79"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/11.png" Resources/images/11.png327164637#327164637#0(0"0(0#0#55"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/11.png8616998432#556"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/11.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/11.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/12.png" Resources/images/12.png
-s327164637.174971
-e327164637.201754
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/12.png
-xResources/images/12.png
-lSLF07#2@79"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/12.png" Resources/images/12.png327164637#327164637#0(0"0(0#0#55"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/12.png8616360608#556"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/12.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/12.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/13.png" Resources/images/13.png
-s327164637.200188
-e327164637.226748
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/13.png
-xResources/images/13.png
-lSLF07#2@79"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/13.png" Resources/images/13.png327164637#327164637#0(0"0(0#0#55"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/13.png8609840096#556"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/13.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/13.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/14.png" Resources/images/14.png
-s327164637.201841
-e327164637.227820
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/14.png
-xResources/images/14.png
-lSLF07#2@79"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/14.png" Resources/images/14.png327164637#327164637#0(0"0(0#0#55"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/14.png8608786272#556"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/14.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/14.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/15.png" Resources/images/15.png
-s327164637.226924
-e327164637.262649
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/15.png
-xResources/images/15.png
-lSLF07#2@79"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/15.png" Resources/images/15.png327164637#327164637#0(0"0(0#0#55"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/15.png8607489760#556"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/15.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/15.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/16.png" Resources/images/16.png
-s327164637.227890
-e327164637.253234
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/16.png
-xResources/images/16.png
-lSLF07#2@79"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/16.png" Resources/images/16.png327164637#327164637#0(0"0(0#0#55"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/16.png8604491424#556"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/16.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/16.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/17.png" Resources/images/17.png
-s326944123.812701
-e326944123.852315
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/17.png
-xResources/images/17.png
-lSLF07#2@79"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/17.png" Resources/images/17.png326944123#326944123#0(0"0(0#0#55"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/17.png8613204992#556"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/17.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/17.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/18.png" Resources/images/18.png
-s326944123.822377
-e326944123.860217
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/18.png
-xResources/images/18.png
-lSLF07#2@79"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/18.png" Resources/images/18.png326944123#326944123#0(0"0(0#0#55"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/18.png8612976160#556"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/18.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/18.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/19.png" Resources/images/19.png
-s326944123.852408
-e326944123.883965
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/19.png
-xResources/images/19.png
-lSLF07#2@79"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/19.png" Resources/images/19.png326944123#326944123#0(0"0(0#0#55"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/19.png8612712448#556"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/19.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/19.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/2.png" Resources/images/2.png
-s327164637.012236
-e327164637.038077
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/2.png
-xResources/images/2.png
-lSLF07#2@77"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/2.png" Resources/images/2.png327164637#327164637#0(0"0(0#0#54"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/2.png8626255232#554"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/2.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/2.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/3.png" Resources/images/3.png
-s327164637.038171
-e327164637.069667
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/3.png
-xResources/images/3.png
-lSLF07#2@77"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/3.png" Resources/images/3.png327164637#327164637#0(0"0(0#0#54"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/3.png8623094688#554"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/3.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/3.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/4.png" Resources/images/4.png
-s327164637.040592
-e327164637.068380
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/4.png
-xResources/images/4.png
-lSLF07#2@77"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/4.png" Resources/images/4.png327164637#327164637#0(0"0(0#0#54"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/4.png8622391232#554"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/4.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/4.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/5.png" Resources/images/5.png
-s327164637.068474
-e327164637.099286
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/5.png
-xResources/images/5.png
-lSLF07#2@77"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/5.png" Resources/images/5.png327164637#327164637#0(0"0(0#0#54"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/5.png8621513088#554"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/5.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/5.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/6.png" Resources/images/6.png
-s327164637.069738
-e327164637.116076
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/6.png
-xResources/images/6.png
-lSLF07#2@77"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/6.png" Resources/images/6.png327164637#327164637#0(0"0(0#0#54"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/6.png8621446336#554"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/6.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/6.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/7.png" Resources/images/7.png
-s327164637.099452
-e327164637.133215
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/7.png
-xResources/images/7.png
-lSLF07#2@77"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/7.png" Resources/images/7.png327164637#327164637#0(0"0(0#0#54"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/7.png8620600064#554"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/7.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/7.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/8.png" Resources/images/8.png
-s327164637.116167
-e327164637.147299
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/8.png
-xResources/images/8.png
-lSLF07#2@77"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/8.png" Resources/images/8.png327164637#327164637#0(0"0(0#0#54"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/8.png8618879712#554"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/8.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/8.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/9.png" Resources/images/9.png
-s327164637.133322
-e327164637.167747
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/9.png
-xResources/images/9.png
-lSLF07#2@77"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/9.png" Resources/images/9.png327164637#327164637#0(0"0(0#0#54"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/9.png8618089280#554"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/9.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/9.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Default.png" Resources/Default.png
-s327164735.151316
-e327164735.277312
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Default.png
-xResources/Default.png
-lSLF07#2@82"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/Default.png" Resources/Default.png327164735#327164735#0(0"0(0#0#53"/Users/ndemick/iPhone/Yotsu Iro/Resources/Default.png8600386016#559"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/Default.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Default.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Icon-72.png" Resources/Icon-72.png
-s324382983.132455
-e324382983.196447
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Icon-72.png
-xResources/Icon-72.png
-lSLF07#2@82"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/Icon-72.png" Resources/Icon-72.png324382983#324382983#0(0"0(0#0#53"/Users/ndemick/iPhone/Yotsu Iro/Resources/Icon-72.png8610314368#559"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/Icon-72.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Icon-72.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Icon-Small-50.png" Resources/Icon-Small-50.png
-s324382983.125030
-e324382983.173367
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Icon-Small-50.png
-xResources/Icon-Small-50.png
-lSLF07#2@94"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/Icon-Small-50.png" Resources/Icon-Small-50.png324382983#324382983#0(0"0(0#0#59"/Users/ndemick/iPhone/Yotsu Iro/Resources/Icon-Small-50.png8602724800#571"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/Icon-Small-50.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Icon-Small-50.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Icon-Small.png" Resources/Icon-Small.png
-s324382983.079727
-e324382983.132362
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Icon-Small.png
-xResources/Icon-Small.png
-lSLF07#2@88"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/Icon-Small.png" Resources/Icon-Small.png324382983#324382983#0(0"0(0#0#56"/Users/ndemick/iPhone/Yotsu Iro/Resources/Icon-Small.png8602724416#565"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/Icon-Small.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Icon-Small.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Icon-Small@2x.png" Resources/Icon-Small@2x.png
-s324382983.077636
-e324382983.124931
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Icon-Small@2x.png
-xResources/Icon-Small@2x.png
-lSLF07#2@94"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/Icon-Small@2x.png" Resources/Icon-Small@2x.png324382983#324382983#0(0"0(0#0#59"/Users/ndemick/iPhone/Yotsu Iro/Resources/Icon-Small@2x.png8600617728#571"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/Icon-Small@2x.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Icon-Small@2x.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Icon.png" Resources/Icon.png
-s326944123.349993
-e326944123.432385
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Icon.png
-xResources/Icon.png
-lSLF07#2@76"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/Icon.png" Resources/Icon.png326944123#326944123#0(0"0(0#0#50"/Users/ndemick/iPhone/Yotsu Iro/Resources/Icon.png8607897120#553"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/Icon.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Icon.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Icon@2x.png" Resources/Icon@2x.png
-s327164636.903601
-e327164637.040500
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Icon@2x.png
-xResources/Icon@2x.png
-lSLF07#2@82"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/Icon@2x.png" Resources/Icon@2x.png327164636#327164637#0(0"0(0#0#53"/Users/ndemick/iPhone/Yotsu Iro/Resources/Icon@2x.png6426482115561287680#559"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/Icon@2x.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Icon@2x.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/blue-clover.png" Resources/images/blue-clover.png
-s327342224.734151
-e327342225.059232
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/blue-clover.png
-xResources/images/blue-clover.png
-lSLF07#2@97"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/blue-clover.png" Resources/images/blue-clover.png327342224#327342225#0(0"0(0#0#64"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/blue-clover.png8463236146345767936#574"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/blue-clover.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/blue-clover.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/blue-diamond.png" Resources/images/blue-diamond.png
-s327342224.734991
-e327342225.059387
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/blue-diamond.png
-xResources/images/blue-diamond.png
-lSLF07#2@99"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/blue-diamond.png" Resources/images/blue-diamond.png327342224#327342225#0(0"0(0#0#65"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/blue-diamond.png8629460832#576"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/blue-diamond.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/blue-diamond.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/blue-heart.png" Resources/images/blue-heart.png
-s327342225.059464
-e327342225.086361
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/blue-heart.png
-xResources/images/blue-heart.png
-lSLF07#2@95"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/blue-heart.png" Resources/images/blue-heart.png327342225#327342225#0(0"0(0#0#63"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/blue-heart.png8631938368#572"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/blue-heart.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/blue-heart.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/blue-star.png" Resources/images/blue-star.png
-s327342225.060225
-e327342225.087595
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/blue-star.png
-xResources/images/blue-star.png
-lSLF07#2@93"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/blue-star.png" Resources/images/blue-star.png327342225#327342225#0(0"0(0#0#62"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/blue-star.png8629401856#570"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/blue-star.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/blue-star.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/clover.png" Resources/images/clover.png
-s325678464.063388
-e325678464.192737
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/clover.png
-xResources/images/clover.png
-lSLF07#2@87"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/clover.png" Resources/images/clover.png325678464#325678464#0(0"0(0#0#59"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/clover.png31244212045938720#564"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/clover.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/clover.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/diamond.png" Resources/images/diamond.png
-s325678464.103885
-e325678464.190882
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/diamond.png
-xResources/images/diamond.png
-lSLF07#2@89"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/diamond.png" Resources/images/diamond.png325678464#325678464#0(0"0(0#0#60"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/diamond.png8619667008#566"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/diamond.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/diamond.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/fps_images.png" Resources/fps_images.png
-s324382981.866729
-e324382982.780718
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/fps_images.png
-xResources/fps_images.png
-lSLF07#2@88"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/fps_images.png" Resources/fps_images.png324382981#324382982#0(0"0(0#0#56"/Users/ndemick/iPhone/Yotsu Iro/Resources/fps_images.png8605164736#565"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/fps_images.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/fps_images.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/green-clover.png" Resources/images/green-clover.png
-s327342225.086504
-e327342225.114676
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/green-clover.png
-xResources/images/green-clover.png
-lSLF07#2@99"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/green-clover.png" Resources/images/green-clover.png327342225#327342225#0(0"0(0#0#65"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/green-clover.png8626867808#576"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/green-clover.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/green-clover.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/green-diamond.png" Resources/images/green-diamond.png
-s327342225.087669
-e327342225.115778
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/green-diamond.png
-xResources/images/green-diamond.png
-lSLF07#2@101"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/green-diamond.png" Resources/images/green-diamond.png327342225#327342225#0(0"0(0#0#66"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/green-diamond.png8624453152#578"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/green-diamond.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/green-diamond.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/green-heart.png" Resources/images/green-heart.png
-s327342225.114834
-e327342225.142961
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/green-heart.png
-xResources/images/green-heart.png
-lSLF07#2@97"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/green-heart.png" Resources/images/green-heart.png327342225#327342225#0(0"0(0#0#64"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/green-heart.png8622638688#574"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/green-heart.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/green-heart.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/green-star.png" Resources/images/green-star.png
-s327342225.115856
-e327342225.147528
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/green-star.png
-xResources/images/green-star.png
-lSLF07#2@95"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/green-star.png" Resources/images/green-star.png327342225#327342225#0(0"0(0#0#63"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/green-star.png8622356768#572"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/green-star.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/green-star.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/grid.png" Resources/grid.png
-s327164735.153026
-e327164735.237508
-r0
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/grid.png
-xResources/grid.png
-oCan't find /Users/ndemick/iPhone/Yotsu Iro/Resources/grid.png
-lSLF07#2@76"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/grid.png" Resources/grid.png327164735#327164735#0(232"Can't find /Users/ndemick/iPhone/Yotsu Iro/Resources/grid.pngCommand /Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng failed with exit code 11(4@169"Command /Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng failed with exit code 1327164735#18446744073709551615#0#0(1@0"0(0#0#50"/Users/ndemick/iPhone/Yotsu Iro/Resources/grid.png8607748576#553"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/grid.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/grid.png"1#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/heart.png" Resources/images/heart.png
-s325678464.190986
-e325678464.215655
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/heart.png
-xResources/images/heart.png
-lSLF07#2@85"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/heart.png" Resources/images/heart.png325678464#325678464#0(0"0(0#0#58"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/heart.png8614127520#562"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/heart.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/heart.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/red-clover.png" Resources/images/red-clover.png
-s327342225.143078
-e327342225.172266
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/red-clover.png
-xResources/images/red-clover.png
-lSLF07#2@95"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/red-clover.png" Resources/images/red-clover.png327342225#327342225#0(0"0(0#0#63"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/red-clover.png8622195328#572"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/red-clover.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/red-clover.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/red-diamond.png" Resources/images/red-diamond.png
-s327342225.147852
-e327342225.174854
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/red-diamond.png
-xResources/images/red-diamond.png
-lSLF07#2@97"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/red-diamond.png" Resources/images/red-diamond.png327342225#327342225#0(0"0(0#0#64"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/red-diamond.png8622029152#574"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/red-diamond.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/red-diamond.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/red-heart.png" Resources/images/red-heart.png
-s327342225.172358
-e327342225.203288
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/red-heart.png
-xResources/images/red-heart.png
-lSLF07#2@93"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/red-heart.png" Resources/images/red-heart.png327342225#327342225#0(0"0(0#0#62"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/red-heart.png8621975200#570"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/red-heart.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/red-heart.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/red-star.png" Resources/images/red-star.png
-s327342225.175033
-e327342225.205589
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/red-star.png
-xResources/images/red-star.png
-lSLF07#2@91"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/red-star.png" Resources/images/red-star.png327342225#327342225#0(0"0(0#0#61"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/red-star.png8621761344#568"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/red-star.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/red-star.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/star.png" Resources/images/star.png
-s325678464.192821
-e325678464.217014
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/star.png
-xResources/images/star.png
-lSLF07#2@83"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/star.png" Resources/images/star.png325678464#325678464#0(0"0(0#0#57"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/star.png8606531488#560"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/star.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/star.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/top-background.png" Resources/images/top-background.png
-s327164637.254210
-e327164637.301309
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/top-background.png
-xResources/images/top-background.png
-lSLF07#2@103"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/top-background.png" Resources/images/top-background.png327164637#327164637#0(0"0(0#0#67"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/top-background.png8600498912#580"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/top-background.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/top-background.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/yellow-clover.png" Resources/images/yellow-clover.png
-s327342225.203389
-e327342225.230969
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/yellow-clover.png
-xResources/images/yellow-clover.png
-lSLF07#2@101"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/yellow-clover.png" Resources/images/yellow-clover.png327342225#327342225#0(0"0(0#0#66"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/yellow-clover.png8621611136#578"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/yellow-clover.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/yellow-clover.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/yellow-diamond.png" Resources/images/yellow-diamond.png
-s327342225.205683
-e327342225.232963
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/yellow-diamond.png
-xResources/images/yellow-diamond.png
-lSLF07#2@103"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/yellow-diamond.png" Resources/images/yellow-diamond.png327342225#327342225#0(0"0(0#0#67"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/yellow-diamond.png8621583776#580"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/yellow-diamond.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/yellow-diamond.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/yellow-heart.png" Resources/images/yellow-heart.png
-s327342225.231095
-e327342225.258831
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/yellow-heart.png
-xResources/images/yellow-heart.png
-lSLF07#2@99"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/yellow-heart.png" Resources/images/yellow-heart.png327342225#327342225#0(0"0(0#0#65"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/yellow-heart.png8621326976#576"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/yellow-heart.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/yellow-heart.png"0#
-
-CCopyPNGFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/yellow-star.png" Resources/images/yellow-star.png
-s327342225.233055
-e327342225.259479
-r1
-xCopyPNGFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/yellow-star.png
-xResources/images/yellow-star.png
-lSLF07#2@97"CopyPNGFile "build/Debug-iphoneos/Yotsu Iro.app/yellow-star.png" Resources/images/yellow-star.png327342225#327342225#0(0"0(0#0#64"/Users/ndemick/iPhone/Yotsu Iro/Resources/images/yellow-star.png8621030240#574"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/ndemick/iPhone/Yotsu Iro/Resources/images/yellow-star.png" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/yellow-star.png"0#
-
-CCpResource "build/Debug-iphoneos/Yotsu Iro.app/ResourceRules.plist" /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/ResourceRules.plist
-s324382981.677476
-e324382981.865722
-r1
-xCpResource
-xbuild/Debug-iphoneos/Yotsu Iro.app/ResourceRules.plist
-x/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/ResourceRules.plist
-lSLF07#2@94"Copy /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/ResourceRules.plist324382981#324382981#0(0"0(0#0#89"/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/ResourceRules.plist8598741056#486"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/ResourceRules.plist "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app"0#
-
-CCpResource "build/Debug-iphoneos/Yotsu Iro.app/iTunesArtwork" Resources/iTunesArtwork
-s324382983.173524
-e324382983.179184
-r1
-xCpResource
-xbuild/Debug-iphoneos/Yotsu Iro.app/iTunesArtwork
-xResources/iTunesArtwork
-lSLF07#2@28"Copy Resources/iTunesArtwork324382983#324382983#0(0"0(0#0#55"/Users/ndemick/iPhone/Yotsu Iro/Resources/iTunesArtwork8608156192#454"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks "/Users/ndemick/iPhone/Yotsu Iro/Resources/iTunesArtwork" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app"0#
-
-CCpResource "build/Debug-iphoneos/Yotsu Iro.app/todo.rtf" Resources/todo.rtf
-s327347777.131247
-e327347777.139335
-r1
-xCpResource
-xbuild/Debug-iphoneos/Yotsu Iro.app/todo.rtf
-xResources/todo.rtf
-lSLF07#2@23"Copy Resources/todo.rtf327347777#327347777#0(0"0(0#0#50"/Users/ndemick/iPhone/Yotsu Iro/Resources/todo.rtf8626910592#449"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks "/Users/ndemick/iPhone/Yotsu Iro/Resources/todo.rtf" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app"0#
-
-CGenerateDSYMFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app.dSYM" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Yotsu Iro"
-s327577707.087279
-e327577707.248418
-r1
-xGenerateDSYMFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app.dSYM
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Yotsu Iro
-lSLF07#2@105"GenerateDSYMFile "build/Debug-iphoneos/Yotsu Iro.app.dSYM" "build/Debug-iphoneos/Yotsu Iro.app/Yotsu Iro"327577707#327577707#0(0"0(0#0#76"/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Yotsu Iro8619026656#353"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/dsymutil "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Yotsu Iro" -o "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app.dSYM"0#
-
-CLd "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Yotsu Iro" normal armv6
-s327577706.853043
-e327577707.087177
-r1
-xLd
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Yotsu Iro
-xnormal
-xarmv6
-lSLF07#2@81"Link /Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Yotsu Iro327577706#327577707#0(0"0(0#0#0"8606968288#962"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv IPHONEOS_DEPLOYMENT_TARGET 3.0    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/llvm-gcc-4.2 -arch armv6 -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk "-L/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos" "-F/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos" -filelist "/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Objects-normal/armv6/Yotsu Iro.LinkFileList" -dead_strip -all_load -ObjC -miphoneos-version-min=3.0 -framework CoreGraphics -framework Foundation -framework OpenGLES -framework QuartzCore -framework UIKit -framework AudioToolbox -framework OpenAL -lz -framework AVFoundation "-lcocos2d libraries" -o "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Yotsu Iro"0#
-
-CProcessInfoPlistFile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Info.plist" Resources/Info.plist
-s327164636.845222
-e327164636.903291
-r1
-xProcessInfoPlistFile
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Info.plist
-xResources/Info.plist
-lSLF07#2@28"Process Resources/Info.plist327164636#327164636#0(0"0(0#0#52"/Users/ndemick/iPhone/Yotsu Iro/Resources/Info.plist8621838592#550"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility Resources/Info.plist -genpkginfo "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/PkgInfo" -expandbuildsettings -format binary -platform iphoneos -resourcerulesfile "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/ResourceRules.plist" -o "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/Info.plist"0#
-
-CProcessPCH /var/folders/Kx/Kxr44TtEGY4nqFImPDe8U++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Yotsu_Iro_Prefix-gxjpajtmhgjfmydgjxyrtuzhyqpk/Yotsu_Iro_Prefix.pch.gch Yotsu_Iro_Prefix.pch normal armv6 objective-c com.apple.compilers.llvmgcc42
-s324382983.196583
-e324382984.343126
-r1
-xProcessPCH
-x/var/folders/Kx/Kxr44TtEGY4nqFImPDe8U++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Yotsu_Iro_Prefix-gxjpajtmhgjfmydgjxyrtuzhyqpk/Yotsu_Iro_Prefix.pch.gch
-xYotsu_Iro_Prefix.pch
-xnormal
-xarmv6
-xobjective-c
-xcom.apple.compilers.llvmgcc42
-lSLF07#2@31"Precompile Yotsu_Iro_Prefix.pch324382983#324382984#0(0"0(0#0#52"/Users/ndemick/iPhone/Yotsu Iro/Yotsu_Iro_Prefix.pch8603111424#1743"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/llvm-gcc-4.2 -x objective-c-header -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -DDEBUG -DCOCOS2D_DEBUG=1 -DCD_DEBUG=1 -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -fvisibility=hidden -gdwarf-2 -mno-thumb -miphoneos-version-min=3.0 -iquote "/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Yotsu Iro-generated-files.hmap" "-I/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Yotsu Iro-own-target-headers.hmap" "-I/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Yotsu Iro-all-target-headers.hmap" -iquote "/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Yotsu Iro-project-headers.hmap" -Wall "-F/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos" "-I/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/include" "-I/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/DerivedSources/armv6" "-I/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/DerivedSources" -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -c "/Users/ndemick/iPhone/Yotsu Iro/Yotsu_Iro_Prefix.pch" -o /var/folders/Kx/Kxr44TtEGY4nqFImPDe8U++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Yotsu_Iro_Prefix-gxjpajtmhgjfmydgjxyrtuzhyqpk/Yotsu_Iro_Prefix.pch.gch0#
-
-CProcessProductPackaging "/Users/ndemick/Library/MobileDevice/Provisioning Profiles/3B2CBAFB-52C4-4C35-9B54-6DCDDAA0E9ED.mobileprovision" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/embedded.mobileprovision"
-s326944126.483523
-e326944126.485083
-r1
-xProcessProductPackaging
-x/Users/ndemick/Library/MobileDevice/Provisioning Profiles/3B2CBAFB-52C4-4C35-9B54-6DCDDAA0E9ED.mobileprovision
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/embedded.mobileprovision
-lSLF07#2@198"ProcessProductPackaging "/Users/ndemick/Library/MobileDevice/Provisioning Profiles/3B2CBAFB-52C4-4C35-9B54-6DCDDAA0E9ED.mobileprovision" "build/Debug-iphoneos/Yotsu Iro.app/embedded.mobileprovision"326944126#326944126#0(0"0(0#0#91"/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/embedded.mobileprovision8614527904#417"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    <com.apple.tools.product-pkg-utility> "/Users/ndemick/Library/MobileDevice/Provisioning Profiles/3B2CBAFB-52C4-4C35-9B54-6DCDDAA0E9ED.mobileprovision" -o "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/embedded.mobileprovision"0#
-
-CProcessProductPackaging "/Users/ndemick/Library/MobileDevice/Provisioning Profiles/69C059AA-91AC-4162-87BF-C7A63E6A8DCB.mobileprovision" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/embedded.mobileprovision"
-s324382987.692128
-e324382987.693533
-r1
-xProcessProductPackaging
-x/Users/ndemick/Library/MobileDevice/Provisioning Profiles/69C059AA-91AC-4162-87BF-C7A63E6A8DCB.mobileprovision
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/embedded.mobileprovision
-lSLF07#2@198"ProcessProductPackaging "/Users/ndemick/Library/MobileDevice/Provisioning Profiles/69C059AA-91AC-4162-87BF-C7A63E6A8DCB.mobileprovision" "build/Debug-iphoneos/Yotsu Iro.app/embedded.mobileprovision"324382987#324382987#0(0"0(0#0#91"/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/embedded.mobileprovision8605612064#417"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    <com.apple.tools.product-pkg-utility> "/Users/ndemick/Library/MobileDevice/Provisioning Profiles/69C059AA-91AC-4162-87BF-C7A63E6A8DCB.mobileprovision" -o "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/embedded.mobileprovision"0#
-
-CProcessProductPackaging "/Users/ndemick/Library/MobileDevice/Provisioning Profiles/E880EC6D-B035-4B61-908C-EB9AAB3CF358.mobileprovision" "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/embedded.mobileprovision"
-s327545916.319075
-e327545916.355556
-r1
-xProcessProductPackaging
-x/Users/ndemick/Library/MobileDevice/Provisioning Profiles/E880EC6D-B035-4B61-908C-EB9AAB3CF358.mobileprovision
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/embedded.mobileprovision
-lSLF07#2@198"ProcessProductPackaging "/Users/ndemick/Library/MobileDevice/Provisioning Profiles/E880EC6D-B035-4B61-908C-EB9AAB3CF358.mobileprovision" "build/Debug-iphoneos/Yotsu Iro.app/embedded.mobileprovision"327545916#327545916#0(0"0(0#0#91"/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/embedded.mobileprovision8602705984#417"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    <com.apple.tools.product-pkg-utility> "/Users/ndemick/Library/MobileDevice/Provisioning Profiles/E880EC6D-B035-4B61-908C-EB9AAB3CF358.mobileprovision" -o "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app/embedded.mobileprovision"0#
-
-CProcessProductPackaging /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/Entitlements.plist "/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Yotsu Iro.xcent"
-s327545916.358530
-e327545916.393405
-r1
-xProcessProductPackaging
-x/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/Entitlements.plist
-x/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Yotsu Iro.xcent
-lSLF07#2@183"ProcessProductPackaging /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/Entitlements.plist "build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Yotsu Iro.xcent"327545916#327545916#0(0"0(0#0#100"/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Yotsu Iro.xcent8620867392#428"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    <com.apple.tools.product-pkg-utility> /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/Entitlements.plist -entitlements -format xml -o "/Users/ndemick/iPhone/Yotsu Iro/build/Yotsu Iro.build/Debug-iphoneos/Yotsu Iro.build/Yotsu Iro.xcent"0#
-
-CTouch "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app"
-s327577707.248681
-e327577707.251384
-r1
-xTouch
-x/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app
-lSLF07#2@72"Touch /Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app327577707#327577707#0(0"0(0#0#0"8615492448#256"    cd "/Users/ndemick/iPhone/Yotsu Iro"    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c "/Users/ndemick/iPhone/Yotsu Iro/build/Debug-iphoneos/Yotsu Iro.app"0#
-
