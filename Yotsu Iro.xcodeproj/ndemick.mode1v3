@@ -274,7 +274,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>7</integer>
+									<integer>13</integer>
 									<integer>4</integer>
 									<integer>0</integer>
 								</array>
@@ -317,7 +317,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>HelloWorldScene.m</string>
+								<string>Block.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -325,11 +325,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>HelloWorldScene.m</string>
+										<string>Block.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>7D72A79F138A5EA50093C4C9</string>
+										<string>7D72A7D9138A6E720093C4C9</string>
 										<key>history</key>
 										<array>
 											<string>7D12CE861355B3AD003DBE39</string>
@@ -341,11 +341,11 @@
 											<string>7DFE2B2E13794CBC0057D6F6</string>
 											<string>7DFE2B2F13794CBC0057D6F6</string>
 											<string>7D55EEF41381D20100C46926</string>
-											<string>7D00F1641382BDBC00DDAF5D</string>
-											<string>7D00F1651382BDBC00DDAF5D</string>
-											<string>7D00F18E1382EDA000DDAF5D</string>
-											<string>7D00F18F1382EDA000DDAF5D</string>
-											<string>7D72A795138A5C450093C4C9</string>
+											<string>7D72A7BF138A6A520093C4C9</string>
+											<string>7D72A7C2138A6A520093C4C9</string>
+											<string>7D72A7D6138A6E720093C4C9</string>
+											<string>7D72A7D7138A6E720093C4C9</string>
+											<string>7D72A7D8138A6E720093C4C9</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -403,9 +403,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>7D72A7A0138A5EA50093C4C9</string>
+				<string>7D72A7AB138A5FB70093C4C9</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>7D72A7A1138A5EA50093C4C9</string>
+				<string>7D72A7AC138A5FB70093C4C9</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -543,7 +543,9 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>1CD10A99069EF8BA00B06720</string>
 		<string>7D12CE8E1355B3AD003DBE39</string>
+		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/ndemick/iPhone/4iro/Yotsu Iro.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -624,7 +626,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>7D12CE8E1355B3AD003DBE39</string>
-				<string>7D72A7A2138A5EA50093C4C9</string>
+				<string>7D72A7AD138A5FB70093C4C9</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -746,13 +748,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>7DE18B1A138679B0000536D4</string>
+				<string>7D72A7B3138A61540093C4C9</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>7DE18B1B138679B0000536D4</string>
-				<string>7DE18B1C138679B0000536D4</string>
-				<string>7DE18B1D138679B0000536D4</string>
-				<string>7DE18B1E138679B0000536D4</string>
-				<string>7DE18B1F138679B0000536D4</string>
+				<string>7D72A7B4138A61540093C4C9</string>
+				<string>7D72A7B5138A61540093C4C9</string>
+				<string>7D72A7B6138A61540093C4C9</string>
+				<string>7D72A7B7138A61540093C4C9</string>
+				<string>7D72A7B8138A61540093C4C9</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -916,7 +918,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>7DE18B20138679B0000536D4</string>
+				<string>7D72A7B9138A61540093C4C9</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>

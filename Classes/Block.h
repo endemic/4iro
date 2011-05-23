@@ -13,12 +13,17 @@
 {
 	NSString *colour;
 	NSString *shape;
+	CGPoint gridPosition;
 }
 
 @property (readwrite, retain) NSString *colour;
 @property (readwrite, retain) NSString *shape;
+@property (readwrite) CGPoint gridPosition;
 
 // Have to override this method in order to subclass CCSprite
 - (id)initWithTexture:(CCTexture2D *)texture rect:(CGRect)rect;
+
+- (void)snapToGridPosition;
+- (void)animateToGridPosition;
 
 @end

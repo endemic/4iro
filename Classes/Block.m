@@ -11,7 +11,7 @@
 
 @implementation Block
 
-@synthesize colour, shape;
+@synthesize colour, shape, gridPosition;
 
 // The init method we have to override - http://www.cocos2d-iphone.org/wiki/doku.php/prog_guide:sprites (bottom of page)
 - (id)initWithTexture:(CCTexture2D*)texture rect:(CGRect)rect
@@ -23,6 +23,20 @@
 		//[self scheduleUpdate];
 	}
 	return self;
+}
+
+- (void)snapToGridPosition
+{
+	int x = self.gridPosition.x;
+	int y = self.gridPosition.y;
+	int blockSize = self.contentSize.width;
+	
+	[self setPosition:ccp(x * blockSize - blockSize / 2, y * blockSize - blockSize / 2)];
+}
+
+- (void)animateToGridPosition
+{
+	
 }
 
 @end

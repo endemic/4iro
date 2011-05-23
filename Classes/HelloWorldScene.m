@@ -41,13 +41,16 @@
 		// Add background for game status area
 		CCSprite *bg = [CCSprite spriteWithFile:@"top-background.png"];
 		[bg setPosition:ccp(windowSize.width / 2, windowSize.height - bg.contentSize.height / 2)];
-		[self addChild:bg z:1];
+		[self addChild:bg z:2];
 		
 		[self setIsTouchEnabled:YES];
 		
 		rows = 10;
 		cols = 10;
 		gridOffset = 1;
+		
+//		int visibleRows = rows - gridOffset * 2;
+//		int visibleCols = cols - gridOffset * 2;
 
 //		rows = 8;
 //		cols = 8;
@@ -60,39 +63,8 @@
 		grid = [[NSMutableArray arrayWithCapacity:gridCapacity] retain];
 		
 		// array[x + y*size] === array[x][y]
-		for (int y = 0; y < cols; y++)
-			for (int x = 0; x < rows; x++)
-			{
-				int randomColorNumber = (float)(arc4random() % 100) / 100 * 4;
-				int randomShapeNumber = (float)(arc4random() % 100) / 100 * 4;
-				NSString *color;
-				NSString *shape;
-				
-				switch (randomColorNumber)
-				{
-					case 0: color = @"red"; break;
-					case 1: color = @"green"; break;
-					case 2: color = @"blue"; break;
-					case 3: color = @"yellow"; break;
-				}
-				
-				switch (randomShapeNumber)
-				{
-					case 0: shape = @"star"; break;
-					case 1: shape = @"clover"; break;
-					case 2: shape = @"heart"; break;
-					case 3: shape = @"diamond"; break;
-				}
-				
-				Block *s = [Block spriteWithFile:[NSString stringWithFormat:@"%@-%@.png", color, shape]];
-				[s setColour:color];
-				[s setShape:shape];
-				
-				[s setPosition:ccp(x * blockSize - blockSize / 2, y * blockSize - blockSize / 2)];		// Extended grid
-				//[s setPosition:ccp(x * blockSize + blockSize / 2, y * blockSize + blockSize / 2)];	// "Fit" grid
-				[self addChild:s z:0];
-				[grid addObject:s];
-			}
+		for (int i = 0; i < gridCapacity; i++)
+			[self newBlockAtIndex:i];
 		
 		// Reset the "buffer" blocks hidden around the outside of the screen
 		[self resetBuffer];
@@ -154,7 +126,7 @@
 		}
 		
 		int d = touchStart.x - touchPoint.x;
-		NSLog(@"%f - %f = %i", touchStart.x, touchPoint.x, d);
+		//NSLog(@"%f - %f = %i", touchStart.x, touchPoint.x, d);
 		if (d >= blockSize)
 		{
 			// Handle very fast movement
@@ -321,7 +293,7 @@
 		}
 	}
 	
-	//[self matchCheck];
+	[self matchCheck];
 }
 
 - (void)shiftLeft
@@ -342,7 +314,7 @@
 	
 	[self resetBuffer];
 	
-	NSLog(@"Shift left");
+	//NSLog(@"Shift left");
 }
 
 - (void)shiftRight
@@ -363,7 +335,7 @@
 	
 	[self resetBuffer];
 	
-	NSLog(@"Shift right");
+	//NSLog(@"Shift right");
 }
 
 - (void)shiftUp
@@ -456,7 +428,6 @@
 - (void)matchCheck
 {
 	// Go thru and check for matching colors/shapes - first horizontally, then vertically
-	// Once a 
 	// Only go through indices 1 - 8
 	// Test out horizontal first - color
 	
@@ -500,13 +471,23 @@
 						[self removeChild:remove cleanup:YES];
 						
 						// Shift remaining blocks downwards and animate them to their new positions (except for top-most block)
-						for (int m = gridIndex; m < (rows - 2) * cols; m += cols)
+						for (int m = gridIndex; m < (rows - 1) * cols; m += cols)
 						{
-							Block *newBlock = [grid objectAtIndex:m + cols];
-							[grid replaceObjectAtIndex:m withObject:newBlock];
-							id action = [CCMoveTo actionWithDuration:0.2 position:ccp(newBlock.position.x, blockSize * (m / cols) - blockSize / 2)];
-							[newBlock runAction:action];
+							if (m < (rows - 2) * cols)
+							{
+								Block *newBlock = [grid objectAtIndex:m + cols];
+								[grid replaceObjectAtIndex:m withObject:newBlock];
+								NSLog(@"Replacing %i with %i", m, m + cols);
+								id action = [CCMoveTo actionWithDuration:0.2 position:ccp(newBlock.position.x, blockSize * (m / cols) - blockSize / 2)];
+								[newBlock runAction:action];
+							}
+							else
+							{
+								[self newBlockAtIndex:m];
+							}
 						}
+						
+						// Find top-most block in a particular column
 						
 						// Add new random block to the top
 					}
@@ -565,8 +546,49 @@
 		}
 	}	// End row for loop
 
+}
+
+- (void)newBlockAtIndex:(int)index
+{
+	int randomColorNumber = (float)(arc4random() % 100) / 100 * 4;
+	int randomShapeNumber = (float)(arc4random() % 100) / 100 * 4;
+	NSString *color;
+	NSString *shape;
 	
-	// 
+	switch (randomColorNumber)
+	{
+		case 0: color = @"red"; break;
+		case 1: color = @"green"; break;
+		case 2: color = @"blue"; break;
+		case 3: color = @"yellow"; break;
+	}
+	
+	switch (randomShapeNumber)
+	{
+		case 0: shape = @"star"; break;
+		case 1: shape = @"clover"; break;
+		case 2: shape = @"heart"; break;
+		case 3: shape = @"diamond"; break;
+	}
+	
+	Block *s = [Block spriteWithFile:[NSString stringWithFormat:@"%@-%@.png", color, shape]];
+	[s setColour:color];
+	[s setShape:shape];
+	
+	int x = index % cols;
+	int y = floor(index / rows);
+	
+	[s setGridPosition:ccp(x, y)];
+	[s setPosition:ccp(x * blockSize - blockSize / 2, y * blockSize - blockSize / 2)];		// Extended grid
+	//[s setPosition:ccp(x * blockSize + blockSize / 2, y * blockSize + blockSize / 2)];	// "Fit" grid
+
+	[self addChild:s z:1];
+	
+	// Do a check here to see if we need to replace an object or insert
+	if ([grid count] > index && [grid objectAtIndex:index] != nil)
+		[grid replaceObjectAtIndex:index withObject:s];
+	else
+		[grid insertObject:s atIndex:index];
 }
 
 // on "dealloc" you need to release all your retained objects

@@ -35,4 +35,6 @@
 - (void)resetBuffer;
 - (void)matchCheck;
 
+- (void)newBlockAtIndex:(int)index;
+
 @end
