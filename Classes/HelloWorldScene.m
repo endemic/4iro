@@ -301,9 +301,14 @@
 	// Store first value
 	Block *tmp = [grid objectAtIndex:touchRow * rows];
 	
-	// Shift left
+	// Cycle through the rest of the blocks in a row
 	for (int i = touchRow * rows; i < touchRow * rows + (cols - 1); i++)
+	{
+		// Shift left
 		[grid replaceObjectAtIndex:i withObject:[grid objectAtIndex:i + 1]];
+		
+		// Update index of Block obj
+	}
 	
 	// Move stored sprite to appropriate (x,y) location
 	Block *secondToLastBlock = [grid objectAtIndex:touchRow * rows + (cols - 1)];
@@ -431,17 +436,18 @@
 	// Only go through indices 1 - 8
 	// Test out horizontal first - color
 	
-	NSMutableArray *colorSet = [NSMutableArray arrayWithCapacity:8];
-	NSMutableArray *shapeSet = [NSMutableArray arrayWithCapacity:8];
-	NSMutableString *lastColor = [NSMutableString stringWithString:@""];
-	NSMutableString *lastShape = [NSMutableString stringWithString:@""];
+	NSMutableArray *colorArray = [NSMutableArray arrayWithCapacity:8];
+	NSMutableArray *shapeArray = [NSMutableArray arrayWithCapacity:8];
+	NSMutableArray *removeArray = [NSMutableArray arrayWithCapacity:16];	// Arbitrary capacity
+	NSMutableString *previousColor = [NSMutableString stringWithString:@""];
+	NSMutableString *previousShape = [NSMutableString stringWithString:@""];
 	
 	int minimumMatchCount = 4;		// Number of adjacent blocks needed to disappear
 	
 	// for each row
 	for (int j = gridOffset; j < rows - gridOffset; j++)
 	{
-		// for each col in row
+		// for each block in row
 		for (int i = j * rows + gridOffset; i < j * rows + cols - gridOffset; i++)
 		{
 			Block *b = [grid objectAtIndex:i];
@@ -449,103 +455,86 @@
 			// Condition in order to add the first block to the "set"
 			if (i == j * rows + gridOffset)
 			{
-				[lastColor setString:b.colour];
-				[lastShape setString:b.shape];
+				[previousColor setString:b.colour];
+				[previousShape setString:b.shape];
 			}
 			
-			// If the same as the previous color, add the index to the "set"
-			if ([b.colour isEqualToString:lastColor])
+			// Check color
+			if ([b.colour isEqualToString:previousColor])
 			{
-				[colorSet addObject:[NSNumber numberWithInt:i]];
+				[colorArray addObject:[NSNumber numberWithInt:i]];
 			}
 			else
 			{
-				// If the set array has enough objects, clear 'em
-				if ([colorSet count] > minimumMatchCount)
-				{
-					// DEBUG - just remove the sprites
-					for (int k = 0, l = [colorSet count]; k < l; k++)
-					{
-						int gridIndex = [[colorSet objectAtIndex:k] intValue];
-						Block *remove = [grid objectAtIndex:gridIndex];
-						[self removeChild:remove cleanup:YES];
-						
-						// Shift remaining blocks downwards and animate them to their new positions (except for top-most block)
-						for (int m = gridIndex; m < (rows - 1) * cols; m += cols)
-						{
-							if (m < (rows - 2) * cols)
-							{
-								Block *newBlock = [grid objectAtIndex:m + cols];
-								[grid replaceObjectAtIndex:m withObject:newBlock];
-								NSLog(@"Replacing %i with %i", m, m + cols);
-								id action = [CCMoveTo actionWithDuration:0.2 position:ccp(newBlock.position.x, blockSize * (m / cols) - blockSize / 2)];
-								[newBlock runAction:action];
-							}
-							else
-							{
-								[self newBlockAtIndex:m];
-							}
-						}
-						
-						// Find top-most block in a particular column
-						
-						// Add new random block to the top
-					}
+				// If the set array has enough objects, add them to the "removal" array
+				if ([colorArray count] >= minimumMatchCount)
+					[removeArray addObjectsFromArray:colorArray];
 					
-					// Reset the set
-					[colorSet removeAllObjects];
-				}
-				else
-				{
-					// Otherwise, clear the "set"
-					[colorSet removeAllObjects];
-				}
+				// Reset the set
+				[colorArray removeAllObjects];
 				
-				// reset the color
-				[lastColor setString:b.colour];
+				// Add current block
+				[colorArray addObject:[NSNumber numberWithInt:i]];
 			}
 			
-			if ([b.shape isEqualToString:lastShape])
+			// reset the previous color comparison
+			[previousColor setString:b.colour];
+			
+			// Check shape
+			if ([b.shape isEqualToString:previousShape])
 			{
-				[shapeSet addObject:[NSNumber numberWithInt:i]];
+				[shapeArray addObject:[NSNumber numberWithInt:i]];
 			}
 			else
 			{
-				if ([shapeSet count] > minimumMatchCount)
-				{
+				// If the set array has enough objects, add them to the "removal" array
+				if ([shapeArray count] >= minimumMatchCount)
+					[removeArray addObjectsFromArray:shapeArray];
 					
-				}
-				else
-				{
-					[shapeSet removeAllObjects];
-				}
+				// Reset the set
+				[shapeArray removeAllObjects];
 				
-				// Reset the shape
-				[lastShape setString:b.shape];
+				// Add current block
+				[shapeArray addObject:[NSNumber numberWithInt:i]];
 			}
-
+			
+			// reset the previous shape comparison
+			[previousShape setString:b.shape];
+			
 		}	// End col for loop
 		
-		// Do a clear check here too
-		if ([colorSet count] > minimumMatchCount)
-		{
-			// DEBUG - just remove the sprites
-			for (int k = 0, l = [colorSet count]; k < l; k++)
-			{
-				Block *remove = [grid objectAtIndex:[[colorSet objectAtIndex:k] intValue]];
-				[self removeChild:remove cleanup:YES];
-				
-				// Shift remaining blocks downwards
-				// Animate remaining blocks to their new location
-				// Add new random block to the top
-				
-			}
-			
-			// Reset the set
-			[colorSet removeAllObjects];
-		}
+		// Do another check here at the end of the row for both shape & color
+		if ([shapeArray count] >= minimumMatchCount)
+			[removeArray addObjectsFromArray:shapeArray];
+		
+		if ([colorArray count] >= minimumMatchCount)
+			[removeArray addObjectsFromArray:colorArray];
+		
+		// Remove all blocks in matching arrays at the end of a row
+		[shapeArray removeAllObjects];
+		[colorArray removeAllObjects];
+		
 	}	// End row for loop
 
+	// Remove all blocks in the removeSet array
+	// DEBUG - simply replace matched blocks with random new ones
+	for (int i = 0, j = [removeArray count]; i < j; i++)
+	{
+		int gridIndex = [[removeArray objectAtIndex:i] intValue];
+		Block *remove = [grid objectAtIndex:gridIndex];
+		
+		if (remove)
+		{
+			[self removeChild:remove cleanup:YES];
+			[self newBlockAtIndex:gridIndex];
+			
+			// Do some sort of effect here to show new blocks were put in place
+			//[remove flash];
+		}
+	}
+	
+	// Finally, clear out the removeSet array
+	[removeArray removeAllObjects];
 }
 
 - (void)newBlockAtIndex:(int)index
@@ -579,7 +568,8 @@
 	int y = floor(index / rows);
 	
 	[s setGridPosition:ccp(x, y)];
-	[s setPosition:ccp(x * blockSize - blockSize / 2, y * blockSize - blockSize / 2)];		// Extended grid
+	[s snapToGridPosition];
+	//[s setPosition:ccp(x * blockSize - blockSize / 2, y * blockSize - blockSize / 2)];		// Extended grid
 	//[s setPosition:ccp(x * blockSize + blockSize / 2, y * blockSize + blockSize / 2)];	// "Fit" grid
 
 	[self addChild:s z:1];

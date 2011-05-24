@@ -21,6 +21,9 @@
 	{
 		// The only custom stuff here is scheduling an update method
 		//[self scheduleUpdate];
+		
+		// Set a default grid position so other helper methods don't bork if grid position isn't set
+		[self setGridPosition:ccp(0, 0)];
 	}
 	return self;
 }
@@ -31,12 +34,26 @@
 	int y = self.gridPosition.y;
 	int blockSize = self.contentSize.width;
 	
+	//[self setPosition:ccp(x * blockSize + blockSize / 2, y * blockSize + blockSize / 2)];	// "Fit" grid
 	[self setPosition:ccp(x * blockSize - blockSize / 2, y * blockSize - blockSize / 2)];
 }
 
 - (void)animateToGridPosition
 {
-	
+	int x = self.gridPosition.x;
+	int y = self.gridPosition.y;
+	int blockSize = self.contentSize.width;
+
+	id action = [CCMoveTo actionWithDuration:0.2 position:ccp(x * blockSize - blockSize / 2, y * blockSize - blockSize / 2)];
+	[self runAction:action];
+}
+
+// Debug helper method
+- (void)flash
+{
+	//+(id) actionWithDuration: (ccTime) t blinks: (unsigned int) b
+	id action = [CCBlink actionWithDuration:1.0f blinks:5];
+	[self runAction:action];
 }
 
 @end
