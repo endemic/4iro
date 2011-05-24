@@ -45,6 +45,12 @@
 		
 		[self setIsTouchEnabled:YES];
 		
+		// Set up score int/label
+		score = 0;
+		scoreLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%i", score] fontName:@"FFF_Tusj.ttf" fontSize:32];
+		[scoreLabel setPosition:ccp(windowSize.width / 2, windowSize.height - scoreLabel.contentSize.height)];
+		[self addChild:scoreLabel z:3];
+		
 		rows = 10;
 		cols = 10;
 		gridOffset = 1;
@@ -443,17 +449,18 @@
 	NSMutableString *previousShape = [NSMutableString stringWithString:@""];
 	
 	int minimumMatchCount = 4;		// Number of adjacent blocks needed to disappear
+	Block *b;
 	
-	// for each row
-	for (int j = gridOffset; j < rows - gridOffset; j++)
+	// Find horizontal matches
+	for (int i = gridOffset; i < rows - gridOffset; i++)
 	{
 		// for each block in row
-		for (int i = j * rows + gridOffset; i < j * rows + cols - gridOffset; i++)
+		for (int j = i * rows + gridOffset; j < i * rows + cols - gridOffset; j++)
 		{
-			Block *b = [grid objectAtIndex:i];
+			b = [grid objectAtIndex:j];
 			
 			// Condition in order to add the first block to the "set"
-			if (i == j * rows + gridOffset)
+			if (j == i * rows + gridOffset)
 			{
 				[previousColor setString:b.colour];
 				[previousShape setString:b.shape];
@@ -462,7 +469,7 @@
 			// Check color
 			if ([b.colour isEqualToString:previousColor])
 			{
-				[colorArray addObject:[NSNumber numberWithInt:i]];
+				[colorArray addObject:[NSNumber numberWithInt:j]];
 			}
 			else
 			{
@@ -474,16 +481,13 @@
 				[colorArray removeAllObjects];
 				
 				// Add current block
-				[colorArray addObject:[NSNumber numberWithInt:i]];
+				[colorArray addObject:[NSNumber numberWithInt:j]];
 			}
-			
-			// reset the previous color comparison
-			[previousColor setString:b.colour];
 			
 			// Check shape
 			if ([b.shape isEqualToString:previousShape])
 			{
-				[shapeArray addObject:[NSNumber numberWithInt:i]];
+				[shapeArray addObject:[NSNumber numberWithInt:j]];
 			}
 			else
 			{
@@ -495,8 +499,11 @@
 				[shapeArray removeAllObjects];
 				
 				// Add current block
-				[shapeArray addObject:[NSNumber numberWithInt:i]];
+				[shapeArray addObject:[NSNumber numberWithInt:j]];
 			}
+			
+			// reset the previous color comparison
+			[previousColor setString:b.colour];
 			
 			// reset the previous shape comparison
 			[previousShape setString:b.shape];
@@ -513,11 +520,79 @@
 		// Remove all blocks in matching arrays at the end of a row
 		[shapeArray removeAllObjects];
 		[colorArray removeAllObjects];
-		
 	}	// End row for loop
+	
+	// Find vertical matches
+	for (int i = gridOffset; i < cols - gridOffset; i++)
+	{
+		// For each block in column
+		for (int j = i + rows; j < rows * (cols - gridOffset) + i; j += rows)
+		{
+			b = [grid objectAtIndex:j];
+			
+			// Condition in order to add the first block to the "set"
+			if (j == i + rows)
+			{
+				[previousColor setString:b.colour];
+				[previousShape setString:b.shape];
+			}
+			
+			// Check color
+			if ([b.colour isEqualToString:previousColor])
+			{
+				[colorArray addObject:[NSNumber numberWithInt:j]];
+			}
+			else
+			{
+				// If the set array has enough objects, add them to the "removal" array
+				if ([colorArray count] >= minimumMatchCount)
+					[removeArray addObjectsFromArray:colorArray];
+				
+				// Reset the set
+				[colorArray removeAllObjects];
+				
+				// Add current block
+				[colorArray addObject:[NSNumber numberWithInt:j]];
+			}
+			
+			// Check shape
+			if ([b.shape isEqualToString:previousShape])
+			{
+				[shapeArray addObject:[NSNumber numberWithInt:j]];
+			}
+			else
+			{
+				// If the set array has enough objects, add them to the "removal" array
+				if ([shapeArray count] >= minimumMatchCount)
+					[removeArray addObjectsFromArray:shapeArray];
+				
+				// Reset the set
+				[shapeArray removeAllObjects];
+				
+				// Add current block
+				[shapeArray addObject:[NSNumber numberWithInt:j]];
+			}
+			
+			// reset the previous color comparison
+			[previousColor setString:b.colour];
+			
+			// reset the previous shape comparison
+			[previousShape setString:b.shape];
+		}	// End of each block in column
+		
+		// Do another check here at the end of the row for both shape & color
+		if ([shapeArray count] >= minimumMatchCount)
+			[removeArray addObjectsFromArray:shapeArray];
+		
+		if ([colorArray count] >= minimumMatchCount)
+			[removeArray addObjectsFromArray:colorArray];
+		
+		// Remove all blocks in matching arrays at the end of a column
+		[shapeArray removeAllObjects];
+		[colorArray removeAllObjects];
+	}
 
-	// Remove all blocks in the removeSet array
-	// DEBUG - simply replace matched blocks with random new ones
+	// Remove all blocks with indices in removeArray
 	for (int i = 0, j = [removeArray count]; i < j; i++)
 	{
 		int gridIndex = [[removeArray objectAtIndex:i] intValue];
@@ -525,11 +600,14 @@
 		
 		if (remove)
 		{
+			[self createParticlesAt:remove.position];
 			[self removeChild:remove cleanup:YES];
 			[self newBlockAtIndex:gridIndex];
 			
-			// Do some sort of effect here to show new blocks were put in place
+			// Do some sort of effect here to show which blocks matched
 			//[remove flash];
+			
+			[self updateScore:10];
 		}
 	}
 	
@@ -574,11 +652,85 @@
 
 	[self addChild:s z:1];
 	
+	// Do a "growing" animation on the new block
+	[s embiggen];
+	
 	// Do a check here to see if we need to replace an object or insert
 	if ([grid count] > index && [grid objectAtIndex:index] != nil)
 		[grid replaceObjectAtIndex:index withObject:s];
 	else
 		[grid insertObject:s atIndex:index];
+}
+
+- (void)createParticlesAt:(CGPoint)position
+{
+	// Create quad particle system (faster on 3rd gen & higher devices, only slightly slower on 1st/2nd gen)
+	CCParticleSystemQuad *particleSystem = [[CCParticleSystemQuad alloc] initWithTotalParticles:25];
+	
+	// duration is for the emitter
+	[particleSystem setDuration:0.5f];
+	
+	[particleSystem setEmitterMode:kCCParticleModeGravity];
+	
+	// Gravity Mode: gravity
+	[particleSystem setGravity:ccp(0, 0)];
+	
+	// Gravity Mode: speed of particles
+	[particleSystem setSpeed:140];
+	[particleSystem setSpeedVar:40];
+	
+	// Gravity Mode: radial
+	[particleSystem setRadialAccel:0];
+	[particleSystem setRadialAccelVar:0];
+	
+	// Gravity Mode: tagential
+	[particleSystem setTangentialAccel:0];
+	[particleSystem setTangentialAccelVar:0];
+	
+	// angle
+	[particleSystem setAngle:90];
+	[particleSystem setAngleVar:360];
+	
+	// emitter position
+	[particleSystem setPosition:position];
+	[particleSystem setPosVar:CGPointZero];
+	
+	// life is for particles particles - in seconds
+	[particleSystem setLife:0.5f];
+	[particleSystem setLifeVar:0.25f];
+	
+	// size, in pixels
+	[particleSystem setStartSize:8.0f];
+	[particleSystem setStartSizeVar:2.0f];
+	[particleSystem setEndSize:kCCParticleStartSizeEqualToEndSize];
+	
+	// emits per second
+	[particleSystem setEmissionRate:[particleSystem totalParticles] / [particleSystem duration]];
+	
+	// color of particles
+	ccColor4F startColor = {1.0f, 1.0f, 1.0f, 1.0f};
+	ccColor4F endColor = {1.0f, 1.0f, 1.0f, 1.0f};
+	[particleSystem setStartColor:startColor];
+	[particleSystem setEndColor:endColor];
+	
+	[particleSystem setTexture:[[CCTextureCache sharedTextureCache] addImage:@"particle.png"]];
+	
+	// additive
+	[particleSystem setBlendAdditive:NO];
+	
+	// Auto-remove the emitter when it is done!
+	[particleSystem setAutoRemoveOnFinish:YES];
+	
+	// Add to layer
+	[self addChild:particleSystem z:10];
+	
+	NSLog(@"Tryin' to make a particle emitter at %f, %f", position.x, position.y);
+}
+
+- (void)updateScore:(int)points
+{
+	score += points;
+	[scoreLabel setString:[NSString stringWithFormat:@"%i", score]];
 }
 
 // on "dealloc" you need to release all your retained objects

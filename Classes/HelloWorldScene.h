@@ -23,6 +23,13 @@
 	int touchRow, touchCol;
 	CGPoint touchStart, touchPrevious;
 	BOOL horizontalMove, verticalMove;
+	
+	// Various display bits
+	int score;
+	CCLabelTTF *scoreLabel;
+	
+	float timeRemaining;				// Say a maximum of 30 seconds
+	CCSprite *timeRemainingDisplay;		// Goes down from 30 to 0
 }
 
 // returns a Scene that contains the HelloWorld as the only child
@@ -32,9 +39,13 @@
 - (void)shiftRight;
 - (void)shiftUp;
 - (void)shiftDown;
+
 - (void)resetBuffer;
 - (void)matchCheck;
 
 - (void)newBlockAtIndex:(int)index;
+- (void)createParticlesAt:(CGPoint)position;
+
+- (void)updateScore:(int)points;
 
 @end

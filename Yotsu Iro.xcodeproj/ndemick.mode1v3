@@ -208,8 +208,6 @@
 		<dict>
 			<key>ChosenToolbarItems</key>
 			<array>
-				<string>XCToolbarPerspectiveControl</string>
-				<string>NSToolbarSeparatorItem</string>
 				<string>active-combo-popup</string>
 				<string>action</string>
 				<string>NSToolbarFlexibleSpaceItem</string>
@@ -274,8 +272,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>7</integer>
-									<integer>4</integer>
+									<integer>17</integer>
+									<integer>15</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -317,7 +315,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>HelloWorldScene.m</string>
+								<string>todo.rtf</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -325,11 +323,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>HelloWorldScene.m</string>
+										<string>todo.rtf</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>7DF58CA6138BC1A9007EEB62</string>
+										<string>7D0024E1138C25EE0026DDFB</string>
 										<key>history</key>
 										<array>
 											<string>7D12CE861355B3AD003DBE39</string>
@@ -337,19 +335,19 @@
 											<string>7D82C268136ACD040054C229</string>
 											<string>7DF090FE1377EEB9005B6BC8</string>
 											<string>7DF0910D1377F56B005B6BC8</string>
-											<string>7DFE2B2E13794CBC0057D6F6</string>
 											<string>7DFE2B2F13794CBC0057D6F6</string>
 											<string>7D55EEF41381D20100C46926</string>
 											<string>7D3982B6138AEFB40006EAA7</string>
 											<string>7D3982BF138AF60B0006EAA7</string>
 											<string>7D3982C4138B050E0006EAA7</string>
-											<string>7D3982C6138B050E0006EAA7</string>
 											<string>7DF58C7E138BBAC5007EEB62</string>
 											<string>7DF58C7F138BBAC5007EEB62</string>
-											<string>7DF58C80138BBAC5007EEB62</string>
-											<string>7DF58C81138BBAC5007EEB62</string>
-											<string>7DF58CA1138BC197007EEB62</string>
-											<string>7DF58CA2138BC197007EEB62</string>
+											<string>7D0024DB138C25EE0026DDFB</string>
+											<string>7D0024DC138C25EE0026DDFB</string>
+											<string>7D0024DD138C25EE0026DDFB</string>
+											<string>7D0024DE138C25EE0026DDFB</string>
+											<string>7D0024DF138C25EE0026DDFB</string>
+											<string>7D0024E0138C25EE0026DDFB</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -407,9 +405,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>7DF58C6C138B2CB0007EEB62</string>
+				<string>7D0024E2138C25EE0026DDFB</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>7DF58C6D138B2CB0007EEB62</string>
+				<string>7D0024E3138C25EE0026DDFB</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -549,8 +547,8 @@
 	<array>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>7D12CE8E1355B3AD003DBE39</string>
-		<string>/Users/ndemick/iPhone/4iro/Yotsu Iro.xcodeproj</string>
 		<string>1C78EAAD065D492600B07095</string>
+		<string>/Users/ndemick/iPhone/4iro/Yotsu Iro.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>0 0 1221 778 0 0 1280 778 </string>
@@ -630,7 +628,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>7D12CE8E1355B3AD003DBE39</string>
-				<string>7DF58C6E138B2CB0007EEB62</string>
+				<string>7D0024B9138C0DB40026DDFB</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -752,13 +750,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>7DF58C6F138B2CB0007EEB62</string>
+				<string>7D0024BA138C0DB40026DDFB</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>7DF58C70138B2CB0007EEB62</string>
-				<string>7DF58C71138B2CB0007EEB62</string>
-				<string>7DF58C72138B2CB0007EEB62</string>
-				<string>7DF58C73138B2CB0007EEB62</string>
-				<string>7DF58C74138B2CB0007EEB62</string>
+				<string>7D0024BB138C0DB40026DDFB</string>
+				<string>7D0024BC138C0DB40026DDFB</string>
+				<string>7D0024BD138C0DB40026DDFB</string>
+				<string>7D0024BE138C0DB40026DDFB</string>
+				<string>7D0024BF138C0DB40026DDFB</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -922,7 +920,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>7DF58C75138B2CB0007EEB62</string>
+				<string>7D0024C0138C0DB40026DDFB</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>

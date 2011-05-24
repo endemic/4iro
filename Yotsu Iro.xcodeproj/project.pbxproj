@@ -65,6 +65,8 @@
 		50F414F01069373D002A0D5E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F414EC1069373D002A0D5E /* Default.png */; };
 		50F414F11069373D002A0D5E /* fps_images.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F414ED1069373D002A0D5E /* fps_images.png */; };
 		50F414F21069373D002A0D5E /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F414EE1069373D002A0D5E /* Icon.png */; };
+		7D0024C9138C1E7D0026DDFB /* particle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D0024C8138C1E7D0026DDFB /* particle.png */; };
+		7D0024D4138C23D10026DDFB /* FFF_Tusj.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7D0024D3138C23D10026DDFB /* FFF_Tusj.ttf */; };
 		7D00F1791382D56500DDAF5D /* blue-clover.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D00F1691382D56500DDAF5D /* blue-clover.png */; };
 		7D00F17A1382D56500DDAF5D /* blue-diamond.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D00F16A1382D56500DDAF5D /* blue-diamond.png */; };
 		7D00F17B1382D56500DDAF5D /* blue-heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D00F16B1382D56500DDAF5D /* blue-heart.png */; };
@@ -335,6 +337,8 @@
 		50F414ED1069373D002A0D5E /* fps_images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fps_images.png; sourceTree = "<group>"; };
 		50F414EE1069373D002A0D5E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		50F414EF1069373D002A0D5E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D0024C8138C1E7D0026DDFB /* particle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = particle.png; path = images/particle.png; sourceTree = "<group>"; };
+		7D0024D3138C23D10026DDFB /* FFF_Tusj.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FFF_Tusj.ttf; path = fonts/FFF_Tusj.ttf; sourceTree = "<group>"; };
 		7D00F1691382D56500DDAF5D /* blue-clover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blue-clover.png"; path = "images/blue-clover.png"; sourceTree = "<group>"; };
 		7D00F16A1382D56500DDAF5D /* blue-diamond.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blue-diamond.png"; path = "images/blue-diamond.png"; sourceTree = "<group>"; };
 		7D00F16B1382D56500DDAF5D /* blue-heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blue-heart.png"; path = "images/blue-heart.png"; sourceTree = "<group>"; };
@@ -744,6 +748,7 @@
 		50F414EB1069373D002A0D5E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7D0024D2138C23C60026DDFB /* fonts */,
 				7DE7B7E8137A9B8500050DE7 /* todo.rtf */,
 				7D965606136971D4009239E4 /* images */,
 				E02BB762126CC1E0006E46A2 /* iTunesArtwork */,
@@ -760,9 +765,18 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		7D0024D2138C23C60026DDFB /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				7D0024D3138C23D10026DDFB /* FFF_Tusj.ttf */,
+			);
+			name = fonts;
+			sourceTree = "<group>";
+		};
 		7D965606136971D4009239E4 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				7D0024C8138C1E7D0026DDFB /* particle.png */,
 				7D00F1691382D56500DDAF5D /* blue-clover.png */,
 				7D00F16A1382D56500DDAF5D /* blue-diamond.png */,
 				7D00F16B1382D56500DDAF5D /* blue-heart.png */,
@@ -1206,6 +1220,8 @@
 				7D00F1861382D56500DDAF5D /* yellow-diamond.png in Resources */,
 				7D00F1871382D56500DDAF5D /* yellow-heart.png in Resources */,
 				7D00F1881382D56500DDAF5D /* yellow-star.png in Resources */,
+				7D0024C9138C1E7D0026DDFB /* particle.png in Resources */,
+				7D0024D4138C23D10026DDFB /* FFF_Tusj.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

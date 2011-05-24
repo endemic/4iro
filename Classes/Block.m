@@ -56,4 +56,16 @@
 	[self runAction:action];
 }
 
+- (void)embiggen
+{
+	// Make totally invisibly small!
+	[self setScale:0];
+	
+	// Create action to scale back to normal
+	id action = [CCScaleTo actionWithDuration:0.25f scale:1.0];
+	
+	// Run the action!
+	[self runAction:action];
+}
+
 @end
