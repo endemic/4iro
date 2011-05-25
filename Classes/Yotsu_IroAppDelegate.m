@@ -10,7 +10,7 @@
 
 #import "Yotsu_IroAppDelegate.h"
 #import "GameConfig.h"
-#import "LogoScene.h"
+#import "TitleScene.h"
 #import "RootViewController.h"
 
 @implementation Yotsu_IroAppDelegate
@@ -109,8 +109,22 @@
 	// Removes the startup flicker
 	[self removeStartupFlicker];
 	
+	// Get user defaults
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	
+	// Register default high scores - this could be more easily done by loading a .plist instead of manually creating this nested object
+	NSDictionary *defaultDefaults = [NSDictionary dictionaryWithObject:[NSArray arrayWithObjects:[NSNumber numberWithInt:0],
+																		[NSNumber numberWithInt:0],
+																		[NSNumber numberWithInt:0],
+																		[NSNumber numberWithInt:0],
+																		[NSNumber numberWithInt:0],
+																		nil]
+																forKey:@"scores"];
+	[defaults registerDefaults:defaultDefaults];
+	[defaults synchronize];
+	
 	// Run the intro Scene
-	[[CCDirector sharedDirector] runWithScene: [LogoScene scene]];		
+	[[CCDirector sharedDirector] runWithScene: [TitleScene scene]];		
 }
 
 

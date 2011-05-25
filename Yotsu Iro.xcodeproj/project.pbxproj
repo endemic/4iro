@@ -88,6 +88,7 @@
 		7D40212F138D09CA00490A3B /* LogoScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D40212E138D09CA00490A3B /* LogoScene.m */; };
 		7D402174138D11D700490A3B /* bottom-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D402172138D11D700490A3B /* bottom-background.png */; };
 		7D402175138D11D700490A3B /* timer.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D402173138D11D700490A3B /* timer.png */; };
+		7D46C962138D7E3100D1F9C8 /* ScoreScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D46C961138D7E3100D1F9C8 /* ScoreScene.m */; };
 		7DE7B7E9137A9B8500050DE7 /* todo.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 7DE7B7E8137A9B8500050DE7 /* todo.rtf */; };
 		7DF090E91377E824005B6BC8 /* Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF090E81377E824005B6BC8 /* Block.m */; };
 		DC6640030F83B3EA000B3E49 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6640020F83B3EA000B3E49 /* AudioToolbox.framework */; };
@@ -366,6 +367,8 @@
 		7D40212E138D09CA00490A3B /* LogoScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogoScene.m; sourceTree = "<group>"; };
 		7D402172138D11D700490A3B /* bottom-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bottom-background.png"; path = "images/bottom-background.png"; sourceTree = "<group>"; };
 		7D402173138D11D700490A3B /* timer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = timer.png; path = images/timer.png; sourceTree = "<group>"; };
+		7D46C960138D7E3100D1F9C8 /* ScoreScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreScene.h; sourceTree = "<group>"; };
+		7D46C961138D7E3100D1F9C8 /* ScoreScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreScene.m; sourceTree = "<group>"; };
 		7DE7B7E8137A9B8500050DE7 /* todo.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = todo.rtf; sourceTree = "<group>"; };
 		7DF090E71377E824005B6BC8 /* Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Block.h; sourceTree = "<group>"; };
 		7DF090E81377E824005B6BC8 /* Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Block.m; sourceTree = "<group>"; };
@@ -653,6 +656,8 @@
 				7D402123138D06E200490A3B /* TitleScene.m */,
 				7D40212D138D09CA00490A3B /* LogoScene.h */,
 				7D40212E138D09CA00490A3B /* LogoScene.m */,
+				7D46C960138D7E3100D1F9C8 /* ScoreScene.h */,
+				7D46C961138D7E3100D1F9C8 /* ScoreScene.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1257,6 +1262,7 @@
 				7DF090E91377E824005B6BC8 /* Block.m in Sources */,
 				7D402124138D06E200490A3B /* TitleScene.m in Sources */,
 				7D40212F138D09CA00490A3B /* LogoScene.m in Sources */,
+				7D46C962138D7E3100D1F9C8 /* ScoreScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -28,6 +28,36 @@
 	return self;
 }
 
++ (id)random
+{
+	int randomColorNumber = (float)(arc4random() % 100) / 100 * 4;
+	int randomShapeNumber = (float)(arc4random() % 100) / 100 * 4;
+	NSString *color;
+	NSString *shape;
+	
+	switch (randomColorNumber)
+	{
+		case 0: color = @"red"; break;
+		case 1: color = @"green"; break;
+		case 2: color = @"blue"; break;
+		case 3: color = @"yellow"; break;
+	}
+	
+	switch (randomShapeNumber)
+	{
+		case 0: shape = @"star"; break;
+		case 1: shape = @"clover"; break;
+		case 2: shape = @"heart"; break;
+		case 3: shape = @"diamond"; break;
+	}
+	
+	Block *s = [self spriteWithFile:[NSString stringWithFormat:@"%@-%@.png", color, shape]];
+	[s setColour:color];
+	[s setShape:shape];
+	
+	return s;
+}
+
 - (void)snapToGridPosition
 {
 	int x = self.gridPosition.x;

@@ -7,7 +7,7 @@
 //
 
 #import "LogoScene.h"
-#import "HelloWorldScene.h"
+#import "TitleScene.h"
 
 @implementation LogoScene
 
@@ -52,7 +52,7 @@
 	[self unschedule:@selector(nextScene)];
 	
 	// Transition to play scene
-	CCTransitionFlipX *transition = [CCTransitionFlipX transitionWithDuration:0.5 scene:[HelloWorld node] orientation:kOrientationUpOver];
+	CCTransitionFlipX *transition = [CCTransitionFlipX transitionWithDuration:0.5 scene:[TitleScene node] orientation:kOrientationUpOver];
 	[[CCDirector sharedDirector] replaceScene:transition];
 }
 

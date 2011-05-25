@@ -9,6 +9,7 @@
 // Import the interfaces
 #import "HelloWorldScene.h"
 #import "Block.h"
+#import "TitleScene.h"
 
 // HelloWorld implementation
 @implementation HelloWorld
@@ -89,6 +90,8 @@
 		// Reset the "buffer" blocks hidden around the outside of the screen
 		[self resetBuffer];
 		
+		// Preload the particle image
+		[[CCTextureCache sharedTextureCache] addImage:@"particle.png"];
 		
 		// Schedule an update method
 		[self scheduleUpdate];
@@ -100,6 +103,74 @@
 {
 	// For now, just update the timer
 	timeRemaining -= dt;
+	
+	// Game over condition
+	if (timeRemaining < 0)
+	{
+		timeRemaining = 0;
+		
+		// Unschedule this update method
+		[self unscheduleUpdate];
+		
+		// ask director the the window size
+		CGSize windowSize = [[CCDirector sharedDirector] winSize];
+		
+		// Game over, man!
+		CCLabelTTF *gameOverLabel = [CCLabelTTF labelWithString:@"Game Over" fontName:@"FFF_Tusj.ttf" fontSize:48];
+		[gameOverLabel setPosition:ccp(windowSize.width / 2, windowSize.height / 2)];
+		[self addChild:gameOverLabel z:3];
+		
+		// Specify font details
+		[CCMenuItemFont setFontSize:32];
+		[CCMenuItemFont setFontName:@"FFF_Tusj.ttf"];
+		
+		CCMenuItemFont *retryButton = [CCMenuItemFont itemFromString:@"Retry" block:^(id sender) {
+			// Reload this scene
+			CCTransitionFlipX *transition = [CCTransitionFlipX transitionWithDuration:0.5 scene:[HelloWorld node] orientation:kOrientationUpOver];
+			[[CCDirector sharedDirector] replaceScene:transition];
+		}];
+		
+		CCMenuItemFont *quitButton = [CCMenuItemFont itemFromString:@"Quit" block:^(id sender) {
+			// Go to title scene
+			CCTransitionFlipX *transition = [CCTransitionFlipX transitionWithDuration:0.5 scene:[TitleScene node] orientation:kOrientationUpOver];
+			[[CCDirector sharedDirector] replaceScene:transition];
+		}];
+		
+		CCMenu *gameOverMenu = [CCMenu menuWithItems:retryButton, quitButton, nil];
+		[gameOverMenu alignItemsVerticallyWithPadding:20];
+		[gameOverMenu setPosition:ccp(windowSize.width / 2, gameOverLabel.position.y - gameOverMenu.contentSize.height)];
+		[self addChild:gameOverMenu z:3];
+		
+		// Get scores array stored in user defaults
+		NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+		
+		// Get high scores array from "defaults" object
+		NSMutableArray *highScores = [NSMutableArray arrayWithArray:[defaults arrayForKey:@"scores"]];
+		
+		// Iterate thru high scores; see if current point value is higher than any of the stored values
+		for (int i = 0; i < [highScores count]; i++)
+		{
+			if (score >= [[highScores objectAtIndex:i] intValue])
+			{
+				// Insert new high score, which pushes all others down
+				[highScores insertObject:[NSNumber numberWithInt:score] atIndex:i];
+				
+				// Remove last score, so as to ensure only 5 entries in the high score array
+				[highScores removeLastObject];
+				
+				// Re-save scores array to user defaults
+				[defaults setObject:highScores forKey:@"scores"];
+				
+				[defaults synchronize];
+				
+				NSLog(@"Saved new high score of %i", score);
+				
+				// Bust out of the loop 
+				break;
+			}
+		}
+	}
+	
 	timeRemainingDisplay.percentage = timeRemaining / 30.0 * 100;
 }
 

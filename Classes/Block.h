@@ -23,6 +23,8 @@
 // Have to override this method in order to subclass CCSprite
 - (id)initWithTexture:(CCTexture2D *)texture rect:(CGRect)rect;
 
++ (id)random;	// Returns a random block
+
 - (void)snapToGridPosition;
 - (void)animateToGridPosition;
 - (void)flash;
