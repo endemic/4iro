@@ -35,21 +35,35 @@
 	// Apple recommends to re-assign "self" with the "super" return value
 	if ((self = [super init]))
 	{
+		[self setIsTouchEnabled:YES];
+		
 		// ask director the the window size
 		CGSize windowSize = [[CCDirector sharedDirector] winSize];
 		
 		// Add background for game status area
-		CCSprite *bg = [CCSprite spriteWithFile:@"top-background.png"];
-		[bg setPosition:ccp(windowSize.width / 2, windowSize.height - bg.contentSize.height / 2)];
-		[self addChild:bg z:2];
+		CCSprite *topBg = [CCSprite spriteWithFile:@"top-background.png"];
+		[topBg setPosition:ccp(windowSize.width / 2, windowSize.height - topBg.contentSize.height / 2)];
+		[self addChild:topBg z:2];
 		
-		[self setIsTouchEnabled:YES];
+		// Add background behind puzzle blocks
+		CCSprite *bottomBg = [CCSprite spriteWithFile:@"bottom-background.png"];
+		[bottomBg setPosition:ccp(windowSize.width / 2, bottomBg.contentSize.height / 2)];
+		[self addChild:bottomBg z:0];
 		
 		// Set up score int/label
 		score = 0;
 		scoreLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%i", score] fontName:@"FFF_Tusj.ttf" fontSize:32];
 		[scoreLabel setPosition:ccp(windowSize.width / 2, windowSize.height - scoreLabel.contentSize.height)];
 		[self addChild:scoreLabel z:3];
+		
+		// Set up timer
+		timeRemaining = 30.0;
+		timeRemainingDisplay = [CCProgressTimer progressWithFile:@"timer.png"];
+		timeRemainingDisplay.type = kCCProgressTimerTypeVerticalBarBT;
+		timeRemainingDisplay.percentage = 100.0;
+		[timeRemainingDisplay setPosition:ccp(timeRemainingDisplay.contentSize.width / 2, windowSize.height - timeRemainingDisplay.contentSize.height)];
+		[self addChild:timeRemainingDisplay z:3];
+		
 		
 		rows = 10;
 		cols = 10;
@@ -74,8 +88,19 @@
 		
 		// Reset the "buffer" blocks hidden around the outside of the screen
 		[self resetBuffer];
+		
+		
+		// Schedule an update method
+		[self scheduleUpdate];
 	}
 	return self;
+}
+
+- (void)update:(ccTime)dt
+{
+	// For now, just update the timer
+	timeRemaining -= dt;
+	timeRemainingDisplay.percentage = timeRemaining / 30.0 * 100;
 }
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -128,11 +153,9 @@
 		{
 			Block *s = [grid objectAtIndex:touchRow * cols + i];
 			[s setPosition:ccp(s.position.x + touchDiffX % blockSize, s.position.y)];
-			//[s setPosition:ccp(s.position.x + touchDiffX, s.position.y)];
 		}
 		
 		int d = touchStart.x - touchPoint.x;
-		//NSLog(@"%f - %f = %i", touchStart.x, touchPoint.x, d);
 		if (d >= blockSize)
 		{
 			// Handle very fast movement
@@ -215,9 +238,9 @@
 			[self shiftLeft];
 			
 			// Need to move last sprite in array row to its' correct display position
-			Block *last = [grid objectAtIndex:touchRow * rows + (cols - 1)];
-			Block *secondToLast = [grid objectAtIndex:touchRow * rows + (cols - 2)];
-			[last setPosition:ccp(secondToLast.position.x + blockSize, secondToLast.position.y)];
+//			Block *last = [grid objectAtIndex:touchRow * rows + (cols - 1)];
+//			Block *secondToLast = [grid objectAtIndex:touchRow * rows + (cols - 2)];
+//			[last setPosition:ccp(secondToLast.position.x + blockSize, secondToLast.position.y)];
 			
 			// Animate the entire row to snap back to position
 			for (int i = touchRow * rows; i < touchRow * rows + cols; i++)
@@ -235,9 +258,9 @@
 			[self shiftRight];
 			
 			// Need to move first sprite in array row to its' correct display position
-			Block *first = [grid objectAtIndex:touchRow * rows];
-			Block *second = [grid objectAtIndex:touchRow * rows + 1];
-			[first setPosition:ccp(second.position.x - blockSize, second.position.y)];
+//			Block *first = [grid objectAtIndex:touchRow * rows];
+//			Block *second = [grid objectAtIndex:touchRow * rows + 1];
+//			[first setPosition:ccp(second.position.x - blockSize, second.position.y)];
 			
 			// Animate the entire row to snap back to position
 			for (int i = touchRow * rows; i < touchRow * rows + cols; i++)
@@ -267,9 +290,9 @@
 			[self shiftDown];
 			
 			// Need to move last sprite in array column to its' correct display position
-			Block *last = [grid objectAtIndex:touchCol + (cols - 1) * cols];
-			Block *secondToLast = [grid objectAtIndex:touchCol + (cols - 2) * cols];
-			[last setPosition:ccp(secondToLast.position.x, secondToLast.position.y + blockSize)];
+//			Block *last = [grid objectAtIndex:touchCol + (cols - 1) * cols];
+//			Block *secondToLast = [grid objectAtIndex:touchCol + (cols - 2) * cols];
+//			[last setPosition:ccp(secondToLast.position.x, secondToLast.position.y + blockSize)];
 			
 			// Animate the entire column to snap back to position
 			for (int i = touchCol; i < rows * cols; i += cols)
@@ -285,9 +308,9 @@
 			[self shiftUp];
 			
 			// Need to move first sprite in array column to its' correct display position
-			Block *first = [grid objectAtIndex:touchCol];
-			Block *second = [grid objectAtIndex:touchCol + cols];
-			[first setPosition:ccp(second.position.x, second.position.y - blockSize)];
+//			Block *first = [grid objectAtIndex:touchCol];
+//			Block *second = [grid objectAtIndex:touchCol + cols];
+//			[first setPosition:ccp(second.position.x, second.position.y - blockSize)];
 			
 			// Animate the entire column to snap back to position
 			for (int i = touchCol; i < rows * cols; i += cols)
@@ -314,14 +337,29 @@
 		[grid replaceObjectAtIndex:i withObject:[grid objectAtIndex:i + 1]];
 		
 		// Update index of Block obj
+		int x = i % cols;
+		int y = floor(i / rows);
+		[[grid objectAtIndex:i] setGridPosition:ccp(x, y)];
+		
+		// Move to position
+		[[grid objectAtIndex:i] snapToGridPosition];
 	}
 	
 	// Move stored sprite to appropriate (x,y) location
-	Block *secondToLastBlock = [grid objectAtIndex:touchRow * rows + (cols - 1)];
-	[tmp setPosition:ccp(secondToLastBlock.position.x + blockSize, secondToLastBlock.position.y)];
+//	Block *secondToLastBlock = [grid objectAtIndex:touchRow * rows + (cols - 1)];
+//	[tmp setPosition:ccp(secondToLastBlock.position.x + blockSize, secondToLastBlock.position.y)];
 	
 	// Place first value at end of array row
-	[grid replaceObjectAtIndex:touchRow * rows + (cols - 1) withObject:tmp];
+	int i = touchRow * rows + (cols - 1);
+	[grid replaceObjectAtIndex:i withObject:tmp];
+	
+	// Update index of Block obj
+	int x = i % cols;
+	int y = floor(i / rows);
+	[[grid objectAtIndex:i] setGridPosition:ccp(x, y)];
+	
+	// Move to position
+	[[grid objectAtIndex:i] snapToGridPosition];
 	
 	[self resetBuffer];
 	
@@ -335,14 +373,33 @@
 	
 	// Shift right
 	for (int i = touchRow * rows + (cols - 1); i > touchRow * rows; i--)
+	{
 		[grid replaceObjectAtIndex:i withObject:[grid objectAtIndex:i - 1]];
+		
+		// Update index of Block obj
+		int x = i % cols;
+		int y = floor(i / rows);
+		[[grid objectAtIndex:i] setGridPosition:ccp(x, y)];
+		
+		// Move to position
+		[[grid objectAtIndex:i] snapToGridPosition];
+	}
 	
 	// Move sprite to appropriate (x,y) location
-	Block *secondBlock = [grid objectAtIndex:touchRow * rows + 1];
-	[tmp setPosition:ccp(secondBlock.position.x - blockSize, secondBlock.position.y)];
+//	Block *secondBlock = [grid objectAtIndex:touchRow * rows + 1];
+//	[tmp setPosition:ccp(secondBlock.position.x - blockSize, secondBlock.position.y)];
 	
 	// Place last value in front of array row
-	[grid replaceObjectAtIndex:touchRow * rows withObject:tmp];
+	int i = touchRow * rows;
+	[grid replaceObjectAtIndex:i withObject:tmp];
+	
+	// Update index of Block obj
+	int x = i % cols;
+	int y = floor(i / rows);
+	[[grid objectAtIndex:i] setGridPosition:ccp(x, y)];
+	
+	// Move to position
+	[[grid objectAtIndex:i] snapToGridPosition];
 	
 	[self resetBuffer];
 	
@@ -731,6 +788,10 @@
 {
 	score += points;
 	[scoreLabel setString:[NSString stringWithFormat:@"%i", score]];
+	
+	timeRemaining += 3;
+	if (timeRemaining > 30)
+		timeRemaining = 30;
 }
 
 // on "dealloc" you need to release all your retained objects

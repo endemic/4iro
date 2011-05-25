@@ -10,7 +10,7 @@
 
 #import "Yotsu_IroAppDelegate.h"
 #import "GameConfig.h"
-#import "HelloWorldScene.h"
+#import "LogoScene.h"
 #import "RootViewController.h"
 
 @implementation Yotsu_IroAppDelegate
@@ -110,7 +110,7 @@
 	[self removeStartupFlicker];
 	
 	// Run the intro Scene
-	[[CCDirector sharedDirector] runWithScene: [HelloWorld scene]];		
+	[[CCDirector sharedDirector] runWithScene: [LogoScene scene]];		
 }
 
 
