@@ -11,6 +11,9 @@
 #import "Block.h"
 #import "TitleScene.h"
 
+#import "CocosDenshion.h"
+#import "SimpleAudioEngine.h"
+
 // HelloWorld implementation
 @implementation HelloWorld
 
@@ -59,10 +62,11 @@
 		
 		// Set up timer
 		timeRemaining = 30.0;
+		timePlayed = 0;
 		timeRemainingDisplay = [CCProgressTimer progressWithFile:@"timer.png"];
 		timeRemainingDisplay.type = kCCProgressTimerTypeVerticalBarBT;
 		timeRemainingDisplay.percentage = 100.0;
-		[timeRemainingDisplay setPosition:ccp(timeRemainingDisplay.contentSize.width / 2, windowSize.height - timeRemainingDisplay.contentSize.height)];
+		[timeRemainingDisplay setPosition:ccp(timeRemainingDisplay.contentSize.width, windowSize.height - timeRemainingDisplay.contentSize.height)];
 		[self addChild:timeRemainingDisplay z:3];
 		
 		
@@ -101,77 +105,97 @@
 
 - (void)update:(ccTime)dt
 {
-	// For now, just update the timer
-	timeRemaining -= dt;
+	// Increment the total time played this game
+	timePlayed += dt;
+	
+	// This value increases as the game is played longer
+	int multiplier = floor(timePlayed / 20) + 1;
+	
+	// Update timer
+	timeRemaining -= dt * multiplier;
 	
 	// Game over condition
 	if (timeRemaining < 0)
 	{
 		timeRemaining = 0;
 		
-		// Unschedule this update method
-		[self unscheduleUpdate];
-		
-		// ask director the the window size
-		CGSize windowSize = [[CCDirector sharedDirector] winSize];
-		
-		// Game over, man!
-		CCLabelTTF *gameOverLabel = [CCLabelTTF labelWithString:@"Game Over" fontName:@"FFF_Tusj.ttf" fontSize:48];
-		[gameOverLabel setPosition:ccp(windowSize.width / 2, windowSize.height / 2)];
-		[self addChild:gameOverLabel z:3];
-		
-		// Specify font details
-		[CCMenuItemFont setFontSize:32];
-		[CCMenuItemFont setFontName:@"FFF_Tusj.ttf"];
-		
-		CCMenuItemFont *retryButton = [CCMenuItemFont itemFromString:@"Retry" block:^(id sender) {
-			// Reload this scene
-			CCTransitionFlipX *transition = [CCTransitionFlipX transitionWithDuration:0.5 scene:[HelloWorld node] orientation:kOrientationUpOver];
-			[[CCDirector sharedDirector] replaceScene:transition];
-		}];
-		
-		CCMenuItemFont *quitButton = [CCMenuItemFont itemFromString:@"Quit" block:^(id sender) {
-			// Go to title scene
-			CCTransitionFlipX *transition = [CCTransitionFlipX transitionWithDuration:0.5 scene:[TitleScene node] orientation:kOrientationUpOver];
-			[[CCDirector sharedDirector] replaceScene:transition];
-		}];
-		
-		CCMenu *gameOverMenu = [CCMenu menuWithItems:retryButton, quitButton, nil];
-		[gameOverMenu alignItemsVerticallyWithPadding:20];
-		[gameOverMenu setPosition:ccp(windowSize.width / 2, gameOverLabel.position.y - gameOverMenu.contentSize.height)];
-		[self addChild:gameOverMenu z:3];
-		
-		// Get scores array stored in user defaults
-		NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-		
-		// Get high scores array from "defaults" object
-		NSMutableArray *highScores = [NSMutableArray arrayWithArray:[defaults arrayForKey:@"scores"]];
-		
-		// Iterate thru high scores; see if current point value is higher than any of the stored values
-		for (int i = 0; i < [highScores count]; i++)
-		{
-			if (score >= [[highScores objectAtIndex:i] intValue])
-			{
-				// Insert new high score, which pushes all others down
-				[highScores insertObject:[NSNumber numberWithInt:score] atIndex:i];
-				
-				// Remove last score, so as to ensure only 5 entries in the high score array
-				[highScores removeLastObject];
-				
-				// Re-save scores array to user defaults
-				[defaults setObject:highScores forKey:@"scores"];
-				
-				[defaults synchronize];
-				
-				NSLog(@"Saved new high score of %i", score);
-				
-				// Bust out of the loop 
-				break;
-			}
-		}
+		[self loseGame];
 	}
 	
+	// 30 seconds is max time limit; multipy by 100 to get value between 0 - 100
 	timeRemainingDisplay.percentage = timeRemaining / 30.0 * 100;
+}
+
+
+/*
+ Do all sorts of nonsense after the player loses the game
+ */
+- (void)loseGame
+{
+	[self setIsTouchEnabled:NO];
+	
+	// Unschedule this update method
+	[self unscheduleUpdate];
+	
+	// ask director the the window size
+	CGSize windowSize = [[CCDirector sharedDirector] winSize];
+	
+	// Game over, man!
+	CCLabelTTF *gameOverLabel = [CCLabelTTF labelWithString:@"Game Over" fontName:@"FFF_Tusj.ttf" fontSize:48];
+	[gameOverLabel setPosition:ccp(windowSize.width / 2, windowSize.height / 2)];
+	[gameOverLabel setColor:ccc3(0, 0, 0)];
+	[self addChild:gameOverLabel z:3];
+	
+	// Specify font details
+	[CCMenuItemFont setFontSize:32];
+	[CCMenuItemFont setFontName:@"FFF_Tusj.ttf"];
+	
+	CCMenuItemFont *retryButton = [CCMenuItemFont itemFromString:@"Retry" block:^(id sender) {
+		// Reload this scene
+		CCTransitionFlipX *transition = [CCTransitionFlipX transitionWithDuration:0.5 scene:[HelloWorld node] orientation:kOrientationUpOver];
+		[[CCDirector sharedDirector] replaceScene:transition];
+	}];
+	
+	CCMenuItemFont *quitButton = [CCMenuItemFont itemFromString:@"Quit" block:^(id sender) {
+		// Go to title scene
+		CCTransitionFlipX *transition = [CCTransitionFlipX transitionWithDuration:0.5 scene:[TitleScene node] orientation:kOrientationUpOver];
+		[[CCDirector sharedDirector] replaceScene:transition];
+	}];
+	
+	CCMenu *gameOverMenu = [CCMenu menuWithItems:retryButton, quitButton, nil];
+	[gameOverMenu alignItemsVerticallyWithPadding:20];
+	[gameOverMenu setPosition:ccp(windowSize.width / 2, gameOverLabel.position.y - retryButton.contentSize.height * 3)];
+	[gameOverMenu setColor:ccc3(0, 0, 0)];
+	[self addChild:gameOverMenu z:3];
+	
+	// Get scores array stored in user defaults
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	
+	// Get high scores array from "defaults" object
+	NSMutableArray *highScores = [NSMutableArray arrayWithArray:[defaults arrayForKey:@"scores"]];
+	
+	// Iterate thru high scores; see if current point value is higher than any of the stored values
+	for (int i = 0; i < [highScores count]; i++)
+	{
+		if (score >= [[highScores objectAtIndex:i] intValue])
+		{
+			// Insert new high score, which pushes all others down
+			[highScores insertObject:[NSNumber numberWithInt:score] atIndex:i];
+			
+			// Remove last score, so as to ensure only 5 entries in the high score array
+			[highScores removeLastObject];
+			
+			// Re-save scores array to user defaults
+			[defaults setObject:highScores forKey:@"scores"];
+			
+			[defaults synchronize];
+			
+			NSLog(@"Saved new high score of %i", score);
+			
+			// Bust out of the loop 
+			break;
+		}
+	}
 }
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -235,6 +259,8 @@
 	
 			// Reset the "start" position
 			touchStart = touchPoint;
+			
+			[[SimpleAudioEngine sharedEngine] playEffect:@"move.wav"];
 		}
 		else if (d <= -blockSize)
 		{
@@ -243,6 +269,8 @@
 			
 			// Reset the "start" position
 			touchStart = touchPoint;
+			
+			[[SimpleAudioEngine sharedEngine] playEffect:@"move.wav"];
 		}
 	}
 	else if (verticalMove)
@@ -263,6 +291,8 @@
 			
 			// Reset the "start" position
 			touchStart = touchPoint;
+			
+			[[SimpleAudioEngine sharedEngine] playEffect:@"move.wav"];
 		}
 		else if (d <= -blockSize)
 		{
@@ -271,6 +301,8 @@
 			
 			// Reset the "start" position
 			touchStart = touchPoint;
+			
+			[[SimpleAudioEngine sharedEngine] playEffect:@"move.wav"];
 		}
 	}
 	
@@ -739,6 +771,10 @@
 		}
 	}
 	
+	// Play SFX if blocks are removed
+	if ([removeArray count] > 0)
+		[[SimpleAudioEngine sharedEngine] playEffect:@"match2.wav"];
+	
 	// Finally, clear out the removeSet array
 	[removeArray removeAllObjects];
 }
@@ -852,7 +888,7 @@
 	// Add to layer
 	[self addChild:particleSystem z:10];
 	
-	NSLog(@"Tryin' to make a particle emitter at %f, %f", position.x, position.y);
+	//NSLog(@"Tryin' to make a particle emitter at %f, %f", position.x, position.y);
 }
 
 - (void)updateScore:(int)points

@@ -10,7 +10,7 @@
 
 #import "Yotsu_IroAppDelegate.h"
 #import "GameConfig.h"
-#import "TitleScene.h"
+#import "LogoScene.h"
 #import "RootViewController.h"
 
 @implementation Yotsu_IroAppDelegate
@@ -124,7 +124,7 @@
 	[defaults synchronize];
 	
 	// Run the intro Scene
-	[[CCDirector sharedDirector] runWithScene: [TitleScene scene]];		
+	[[CCDirector sharedDirector] runWithScene: [LogoScene scene]];		
 }
 
 

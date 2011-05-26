@@ -29,7 +29,7 @@
 	CCLabelTTF *scoreLabel;
 	
 	float timeRemaining;						// Say a maximum of 30 seconds
-	//CCSprite *timeRemainingDisplay;			// Goes down from 30 to 0
+	float timePlayed;							// Records how long the player has been playing
 	CCProgressTimer *timeRemainingDisplay;		// kCCProgressTimerTypeVerticalBarBT
 }
 
@@ -37,6 +37,7 @@
 + (id)scene;
 
 - (void)update:(ccTime)dt;
+- (void)loseGame;
 
 - (void)shiftLeft;
 - (void)shiftRight;
