@@ -11,7 +11,12 @@
 #import "Yotsu_IroAppDelegate.h"
 #import "GameConfig.h"
 #import "LogoScene.h"
+#import "TitleScene.h"
+#import "HelloWorldScene.h"
 #import "RootViewController.h"
+
+#import "CocosDenshion.h"
+#import "SimpleAudioEngine.h"
 
 @implementation Yotsu_IroAppDelegate
 
@@ -123,8 +128,13 @@
 	[defaults registerDefaults:defaultDefaults];
 	[defaults synchronize];
 	
+	// Preload some simple audio
+	[[SimpleAudioEngine sharedEngine] preloadEffect:@"button.caf"];
+	[[SimpleAudioEngine sharedEngine] preloadEffect:@"move.caf"];
+	[[SimpleAudioEngine sharedEngine] preloadEffect:@"match2.caf"];
+	
 	// Run the intro Scene
-	[[CCDirector sharedDirector] runWithScene: [LogoScene scene]];		
+	[[CCDirector sharedDirector] runWithScene:[HelloWorld scene]];		
 }
 
 

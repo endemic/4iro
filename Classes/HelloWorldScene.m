@@ -56,8 +56,9 @@
 		
 		// Set up score int/label
 		score = 0;
-		scoreLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%i", score] fontName:@"FFF_Tusj.ttf" fontSize:32];
+		scoreLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%i", score] fontName:@"Chunkfive.otf" fontSize:32];
 		[scoreLabel setPosition:ccp(windowSize.width / 2, windowSize.height - scoreLabel.contentSize.height)];
+		[scoreLabel setColor:ccc3(0, 0, 0)];
 		[self addChild:scoreLabel z:3];
 		
 		// Set up timer
@@ -68,7 +69,6 @@
 		timeRemainingDisplay.percentage = 100.0;
 		[timeRemainingDisplay setPosition:ccp(timeRemainingDisplay.contentSize.width, windowSize.height - timeRemainingDisplay.contentSize.height)];
 		[self addChild:timeRemainingDisplay z:3];
-		
 		
 		rows = 10;
 		cols = 10;
@@ -110,6 +110,7 @@
 	
 	// This value increases as the game is played longer
 	int multiplier = floor(timePlayed / 20) + 1;
+	//int multiplier = 1;
 	
 	// Update timer
 	timeRemaining -= dt * multiplier;
@@ -141,14 +142,14 @@
 	CGSize windowSize = [[CCDirector sharedDirector] winSize];
 	
 	// Game over, man!
-	CCLabelTTF *gameOverLabel = [CCLabelTTF labelWithString:@"Game Over" fontName:@"FFF_Tusj.ttf" fontSize:48];
+	CCLabelTTF *gameOverLabel = [CCLabelTTF labelWithString:@"Game Over" fontName:@"Chunkfive.otf" fontSize:48];
 	[gameOverLabel setPosition:ccp(windowSize.width / 2, windowSize.height / 2)];
 	[gameOverLabel setColor:ccc3(0, 0, 0)];
 	[self addChild:gameOverLabel z:3];
 	
 	// Specify font details
 	[CCMenuItemFont setFontSize:32];
-	[CCMenuItemFont setFontName:@"FFF_Tusj.ttf"];
+	[CCMenuItemFont setFontName:@"Chunkfive.otf"];
 	
 	CCMenuItemFont *retryButton = [CCMenuItemFont itemFromString:@"Retry" block:^(id sender) {
 		// Reload this scene
@@ -255,22 +256,40 @@
 		{
 			// Handle very fast movement
 			for (int i = 0; i < floor(d / blockSize); i++)
+			{
 				[self shiftLeft];
+				
+				for (int i = 0; i < cols; i++)
+				{
+					// Move to position
+					Block *s = [grid objectAtIndex:touchRow * cols + i];
+					[s snapToGridPosition];
+				}
+			}
 	
 			// Reset the "start" position
 			touchStart = touchPoint;
 			
-			[[SimpleAudioEngine sharedEngine] playEffect:@"move.wav"];
+			[[SimpleAudioEngine sharedEngine] playEffect:@"move.caf"];
 		}
 		else if (d <= -blockSize)
 		{
 			for (int i = 0; i > floor(d / blockSize); i--)
+			{
 				[self shiftRight];
+				
+				for (int i = 0; i < cols; i++)
+				{
+					// Move to position
+					Block *s = [grid objectAtIndex:touchRow * cols + i];
+					[s snapToGridPosition];
+				}
+			}
 			
 			// Reset the "start" position
 			touchStart = touchPoint;
 			
-			[[SimpleAudioEngine sharedEngine] playEffect:@"move.wav"];
+			[[SimpleAudioEngine sharedEngine] playEffect:@"move.caf"];
 		}
 	}
 	else if (verticalMove)
@@ -287,22 +306,40 @@
 		if (d >= blockSize)
 		{
 			for (int i = 0; i < floor(d / blockSize); i++)
+			{
 				[self shiftDown];
+				
+				for (int i = 0; i < cols; i++)
+				{
+					// Move to position
+					Block *s = [grid objectAtIndex:touchCol + cols * i];
+					[s snapToGridPosition];
+				}
+			}
 			
 			// Reset the "start" position
 			touchStart = touchPoint;
 			
-			[[SimpleAudioEngine sharedEngine] playEffect:@"move.wav"];
+			[[SimpleAudioEngine sharedEngine] playEffect:@"move.caf"];
 		}
 		else if (d <= -blockSize)
 		{
 			for (int i = 0; i > floor(d / blockSize); i--)
+			{
 				[self shiftUp];
+				
+				for (int i = 0; i < cols; i++)
+				{
+					// Move to position
+					Block *s = [grid objectAtIndex:touchCol + cols * i];
+					[s snapToGridPosition];
+				}
+			}
 			
 			// Reset the "start" position
 			touchStart = touchPoint;
 			
-			[[SimpleAudioEngine sharedEngine] playEffect:@"move.wav"];
+			[[SimpleAudioEngine sharedEngine] playEffect:@"move.caf"];
 		}
 	}
 	
@@ -322,55 +359,44 @@
 		// Move back to original position
 		if (touchDiff.x <= blockSize / 2 && touchDiff.x >= -blockSize / 2)
 		{
-			//NSLog(@"touchDiff: %f, snap: %f", touchDiff.x, -touchDiff.x);
-			
 			for (int i = touchRow * rows; i < touchRow * rows + cols; i++)
 			{
 				Block *s = [grid objectAtIndex:i];
-				//id action = [CCEaseInOut actionWithAction:[CCMoveBy actionWithDuration:0.2 position:ccp(-touchDiff.x, 0)] rate:0.2];
-				id action = [CCMoveTo actionWithDuration:0.2 position:ccp(blockSize * (i % rows) - blockSize / 2, s.position.y)];
-				[s runAction:action];
+				[s animateToGridPosition];
+				
 			}
 		}
 		// Shift either left or right
 		else if (touchDiff.x < -blockSize / 2)
 		{
-			//NSLog(@"touchDiff: %f, snap: %f", touchDiff.x, -(blockSize + touchDiff.x));
-			
 			// Shift grid
 			[self shiftLeft];
 			
 			// Need to move last sprite in array row to its' correct display position
-//			Block *last = [grid objectAtIndex:touchRow * rows + (cols - 1)];
-//			Block *secondToLast = [grid objectAtIndex:touchRow * rows + (cols - 2)];
-//			[last setPosition:ccp(secondToLast.position.x + blockSize, secondToLast.position.y)];
+			Block *last = [grid objectAtIndex:touchRow * rows + (cols - 1)];
+			[last snapToGridPosition];
 			
 			// Animate the entire row to snap back to position
 			for (int i = touchRow * rows; i < touchRow * rows + cols; i++)
 			{
 				Block *s = [grid objectAtIndex:i];
-				id action = [CCMoveTo actionWithDuration:0.2 position:ccp(blockSize * (i % rows) - blockSize / 2, s.position.y)];
-				[s runAction:action];
+				[s animateToGridPosition];
 			}
 		}
 		else if (touchDiff.x > blockSize / 2)
 		{
-			//NSLog(@"touchDiff: %f, snap: %f", touchDiff.x, blockSize - touchDiff.x);
-			
 			// Shift grid
 			[self shiftRight];
 			
 			// Need to move first sprite in array row to its' correct display position
-//			Block *first = [grid objectAtIndex:touchRow * rows];
-//			Block *second = [grid objectAtIndex:touchRow * rows + 1];
-//			[first setPosition:ccp(second.position.x - blockSize, second.position.y)];
-			
+			Block *first = [grid objectAtIndex:touchRow * rows];
+			[first snapToGridPosition];
+
 			// Animate the entire row to snap back to position
 			for (int i = touchRow * rows; i < touchRow * rows + cols; i++)
 			{
 				Block *s = [grid objectAtIndex:i];
-				id action = [CCMoveTo actionWithDuration:0.2 position:ccp(blockSize * (i % rows) - blockSize / 2, s.position.y)];
-				[s runAction:action];
+				[s animateToGridPosition];
 			}			
 		}
 	}
@@ -382,8 +408,7 @@
 			for (int i = touchCol; i < rows * cols; i += cols)
 			{
 				Block *s = [grid objectAtIndex:i];
-				id action = [CCMoveTo actionWithDuration:0.2 position:ccp(s.position.x, blockSize * (i / cols) - blockSize / 2)];
-				[s runAction:action];
+				[s animateToGridPosition];
 			}
 		}
 		// Shift either up or down
@@ -393,16 +418,14 @@
 			[self shiftDown];
 			
 			// Need to move last sprite in array column to its' correct display position
-//			Block *last = [grid objectAtIndex:touchCol + (cols - 1) * cols];
-//			Block *secondToLast = [grid objectAtIndex:touchCol + (cols - 2) * cols];
-//			[last setPosition:ccp(secondToLast.position.x, secondToLast.position.y + blockSize)];
-			
+			Block *last = [grid objectAtIndex:touchCol + (cols - 1) * cols];
+			[last snapToGridPosition];
+
 			// Animate the entire column to snap back to position
 			for (int i = touchCol; i < rows * cols; i += cols)
 			{
 				Block *s = [grid objectAtIndex:i];
-				id action = [CCMoveTo actionWithDuration:0.2 position:ccp(s.position.x, blockSize * (i / cols) - blockSize / 2)];
-				[s runAction:action];
+				[s animateToGridPosition];
 			}
 		}
 		else if (touchDiff.y > blockSize / 2)
@@ -411,16 +434,14 @@
 			[self shiftUp];
 			
 			// Need to move first sprite in array column to its' correct display position
-//			Block *first = [grid objectAtIndex:touchCol];
-//			Block *second = [grid objectAtIndex:touchCol + cols];
-//			[first setPosition:ccp(second.position.x, second.position.y - blockSize)];
+			Block *first = [grid objectAtIndex:touchCol];
+			[first snapToGridPosition];
 			
 			// Animate the entire column to snap back to position
 			for (int i = touchCol; i < rows * cols; i += cols)
 			{
 				Block *s = [grid objectAtIndex:i];
-				id action = [CCMoveTo actionWithDuration:0.2 position:ccp(s.position.x, blockSize * (i / cols) - blockSize / 2)];
-				[s runAction:action];
+				[s animateToGridPosition];
 			}
 		}
 	}
@@ -443,15 +464,8 @@
 		int x = i % cols;
 		int y = floor(i / rows);
 		[[grid objectAtIndex:i] setGridPosition:ccp(x, y)];
-		
-		// Move to position
-		[[grid objectAtIndex:i] snapToGridPosition];
 	}
-	
-	// Move stored sprite to appropriate (x,y) location
-//	Block *secondToLastBlock = [grid objectAtIndex:touchRow * rows + (cols - 1)];
-//	[tmp setPosition:ccp(secondToLastBlock.position.x + blockSize, secondToLastBlock.position.y)];
-	
+
 	// Place first value at end of array row
 	int i = touchRow * rows + (cols - 1);
 	[grid replaceObjectAtIndex:i withObject:tmp];
@@ -460,9 +474,6 @@
 	int x = i % cols;
 	int y = floor(i / rows);
 	[[grid objectAtIndex:i] setGridPosition:ccp(x, y)];
-	
-	// Move to position
-	[[grid objectAtIndex:i] snapToGridPosition];
 	
 	[self resetBuffer];
 	
@@ -483,15 +494,8 @@
 		int x = i % cols;
 		int y = floor(i / rows);
 		[[grid objectAtIndex:i] setGridPosition:ccp(x, y)];
-		
-		// Move to position
-		[[grid objectAtIndex:i] snapToGridPosition];
 	}
-	
-	// Move sprite to appropriate (x,y) location
-//	Block *secondBlock = [grid objectAtIndex:touchRow * rows + 1];
-//	[tmp setPosition:ccp(secondBlock.position.x - blockSize, secondBlock.position.y)];
-	
+
 	// Place last value in front of array row
 	int i = touchRow * rows;
 	[grid replaceObjectAtIndex:i withObject:tmp];
@@ -500,10 +504,7 @@
 	int x = i % cols;
 	int y = floor(i / rows);
 	[[grid objectAtIndex:i] setGridPosition:ccp(x, y)];
-	
-	// Move to position
-	[[grid objectAtIndex:i] snapToGridPosition];
-	
+
 	[self resetBuffer];
 	
 	//NSLog(@"Shift right");
@@ -516,14 +517,27 @@
 	
 	// Shift up
 	for (int i = touchCol + rows * (cols - 1); i > touchCol; i -= cols)
+	{
 		[grid replaceObjectAtIndex:i withObject:[grid objectAtIndex:i - cols]];
+		
+		// Update index of Block obj
+		int x = i % cols;
+		int y = floor(i / rows);
+		[[grid objectAtIndex:i] setGridPosition:ccp(x, y)];
+	}
 	
 	// Move sprite to appropriate (x,y) location
-	Block *secondBlock = [grid objectAtIndex:touchCol + cols];
-	[tmp setPosition:ccp(secondBlock.position.x, secondBlock.position.y - blockSize)];
+//	Block *secondBlock = [grid objectAtIndex:touchCol + cols];
+//	[tmp setPosition:ccp(secondBlock.position.x, secondBlock.position.y - blockSize)];
 	
 	// Place last value in front of array row
-	[grid replaceObjectAtIndex:touchCol withObject:tmp];
+	int i = touchCol;
+	[grid replaceObjectAtIndex:i withObject:tmp];
+	
+	// Update index of Block obj
+	int x = i % cols;
+	int y = floor(i / rows);
+	[[grid objectAtIndex:i] setGridPosition:ccp(x, y)];
 	
 	[self resetBuffer];
 	
@@ -537,14 +551,27 @@
 	
 	// Shift down
 	for (int i = touchCol; i < touchCol + rows * (cols - 1); i += cols)
+	{
 		[grid replaceObjectAtIndex:i withObject:[grid objectAtIndex:i + cols]];
+		
+		// Update index of Block obj
+		int x = i % cols;
+		int y = floor(i / rows);
+		[[grid objectAtIndex:i] setGridPosition:ccp(x, y)];
+	}
 	
 	// Move sprite to appropriate (x,y) location
-	Block *secondBlock = [grid objectAtIndex:touchCol + rows * (cols - 2)];
-	[tmp setPosition:ccp(secondBlock.position.x, secondBlock.position.y + blockSize)];
+//	Block *secondBlock = [grid objectAtIndex:touchCol + rows * (cols - 2)];
+//	[tmp setPosition:ccp(secondBlock.position.x, secondBlock.position.y + blockSize)];
 	
 	// Place first value at end of array row
-	[grid replaceObjectAtIndex:touchCol + rows * (cols - 1) withObject:tmp];
+	int i = touchCol + rows * (cols - 1);
+	[grid replaceObjectAtIndex:i withObject:tmp];
+	
+	// Update index of Block obj
+	int x = i % cols;
+	int y = floor(i / rows);
+	[[grid objectAtIndex:i] setGridPosition:ccp(x, y)];
 	
 	[self resetBuffer];
 	
@@ -761,7 +788,7 @@
 		if (remove)
 		{
 			[self createParticlesAt:remove.position];
-			[self removeChild:remove cleanup:YES];
+			[self removeChild:remove cleanup:NO];
 			[self newBlockAtIndex:gridIndex];
 			
 			// Do some sort of effect here to show which blocks matched
@@ -773,7 +800,7 @@
 	
 	// Play SFX if blocks are removed
 	if ([removeArray count] > 0)
-		[[SimpleAudioEngine sharedEngine] playEffect:@"match2.wav"];
+		[[SimpleAudioEngine sharedEngine] playEffect:@"match2.caf"];
 	
 	// Finally, clear out the removeSet array
 	[removeArray removeAllObjects];

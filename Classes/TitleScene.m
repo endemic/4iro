@@ -40,11 +40,7 @@
 	{
 		// ask director the the window size
 		CGSize windowSize = [[CCDirector sharedDirector] winSize];
-		
-		// Preload some simple audio
-		[[SimpleAudioEngine sharedEngine] preloadEffect:@"button.wav"];
-		[[SimpleAudioEngine sharedEngine] preloadEffect:@"move.wav"];
-		
+	
 		CCSprite *bg = [CCSprite spriteWithFile:@"title-background.png"];
 		[bg setPosition:ccp(windowSize.width / 2, windowSize.height / 2)];
 		[self addChild:bg];
@@ -78,17 +74,17 @@
 		
 
 		// Game logo/name
-		CCLabelTTF *titleLabel = [CCLabelTTF labelWithString:@"COLOR\n+\nSHAPE" dimensions:CGSizeMake(windowSize.width, windowSize.height / 3) alignment:CCTextAlignmentCenter fontName:@"FFF_Tusj.ttf" fontSize:48];
+		CCLabelTTF *titleLabel = [CCLabelTTF labelWithString:@"COLOR\n+\nSHAPE" dimensions:CGSizeMake(windowSize.width, windowSize.height / 3) alignment:CCTextAlignmentCenter fontName:@"Chunkfive.otf" fontSize:48];
 		[titleLabel setPosition:ccp(windowSize.width / 2, windowSize.height - titleLabel.contentSize.height)];
 		[titleLabel setColor:ccc3(0, 0, 0)];
 		[self addChild:titleLabel z:3];
 		
 		// Specify font details
 		[CCMenuItemFont setFontSize:32];
-		[CCMenuItemFont setFontName:@"FFF_Tusj.ttf"];
+		[CCMenuItemFont setFontName:@"Chunkfive.otf"];
 		
 		CCMenuItemFont *startButton = [CCMenuItemFont itemFromString:@"Start" block:^(id sender) {
-			[[SimpleAudioEngine sharedEngine] playEffect:@"button.wav"];
+			[[SimpleAudioEngine sharedEngine] playEffect:@"button.caf"];
 			
 			// Reload this scene
 			CCTransitionFlipX *transition = [CCTransitionFlipX transitionWithDuration:0.5 scene:[HelloWorld node] orientation:kOrientationUpOver];
@@ -96,7 +92,7 @@
 		}];
 		
 		CCMenuItemFont *scoresButton = [CCMenuItemFont itemFromString:@"High Scores" block:^(id sender) {
-			[[SimpleAudioEngine sharedEngine] playEffect:@"button.wav"];
+			[[SimpleAudioEngine sharedEngine] playEffect:@"button.caf"];
 			
 			// Go to score scene
 			CCTransitionFlipX *transition = [CCTransitionFlipX transitionWithDuration:0.5 scene:[ScoreScene node] orientation:kOrientationUpOver];

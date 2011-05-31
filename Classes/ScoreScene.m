@@ -46,7 +46,7 @@
 		NSArray *highScores = [defaults arrayForKey:@"scores"];
 		
 		// Create title label
-		CCLabelTTF *title = [CCLabelTTF labelWithString:@"high scores" fontName:@"FFF_Tusj.ttf" fontSize:40];
+		CCLabelTTF *title = [CCLabelTTF labelWithString:@"high scores" fontName:@"Chunkfive.otf" fontSize:40];
 		[title setPosition:ccp(windowSize.width / 2, windowSize.height - title.contentSize.height)];
 		[title setColor:ccc3(0, 0, 0)];
 		[self addChild:title];
@@ -61,7 +61,7 @@
 		}
 		
 		// Create label that will display the scores - manually set the dimensions due to multi-line content
-		CCLabelTTF *scoresLabel = [CCLabelTTF labelWithString:scoresString dimensions:CGSizeMake(windowSize.width, windowSize.height / 2) alignment:CCTextAlignmentCenter fontName:@"FFF_Tusj.ttf" fontSize:32];
+		CCLabelTTF *scoresLabel = [CCLabelTTF labelWithString:scoresString dimensions:CGSizeMake(windowSize.width, windowSize.height / 2) alignment:CCTextAlignmentCenter fontName:@"Chunkfive.otf" fontSize:32];
 		[scoresLabel setPosition:ccp(windowSize.width / 2, windowSize.height / 2)];
 		[scoresLabel setColor:ccc3(0, 0, 0)];
 		[self addChild:scoresLabel];
@@ -85,7 +85,7 @@
 
 - (void)backButtonAction
 {
-	[[SimpleAudioEngine sharedEngine] playEffect:@"button.wav"];
+	[[SimpleAudioEngine sharedEngine] playEffect:@"button.caf"];
 	
 	CCTransitionFlipX *transition = [CCTransitionFlipX transitionWithDuration:0.5 scene:[TitleScene node] orientation:kOrientationUpOver];
 	[[CCDirector sharedDirector] replaceScene:transition];
