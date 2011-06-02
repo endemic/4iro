@@ -17,7 +17,7 @@
 	NSMutableArray *grid;
 	
 	// References to size of the playing grid
-	int rows, cols, blockSize, gridOffset;
+	int rows, cols, blockSize, gridOffset, visibleRows, visibleCols;
 	
 	// Variables for user interaction
 	int touchRow, touchCol;
@@ -25,7 +25,7 @@
 	BOOL horizontalMove, verticalMove;
 	
 	// Various display bits
-	int score;
+	int score, comboCount;
 	CCLabelTTF *scoreLabel;
 	
 	float timeRemaining;						// Say a maximum of 30 seconds
@@ -47,6 +47,7 @@
 - (void)resetBuffer;
 - (void)matchCheck;
 
+- (void)dropBlocks;
 - (void)newBlockAtIndex:(int)index;
 - (void)createParticlesAt:(CGPoint)position;
 

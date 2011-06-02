@@ -14,6 +14,8 @@
 #import "CocosDenshion.h"
 #import "SimpleAudioEngine.h"
 
+#define kAnimationDuration 0.2
+
 // HelloWorld implementation
 @implementation HelloWorld
 
@@ -54,6 +56,9 @@
 		[bottomBg setPosition:ccp(windowSize.width / 2, bottomBg.contentSize.height / 2)];
 		[self addChild:bottomBg z:0];
 		
+		// Init combo counter
+		comboCount = 0;
+		
 		// Set up score int/label
 		score = 0;
 		scoreLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%i", score] fontName:@"Chunkfive.otf" fontSize:32];
@@ -74,8 +79,8 @@
 		cols = 10;
 		gridOffset = 1;
 		
-//		int visibleRows = rows - gridOffset * 2;
-//		int visibleCols = cols - gridOffset * 2;
+		visibleRows = rows - gridOffset * 2;
+		visibleCols = cols - gridOffset * 2;
 
 //		rows = 8;
 //		cols = 8;
@@ -446,7 +451,8 @@
 		}
 	}
 	
-	[self matchCheck];
+	// Schedule the matchCheck method to be run after everything finishes animating
+	[self schedule:@selector(matchCheck) interval:kAnimationDuration];
 }
 
 - (void)shiftLeft
@@ -525,10 +531,6 @@
 		int y = floor(i / rows);
 		[[grid objectAtIndex:i] setGridPosition:ccp(x, y)];
 	}
-	
-	// Move sprite to appropriate (x,y) location
-//	Block *secondBlock = [grid objectAtIndex:touchCol + cols];
-//	[tmp setPosition:ccp(secondBlock.position.x, secondBlock.position.y - blockSize)];
 	
 	// Place last value in front of array row
 	int i = touchCol;
@@ -627,7 +629,6 @@
 {
 	// Go thru and check for matching colors/shapes - first horizontally, then vertically
 	// Only go through indices 1 - 8
-	// Test out horizontal first - color
 	
 	NSMutableArray *colorArray = [NSMutableArray arrayWithCapacity:8];
 	NSMutableArray *shapeArray = [NSMutableArray arrayWithCapacity:8];
@@ -789,7 +790,13 @@
 		{
 			[self createParticlesAt:remove.position];
 			[self removeChild:remove cleanup:NO];
-			[self newBlockAtIndex:gridIndex];
+			[grid replaceObjectAtIndex:gridIndex withObject:[NSNull null]];
+			
+			
+			// Drop more blocks in to replace the ones that were removed
+			[self dropBlocks];
+			
+			//[self newBlockAtIndex:gridIndex];
 			
 			// Do some sort of effect here to show which blocks matched
 			//[remove flash];
@@ -797,13 +804,96 @@
 			[self updateScore:10];
 		}
 	}
-	
-	// Play SFX if blocks are removed
+
+	// Play SFX if blocks are removed and run the check again after the specified interval
 	if ([removeArray count] > 0)
+	{
 		[[SimpleAudioEngine sharedEngine] playEffect:@"match2.caf"];
-	
+		comboCount++;
+		NSLog(@"%i hit combo!!", comboCount);
+		
+		if (comboCount > 1)
+		{
+//			CCLabelTTF *comboLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%ix combo!", comboCount] fontName:@"Chunkfive.otf" fontSize:32];
+//			comboLabel.position = ccp(windowSize.width / 2, windowSize.height / 2);
+//			comboLabel.color = ccc3(255, 255, 255);
+//			[self addChild:comboLabel z:4];
+			
+			//id sequence = [CCSequence
+		}
+	}
+	// If no matches, unschedule the check
+	else
+	{
+		[self unschedule:@selector(matchCheck)];
+		comboCount = 0;
+	}
+
 	// Finally, clear out the removeSet array
 	[removeArray removeAllObjects];
+}
+
+/**
+ * Iterate through the puzzle grid and cause blocks to "fall" into openings made by matches
+ */
+- (void)dropBlocks
+{
+	// ask director the the window size
+	CGSize windowSize = [[CCDirector sharedDirector] winSize];
+	
+	// Array to store any open positions within the game grid columns
+	NSMutableArray *open = [NSMutableArray arrayWithCapacity:rows];
+	
+	for (int i = gridOffset; i <= visibleCols; i++)
+	{
+		//NSLog(@"Checking column %i", i);
+		for (int j = i + cols; j < (cols - gridOffset) * rows; j += rows)
+		{
+			//NSLog(@"Checking block %i: %@", j, [grid objectAtIndex:j]);
+			if ([grid objectAtIndex:j] == [NSNull null])
+			{
+				NSLog(@"Empty space at %i", j);
+				[open addObject:[NSNumber numberWithInt:j]];
+			}
+			else if ([open count] > 0)
+			{
+				// Move this block into the first open space, then add this space into the open space array
+				// NSMutableArray removeObjectAtIndex:0 behaves the same as a "shift" operation -- all other indices are moved by subtracting 1 from their index
+				int newIndex = [[open objectAtIndex:0] intValue];
+				[open removeObjectAtIndex:0];
+				
+				// Move the block down
+				[grid replaceObjectAtIndex:newIndex withObject:[grid objectAtIndex:j]];
+				
+				// Update the x/y grid values here
+				int x = newIndex % cols;
+				int y = floor(newIndex / rows);
+				[[grid objectAtIndex:newIndex] setGridPosition:ccp(x, y)];
+				[[grid objectAtIndex:newIndex] animateToGridPosition];
+				
+				// Replace old index w/ null obj
+				[grid replaceObjectAtIndex:j withObject:[NSNull null]];
+				
+				// Add old index to open array
+				[open addObject:[NSNumber numberWithInt:j]];
+			}
+		}
+		// End of a column; go through remaining indices in "open" and add new blocks
+		for (int k = 0; k < [open count]; k++)
+		{
+			int newIndex = [[open objectAtIndex:k] intValue];
+			[open removeObjectAtIndex:k];
+			
+			if ([grid objectAtIndex:newIndex] != [NSNull null])
+				NSLog(@"Trying to replace non-null object at %i", newIndex);
+			
+			[self newBlockAtIndex:newIndex];
+			
+			Block *b = [grid objectAtIndex:newIndex];
+			b.position = ccp(b.position.x, b.position.y + windowSize.height);
+			[b animateToGridPosition];
+		}
+	}
 }
 
 - (void)newBlockAtIndex:(int)index
