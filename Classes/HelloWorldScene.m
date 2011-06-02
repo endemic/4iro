@@ -242,9 +242,7 @@
 			verticalMove = YES;
 	}
 	
-	/*
-	Movement gets screwed up when the player's finger moves more than 40px per frame. That's what is causing movement to "jump"
-	 */
+	// Allow some leniency if player moves slightly vertically, but then wants to move horizontally (or vice versa)
 	
 	if (horizontalMove)
 	{
@@ -562,10 +560,6 @@
 		[[grid objectAtIndex:i] setGridPosition:ccp(x, y)];
 	}
 	
-	// Move sprite to appropriate (x,y) location
-//	Block *secondBlock = [grid objectAtIndex:touchCol + rows * (cols - 2)];
-//	[tmp setPosition:ccp(secondBlock.position.x, secondBlock.position.y + blockSize)];
-	
 	// Place first value at end of array row
 	int i = touchCol + rows * (cols - 1);
 	[grid replaceObjectAtIndex:i withObject:tmp];
@@ -780,6 +774,41 @@
 		[colorArray removeAllObjects];
 	}
 
+	// Play SFX if blocks are removed and run the check again after the specified interval
+	if ([removeArray count] > 0)
+	{
+		[[SimpleAudioEngine sharedEngine] playEffect:@"match2.caf"];
+		comboCount++;
+		//NSLog(@"%ix combo!", comboCount);
+	}
+	// If no matches, unschedule the check
+	else
+	{
+		[self unschedule:@selector(matchCheck)];
+		
+		// If there was a high combo count, display to player
+		if (comboCount > 1)
+		{
+			// ask director the the window size
+			CGSize windowSize = [[CCDirector sharedDirector] winSize];
+			
+			CCLabelTTF *comboLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%ix combo!", comboCount] fontName:@"Chunkfive.otf" fontSize:32];
+			comboLabel.position = ccp(windowSize.width / 2, windowSize.height / 1.3);
+			comboLabel.color = ccc3(255, 255, 255);
+			[self addChild:comboLabel z:4];
+			
+			// Move and fade actions
+			id moveAction = [CCMoveTo actionWithDuration:1 position:ccp(comboLabel.position.x, comboLabel.position.y + blockSize)];
+			id fadeAction = [CCFadeOut actionWithDuration:1];
+			id removeAction = [CCCallFuncN actionWithTarget:self selector:@selector(removeNodeFromParent:)];
+			
+			[comboLabel runAction:[CCSequence actions:[CCSpawn actions:moveAction, fadeAction, nil], removeAction, nil]];
+		}
+		
+		// Reset count
+		comboCount = 0;
+	}
+	
 	// Remove all blocks with indices in removeArray
 	for (int i = 0, j = [removeArray count]; i < j; i++)
 	{
@@ -792,7 +821,6 @@
 			[self removeChild:remove cleanup:NO];
 			[grid replaceObjectAtIndex:gridIndex withObject:[NSNull null]];
 			
-			
 			// Drop more blocks in to replace the ones that were removed
 			[self dropBlocks];
 			
@@ -801,32 +829,9 @@
 			// Do some sort of effect here to show which blocks matched
 			//[remove flash];
 			
-			[self updateScore:10];
+			// Update score, using the current combo count as a multiplier
+			[self updateScore:10 * comboCount];
 		}
-	}
-
-	// Play SFX if blocks are removed and run the check again after the specified interval
-	if ([removeArray count] > 0)
-	{
-		[[SimpleAudioEngine sharedEngine] playEffect:@"match2.caf"];
-		comboCount++;
-		NSLog(@"%i hit combo!!", comboCount);
-		
-		if (comboCount > 1)
-		{
-//			CCLabelTTF *comboLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%ix combo!", comboCount] fontName:@"Chunkfive.otf" fontSize:32];
-//			comboLabel.position = ccp(windowSize.width / 2, windowSize.height / 2);
-//			comboLabel.color = ccc3(255, 255, 255);
-//			[self addChild:comboLabel z:4];
-			
-			//id sequence = [CCSequence
-		}
-	}
-	// If no matches, unschedule the check
-	else
-	{
-		[self unschedule:@selector(matchCheck)];
-		comboCount = 0;
 	}
 
 	// Finally, clear out the removeSet array
@@ -1016,6 +1021,18 @@
 	timeRemaining += 3;
 	if (timeRemaining > 30)
 		timeRemaining = 30;
+}
+
+- (void)removeNodeFromParent:(CCNode *)node
+{
+	//[sprite.parent removeChild:sprite cleanup:YES];
+	
+	// Trying this from forum post http://www.cocos2d-iphone.org/forum/topic/981#post-5895
+	// Apparently fixes a memory error?
+	CCNode *parent = node.parent;
+	[node retain];
+	[parent removeChild:node cleanup:YES];
+	[node autorelease];
 }
 
 // on "dealloc" you need to release all your retained objects
