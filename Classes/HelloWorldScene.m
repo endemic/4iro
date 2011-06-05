@@ -234,15 +234,56 @@
 	CGPoint touchDiff = ccp(touchPoint.x - touchPrevious.x, touchPoint.y - touchPrevious.y);
 	
 	// Determine whether the movement is horiz/vert
+	int startDiffX = fabs(touchPoint.x - touchStart.x);
+	int startDiffY = fabs(touchPoint.y - touchStart.y);
+	
 	if (!horizontalMove && !verticalMove)
 	{
-		if (fabs(touchPoint.x - touchStart.x) > fabs(touchPoint.y - touchStart.y))
+		if (startDiffX > startDiffY)
 			horizontalMove = YES;
 		else
 			verticalMove = YES;
 	}
 	
-	// Allow some leniency if player moves slightly vertically, but then wants to move horizontally (or vice versa)
+//	// Allow some leniency if player moves slightly vertically, but then wants to move horizontally (or vice versa)
+//	if (horizontalMove && startDiffY > startDiffX && startDiffX < 5)
+//	{
+//		// Change to vertical move
+//		verticalMove = YES;
+//		horizontalMove = NO;
+//		
+//		// Reset the row/column being stored
+//		touchRow = touchPoint.y / blockSize + gridOffset;
+//		touchCol = touchPoint.x / blockSize + gridOffset;
+//		
+//		// Reset the starting touch
+//		touchStart = touchPoint;
+//		
+//		// Animate row back to position
+//		for (int i = (touchRow - gridOffset) * cols; i < touchRow * cols + cols; i++)
+//		{
+//			[[grid objectAtIndex:i] snapToGridPosition];
+//			NSLog(@"Snapping block %i back", i);
+//		}
+//			
+//	}
+//	else if (verticalMove && startDiffX > startDiffY && startDiffY < 5)
+//	{
+//		// Change to horizontal move
+//		verticalMove = NO;
+//		horizontalMove = YES;
+//		
+//		// Reset the row/column being stored
+//		touchRow = touchPoint.y / blockSize + gridOffset;
+//		touchCol = touchPoint.x / blockSize + gridOffset;
+//		
+//		// Reset the starting touch
+//		touchStart = touchPoint;
+//		
+//		// Move row back to position
+//		for (int i = touchCol; i < rows * (cols - gridOffset); i += 8)
+//			[[grid objectAtIndex:i] snapToGridPosition];
+//	}
 	
 	if (horizontalMove)
 	{
@@ -272,7 +313,7 @@
 	
 			// Reset the "start" position
 			touchStart = touchPoint;
-			
+
 			[[SimpleAudioEngine sharedEngine] playEffect:@"move.caf"];
 		}
 		else if (d <= -blockSize)
@@ -291,7 +332,7 @@
 			
 			// Reset the "start" position
 			touchStart = touchPoint;
-			
+
 			[[SimpleAudioEngine sharedEngine] playEffect:@"move.caf"];
 		}
 	}
@@ -322,7 +363,7 @@
 			
 			// Reset the "start" position
 			touchStart = touchPoint;
-			
+
 			[[SimpleAudioEngine sharedEngine] playEffect:@"move.caf"];
 		}
 		else if (d <= -blockSize)
@@ -341,7 +382,7 @@
 			
 			// Reset the "start" position
 			touchStart = touchPoint;
-			
+
 			[[SimpleAudioEngine sharedEngine] playEffect:@"move.caf"];
 		}
 	}
@@ -624,6 +665,9 @@
 	// Go thru and check for matching colors/shapes - first horizontally, then vertically
 	// Only go through indices 1 - 8
 	
+	// Temporarily disable player input
+	[self setIsTouchEnabled:NO];
+	
 	NSMutableArray *colorArray = [NSMutableArray arrayWithCapacity:8];
 	NSMutableArray *shapeArray = [NSMutableArray arrayWithCapacity:8];
 	NSMutableArray *removeArray = [NSMutableArray arrayWithCapacity:16];	// Arbitrary capacity
@@ -786,6 +830,9 @@
 	{
 		[self unschedule:@selector(matchCheck)];
 		
+		// Re-enable player input
+		[self setIsTouchEnabled:YES];
+		
 		// If there was a high combo count, display to player
 		if (comboCount > 1)
 		{
@@ -811,6 +858,7 @@
 	
 	// Remove all blocks with indices in removeArray
 	for (int i = 0, j = [removeArray count]; i < j; i++)
+	//for (NSNumber num in removeArray)
 	{
 		int gridIndex = [[removeArray objectAtIndex:i] intValue];
 		Block *remove = [grid objectAtIndex:gridIndex];
