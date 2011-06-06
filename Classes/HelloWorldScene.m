@@ -51,29 +51,46 @@
 		[topBg setPosition:ccp(windowSize.width / 2, windowSize.height - topBg.contentSize.height / 2)];
 		[self addChild:topBg z:2];
 		
+		// Add game status UI
+		CCSprite *topUi = [CCSprite spriteWithFile:@"top-ui-background.png"];
+		[topUi setPosition:ccp(windowSize.width / 2, windowSize.height - topUi.contentSize.height / 2)];
+		[self addChild:topUi z:3];
+		
 		// Add background behind puzzle blocks
 		CCSprite *bottomBg = [CCSprite spriteWithFile:@"bottom-background.png"];
 		[bottomBg setPosition:ccp(windowSize.width / 2, bottomBg.contentSize.height / 2)];
 		[self addChild:bottomBg z:0];
 		
-		// Init combo counter
-		comboCount = 0;
+		// Set combo counter
+		combo = 0; 
+		comboLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%ix", combo] dimensions:CGSizeMake(97, 58) alignment:CCTextAlignmentCenter fontName:@"Chalkduster.ttf" fontSize:36];
+		comboLabel.position = ccp(125, 35);
+		comboLabel.color = ccc3(0, 0, 0);
+		[topUi addChild:comboLabel z:4];
+		
+		// Set up level counter display
+		level = 0;
+		levelLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%02d", level] dimensions:CGSizeMake(97, 58) alignment:CCTextAlignmentCenter fontName:@"Chalkduster.ttf" fontSize:36];
+		levelLabel.position = ccp(255, 35);
+		levelLabel.color = ccc3(0, 0, 0);
+		[topUi addChild:levelLabel z:4];
 		
 		// Set up score int/label
 		score = 0;
-		scoreLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%i", score] fontName:@"Chunkfive.otf" fontSize:32];
-		[scoreLabel setPosition:ccp(windowSize.width / 2, windowSize.height - scoreLabel.contentSize.height)];
+		scoreLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%08d", score] dimensions:CGSizeMake(210, 57) alignment:CCTextAlignmentRight fontName:@"Chalkduster.ttf" fontSize:32];
+		[scoreLabel setPosition:ccp(190, 110)];
 		[scoreLabel setColor:ccc3(0, 0, 0)];
-		[self addChild:scoreLabel z:3];
+		[topUi addChild:scoreLabel z:4];
 		
 		// Set up timer
 		timeRemaining = 30.0;
 		timePlayed = 0;
-		timeRemainingDisplay = [CCProgressTimer progressWithFile:@"timer.png"];
+		timeRemainingDisplay = [CCProgressTimer progressWithFile:@"timer-gradient.png"];
 		timeRemainingDisplay.type = kCCProgressTimerTypeVerticalBarBT;
 		timeRemainingDisplay.percentage = 100.0;
-		[timeRemainingDisplay setPosition:ccp(timeRemainingDisplay.contentSize.width, windowSize.height - timeRemainingDisplay.contentSize.height)];
-		[self addChild:timeRemainingDisplay z:3];
+		[timeRemainingDisplay setPosition:ccp(48, 72)];
+		[topUi addChild:timeRemainingDisplay z:4];
+		
 		
 		rows = 10;
 		cols = 10;
@@ -822,8 +839,8 @@
 	if ([removeArray count] > 0)
 	{
 		[[SimpleAudioEngine sharedEngine] playEffect:@"match2.caf"];
-		comboCount++;
-		//NSLog(@"%ix combo!", comboCount);
+		combo++;
+		//NSLog(@"%ix combo!", combo);
 	}
 	// If no matches, unschedule the check
 	else
@@ -834,26 +851,20 @@
 		[self setIsTouchEnabled:YES];
 		
 		// If there was a high combo count, display to player
-		if (comboCount > 1)
+		if (combo > 1)
 		{
-			// ask director the the window size
-			CGSize windowSize = [[CCDirector sharedDirector] winSize];
-			
-			CCLabelTTF *comboLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%ix combo!", comboCount] fontName:@"Chunkfive.otf" fontSize:32];
-			comboLabel.position = ccp(windowSize.width / 2, windowSize.height / 1.3);
-			comboLabel.color = ccc3(255, 255, 255);
-			[self addChild:comboLabel z:4];
+			[comboLabel setString:[NSString stringWithFormat:@"%ix", combo]];
 			
 			// Move and fade actions
-			id moveAction = [CCMoveTo actionWithDuration:1 position:ccp(comboLabel.position.x, comboLabel.position.y + blockSize)];
-			id fadeAction = [CCFadeOut actionWithDuration:1];
-			id removeAction = [CCCallFuncN actionWithTarget:self selector:@selector(removeNodeFromParent:)];
-			
-			[comboLabel runAction:[CCSequence actions:[CCSpawn actions:moveAction, fadeAction, nil], removeAction, nil]];
+//			id moveAction = [CCMoveTo actionWithDuration:1 position:ccp(comboLabel.position.x, comboLabel.position.y + blockSize)];
+//			id fadeAction = [CCFadeOut actionWithDuration:1];
+//			id removeAction = [CCCallFuncN actionWithTarget:self selector:@selector(removeNodeFromParent:)];
+//			
+//			[comboLabel runAction:[CCSequence actions:[CCSpawn actions:moveAction, fadeAction, nil], removeAction, nil]];
 		}
 		
 		// Reset count
-		comboCount = 0;
+		combo = 0;
 	}
 	
 	// Remove all blocks with indices in removeArray
@@ -878,7 +889,7 @@
 			//[remove flash];
 			
 			// Update score, using the current combo count as a multiplier
-			[self updateScore:10 * comboCount];
+			[self updateScore:10 * combo];
 		}
 	}
 
@@ -1064,7 +1075,7 @@
 - (void)updateScore:(int)points
 {
 	score += points;
-	[scoreLabel setString:[NSString stringWithFormat:@"%i", score]];
+	[scoreLabel setString:[NSString stringWithFormat:@"%08d", score]];
 	
 	timeRemaining += 3;
 	if (timeRemaining > 30)

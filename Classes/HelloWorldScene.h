@@ -25,8 +25,10 @@
 	BOOL horizontalMove, verticalMove;
 	
 	// Various display bits
-	int score, comboCount;
+	int score, combo, level;
 	CCLabelTTF *scoreLabel;
+	CCLabelTTF *comboLabel;
+	CCLabelTTF *levelLabel;
 	
 	float timeRemaining;						// Say a maximum of 30 seconds
 	float timePlayed;							// Records how long the player has been playing

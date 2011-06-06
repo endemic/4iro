@@ -276,8 +276,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>136</integer>
-									<integer>133</integer>
+									<integer>154</integer>
+									<integer>150</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -319,7 +319,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>HelloWorldScene.m</string>
+								<string>todo.rtf</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -327,11 +327,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>HelloWorldScene.m</string>
+										<string>todo.rtf</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>7DF76AC11399AB5A00AF3FA6</string>
+										<string>7D496BA0139CD84000B93823</string>
 										<key>history</key>
 										<array>
 											<string>7D965621136975C4009239E4</string>
@@ -365,8 +365,8 @@
 											<string>7DEFF3E9139807650076755F</string>
 											<string>7DECF03113987B5D00C27F98</string>
 											<string>7DECF03213987B5D00C27F98</string>
-											<string>7DF76AB21399A86900AF3FA6</string>
-											<string>7DF76AB31399A86900AF3FA6</string>
+											<string>7D1460BD139B10A300A4E126</string>
+											<string>7D1460BF139B10A300A4E126</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -424,9 +424,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>7DF76AB51399A86900AF3FA6</string>
+				<string>7D496B99139CD80C00B93823</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>7DF76AB61399A86900AF3FA6</string>
+				<string>7D496B9A139CD80C00B93823</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -564,8 +564,8 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>7DF76AC21399AB5A00AF3FA6</string>
-		<string>7DF76AC31399AB5A00AF3FA6</string>
+		<string>7D496BA8139CD84000B93823</string>
+		<string>7D496BA9139CD84000B93823</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>7D12CE8E1355B3AD003DBE39</string>
 		<string>/Users/ndemick/iPhone/4iro/Yotsu Iro.xcodeproj</string>
@@ -593,7 +593,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>HelloWorldScene.m</string>
+								<string></string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -610,8 +610,6 @@
 							<string>218pt</string>
 						</dict>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -651,7 +649,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>7D12CE8E1355B3AD003DBE39</string>
-				<string>7DF76AAF1399A85000AF3FA6</string>
+				<string>7D496B9B139CD80C00B93823</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -773,13 +771,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>7DF76AB71399A86900AF3FA6</string>
+				<string>7D496BA1139CD84000B93823</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>7DF76AB81399A86900AF3FA6</string>
-				<string>7DF76AB91399A86900AF3FA6</string>
-				<string>7DF76ABA1399A86900AF3FA6</string>
-				<string>7DF76ABB1399A86900AF3FA6</string>
-				<string>7DF76ABC1399A86900AF3FA6</string>
+				<string>7D496BA2139CD84000B93823</string>
+				<string>7D496BA3139CD84000B93823</string>
+				<string>7D496BA4139CD84000B93823</string>
+				<string>7D496BA5139CD84000B93823</string>
+				<string>7D496BA6139CD84000B93823</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -943,7 +941,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>7DF76ABD1399A86900AF3FA6</string>
+				<string>7D496BA7139CD84000B93823</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>
