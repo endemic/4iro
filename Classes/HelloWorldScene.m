@@ -64,21 +64,21 @@
 		// Set combo counter
 		combo = 0; 
 		comboLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%ix", combo] dimensions:CGSizeMake(97, 58) alignment:CCTextAlignmentCenter fontName:@"Chalkduster.ttf" fontSize:36];
-		comboLabel.position = ccp(125, 35);
+		comboLabel.position = ccp(140, 30);
 		comboLabel.color = ccc3(0, 0, 0);
 		[topUi addChild:comboLabel z:4];
 		
 		// Set up level counter display
-		level = 0;
+		level = 1;
 		levelLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%02d", level] dimensions:CGSizeMake(97, 58) alignment:CCTextAlignmentCenter fontName:@"Chalkduster.ttf" fontSize:36];
-		levelLabel.position = ccp(255, 35);
+		levelLabel.position = ccp(258, 30);
 		levelLabel.color = ccc3(0, 0, 0);
 		[topUi addChild:levelLabel z:4];
 		
 		// Set up score int/label
 		score = 0;
 		scoreLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%08d", score] dimensions:CGSizeMake(210, 57) alignment:CCTextAlignmentRight fontName:@"Chalkduster.ttf" fontSize:32];
-		[scoreLabel setPosition:ccp(190, 110)];
+		[scoreLabel setPosition:ccp(183, 100)];
 		[scoreLabel setColor:ccc3(0, 0, 0)];
 		[topUi addChild:scoreLabel z:4];
 		
@@ -131,8 +131,7 @@
 	timePlayed += dt;
 	
 	// This value increases as the game is played longer
-	int multiplier = floor(timePlayed / 20) + 1;
-	//int multiplier = 1;
+	int multiplier = (level + 1) / 2;
 	
 	// Update timer
 	timeRemaining -= dt * multiplier;
@@ -839,8 +838,10 @@
 	if ([removeArray count] > 0)
 	{
 		[[SimpleAudioEngine sharedEngine] playEffect:@"match2.caf"];
+		
+		// Increment combo counter
 		combo++;
-		//NSLog(@"%ix combo!", combo);
+		[comboLabel setString:[NSString stringWithFormat:@"%ix", combo]];
 	}
 	// If no matches, unschedule the check
 	else
@@ -851,20 +852,14 @@
 		[self setIsTouchEnabled:YES];
 		
 		// If there was a high combo count, display to player
-		if (combo > 1)
+		if (combo > 0)
 		{
-			[comboLabel setString:[NSString stringWithFormat:@"%ix", combo]];
-			
-			// Move and fade actions
-//			id moveAction = [CCMoveTo actionWithDuration:1 position:ccp(comboLabel.position.x, comboLabel.position.y + blockSize)];
-//			id fadeAction = [CCFadeOut actionWithDuration:1];
-//			id removeAction = [CCCallFuncN actionWithTarget:self selector:@selector(removeNodeFromParent:)];
-//			
-//			[comboLabel runAction:[CCSequence actions:[CCSpawn actions:moveAction, fadeAction, nil], removeAction, nil]];
+			// "count down" the combo counter after a short delay
+			[self runAction:[CCSequence actions:
+							 [CCDelayTime actionWithDuration:1],
+							 [CCCallFunc actionWithTarget:self selector:@selector(comboCountdown)],
+							 nil]];
 		}
-		
-		// Reset count
-		combo = 0;
 	}
 	
 	// Remove all blocks with indices in removeArray
@@ -1013,20 +1008,20 @@
 	CCParticleSystemQuad *particleSystem = [[CCParticleSystemQuad alloc] initWithTotalParticles:25];
 	
 	// duration is for the emitter
-	[particleSystem setDuration:0.5f];
+	[particleSystem setDuration:0.25f];
 	
 	[particleSystem setEmitterMode:kCCParticleModeGravity];
 	
 	// Gravity Mode: gravity
-	[particleSystem setGravity:ccp(0, 0)];
+	[particleSystem setGravity:ccp(0, -200)];
 	
 	// Gravity Mode: speed of particles
 	[particleSystem setSpeed:140];
 	[particleSystem setSpeedVar:40];
 	
 	// Gravity Mode: radial
-	[particleSystem setRadialAccel:0];
-	[particleSystem setRadialAccelVar:0];
+	[particleSystem setRadialAccel:-150];
+	[particleSystem setRadialAccelVar:-100];
 	
 	// Gravity Mode: tagential
 	[particleSystem setTangentialAccel:0];
@@ -1077,9 +1072,26 @@
 	score += points;
 	[scoreLabel setString:[NSString stringWithFormat:@"%08d", score]];
 	
+	// Do some sort of effect here
 	timeRemaining += 3;
 	if (timeRemaining > 30)
 		timeRemaining = 30;
+	
+	// Increment the level count here
+	// Do some sort of effect here when the level changes
+	if (floor(score / 1000) + 1 > level)
+	{
+		level = floor(score / 1000) + 1;
+		[levelLabel setString:[NSString stringWithFormat:@"%02d", level]];
+	}
+}
+
+- (void)comboCountdown
+{
+	// Need to schedule some sort of update method which counts down
+	combo = 0;
+	
+	[comboLabel setString:[NSString stringWithFormat:@"%ix", combo]];
 }
 
 - (void)removeNodeFromParent:(CCNode *)node

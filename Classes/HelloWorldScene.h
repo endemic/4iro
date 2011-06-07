@@ -54,6 +54,7 @@
 - (void)createParticlesAt:(CGPoint)position;
 
 - (void)updateScore:(int)points;
+- (void)comboCountdown;
 - (void)removeNodeFromParent:(CCNode *)node;
 
 @end
