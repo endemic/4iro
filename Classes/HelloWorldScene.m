@@ -63,8 +63,8 @@
 		
 		// Set combo counter
 		combo = 0; 
-		comboLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%ix", combo] dimensions:CGSizeMake(97, 58) alignment:CCTextAlignmentCenter fontName:@"Chalkduster.ttf" fontSize:36];
-		comboLabel.position = ccp(140, 30);
+		comboLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%ix", combo] dimensions:CGSizeMake(97, 58) alignment:CCTextAlignmentRight fontName:@"Chalkduster.ttf" fontSize:36];
+		comboLabel.position = ccp(133, 30);
 		comboLabel.color = ccc3(0, 0, 0);
 		[topUi addChild:comboLabel z:4];
 		
@@ -842,6 +842,9 @@
 		// Increment combo counter
 		combo++;
 		[comboLabel setString:[NSString stringWithFormat:@"%ix", combo]];
+		
+		// Unschedule the method which depletes the combo counter
+		[self unschedule:@selector(updateCombo)];
 	}
 	// If no matches, unschedule the check
 	else
@@ -856,7 +859,7 @@
 		{
 			// "count down" the combo counter after a short delay
 			[self runAction:[CCSequence actions:
-							 [CCDelayTime actionWithDuration:1],
+							 [CCDelayTime actionWithDuration:1.5],
 							 [CCCallFunc actionWithTarget:self selector:@selector(comboCountdown)],
 							 nil]];
 		}
@@ -911,7 +914,7 @@
 			//NSLog(@"Checking block %i: %@", j, [grid objectAtIndex:j]);
 			if ([grid objectAtIndex:j] == [NSNull null])
 			{
-				NSLog(@"Empty space at %i", j);
+				//NSLog(@"Empty space at %i", j);
 				[open addObject:[NSNumber numberWithInt:j]];
 			}
 			else if ([open count] > 0)
@@ -943,8 +946,8 @@
 			int newIndex = [[open objectAtIndex:k] intValue];
 			[open removeObjectAtIndex:k];
 			
-			if ([grid objectAtIndex:newIndex] != [NSNull null])
-				NSLog(@"Trying to replace non-null object at %i", newIndex);
+//			if ([grid objectAtIndex:newIndex] != [NSNull null])
+//				NSLog(@"Trying to replace non-null object at %i", newIndex);
 			
 			[self newBlockAtIndex:newIndex];
 			
@@ -1088,10 +1091,21 @@
 
 - (void)comboCountdown
 {
-	// Need to schedule some sort of update method which counts down
-	combo = 0;
+	// Schedule a method which counts down
+	[self schedule:@selector(updateCombo) interval:0.5];
+}
+
+- (void)updateCombo
+{
+	// Decrement and update display
+	if (combo > 0)
+		combo--;
 	
 	[comboLabel setString:[NSString stringWithFormat:@"%ix", combo]];
+	
+	// Unschedule this if count is zero
+	if (combo < 1)
+		[self unschedule:@selector(updateCombo)];
 }
 
 - (void)removeNodeFromParent:(CCNode *)node

@@ -55,6 +55,7 @@
 
 - (void)updateScore:(int)points;
 - (void)comboCountdown;
+- (void)updateCombo;
 - (void)removeNodeFromParent:(CCNode *)node;
 
 @end
