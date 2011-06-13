@@ -72,18 +72,12 @@
 //			[b animateToGridPosition];
 //		}
 		
+		
+		CCSprite *logo = [CCSprite spriteWithFile:@"title-logo.png"];
+		logo.position = ccp(windowSize.width / 2, windowSize.height - logo.contentSize.height / 2);
+		[self addChild:logo z:3];
 
-		// Game logo/name
-		CCLabelTTF *titleLabel = [CCLabelTTF labelWithString:@"COLOR\n+\nSHAPE" dimensions:CGSizeMake(windowSize.width, windowSize.height / 3) alignment:CCTextAlignmentCenter fontName:@"Chunkfive.otf" fontSize:48];
-		[titleLabel setPosition:ccp(windowSize.width / 2, windowSize.height - titleLabel.contentSize.height)];
-		[titleLabel setColor:ccc3(0, 0, 0)];
-		[self addChild:titleLabel z:3];
-		
-		// Specify font details
-		[CCMenuItemFont setFontSize:32];
-		[CCMenuItemFont setFontName:@"Chunkfive.otf"];
-		
-		CCMenuItemFont *startButton = [CCMenuItemFont itemFromString:@"Start" block:^(id sender) {
+		CCMenuItemImage *startButton = [CCMenuItemImage itemFromNormalImage:@"play-button.png" selectedImage:@"play-button-selected.png" block:^(id sender) {
 			[[SimpleAudioEngine sharedEngine] playEffect:@"button.caf"];
 			
 			// Reload this scene
@@ -91,7 +85,7 @@
 			[[CCDirector sharedDirector] replaceScene:transition];
 		}];
 		
-		CCMenuItemFont *scoresButton = [CCMenuItemFont itemFromString:@"High Scores" block:^(id sender) {
+		CCMenuItemImage *scoresButton = [CCMenuItemImage itemFromNormalImage:@"scores-button.png" selectedImage:@"scores-button-selected.png" block:^(id sender) {
 			[[SimpleAudioEngine sharedEngine] playEffect:@"button.caf"];
 			
 			// Go to score scene
@@ -102,9 +96,14 @@
 		CCMenu *titleMenu = [CCMenu menuWithItems:startButton, scoresButton, nil];
 		[titleMenu alignItemsVerticallyWithPadding:20];
 		[titleMenu setColor:ccc3(0, 0, 0)];
-		[titleMenu setPosition:ccp(windowSize.width / 2, titleLabel.position.y - titleMenu.contentSize.height / 2)];
+		[titleMenu setPosition:ccp(windowSize.width / 2, logo.position.y - titleMenu.contentSize.height / 2)];
 		[self addChild:titleMenu z:3];
 		
+		
+		CCLabelTTF *copyright = [CCLabelTTF labelWithString:@"© 2011 Ganbaru Games" fontName:@"Chalkduster.ttf" fontSize:16];
+		copyright.color = ccc3(0, 0, 0);
+		copyright.position = ccp(windowSize.width / 2, copyright.contentSize.height);
+		[self addChild:copyright];
 	}
 	
 	return self;

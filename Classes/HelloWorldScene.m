@@ -1057,6 +1057,7 @@
 	[particleSystem setEndColor:endColor];
 	
 	[particleSystem setTexture:[[CCTextureCache sharedTextureCache] addImage:@"particle.png"]];
+	// [[CCTextureCache sharedTextureCache] textureForKey:@"particle.png"]];
 	
 	// additive
 	[particleSystem setBlendAdditive:NO];

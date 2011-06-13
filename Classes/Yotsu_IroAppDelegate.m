@@ -18,6 +18,8 @@
 #import "CocosDenshion.h"
 #import "SimpleAudioEngine.h"
 
+#import "GameSingleton.h"
+
 @implementation Yotsu_IroAppDelegate
 
 @synthesize window;
@@ -134,7 +136,7 @@
 	[[SimpleAudioEngine sharedEngine] preloadEffect:@"match2.caf"];
 	
 	// Run the intro Scene
-	[[CCDirector sharedDirector] runWithScene:[HelloWorld scene]];		
+	[[CCDirector sharedDirector] runWithScene:[TitleScene scene]];		
 }
 
 
