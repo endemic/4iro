@@ -27,6 +27,7 @@
 
 - (void)snapToGridPosition;
 - (void)animateToGridPosition;
+- (void)animateToGridPositionSlowly;
 - (void)flash;
 - (void)embiggen;
 

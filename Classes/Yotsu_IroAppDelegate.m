@@ -135,6 +135,9 @@
 	[[SimpleAudioEngine sharedEngine] preloadEffect:@"move.caf"];
 	[[SimpleAudioEngine sharedEngine] preloadEffect:@"match2.caf"];
 	
+	// Load the shared game singleton
+	[GameSingleton loadState];
+	
 	// Run the intro Scene
 	[[CCDirector sharedDirector] runWithScene:[TitleScene scene]];		
 }
@@ -161,6 +164,9 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
+	// Serialize/save the contents of the shared game data singleton
+	[GameSingleton saveState];
+	
 	CCDirector *director = [CCDirector sharedDirector];
 	
 	[[director openGLView] removeFromSuperview];

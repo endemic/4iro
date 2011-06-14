@@ -11,9 +11,11 @@
 
 @interface TitleScene : CCLayer 
 {
-
+	NSMutableArray *grid;
 }
 
 + (id)scene;
+- (void)showUI;
+- (void)update:(ccTime)dt;
 
 @end
