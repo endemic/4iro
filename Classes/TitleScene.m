@@ -117,13 +117,11 @@
 	[titleMenu setPosition:ccp(windowSize.width / 2, logo.position.y - titleMenu.contentSize.height / 2)];
 	[self addChild:titleMenu z:3];
 	
-	
 	CCLabelTTF *copyright = [CCLabelTTF labelWithString:@"© 2011 Ganbaru Games" fontName:@"Chalkduster.ttf" fontSize:16];
 	copyright.color = ccc3(0, 0, 0);
-	copyright.position = ccp(windowSize.width / 2, copyright.contentSize.height);
+	copyright.position = ccp(windowSize.width / 2, copyright.contentSize.height * 0.75);
 	[self addChild:copyright];
 	
-	//[self schedule:@selector(update:) interval:0.1];
 	[self scheduleUpdate];
 }
 
@@ -134,7 +132,7 @@
 	for (Block *b in grid)
 	{
 		// Slowly move blocks to the right
-		b.position = ccp(b.position.x + 0.1, b.position.y);
+		//b.position = ccp(b.position.x + 0.1, b.position.y);
 		
 		// If too far to the right, have them circle around again
 		if (b.position.x >= windowSize.width + b.contentSize.width * 1.5)
