@@ -163,31 +163,25 @@
 	CGSize windowSize = [[CCDirector sharedDirector] winSize];
 	
 	// Game over, man!
-	CCLabelTTF *gameOverLabel = [CCLabelTTF labelWithString:@"Game Over" fontName:@"Chunkfive.otf" fontSize:48];
-	[gameOverLabel setPosition:ccp(windowSize.width / 2, windowSize.height / 2)];
-	[gameOverLabel setColor:ccc3(0, 0, 0)];
-	[self addChild:gameOverLabel z:3];
-	
-	// Specify font details
-	[CCMenuItemFont setFontSize:32];
-	[CCMenuItemFont setFontName:@"Chunkfive.otf"];
-	
-	CCMenuItemFont *retryButton = [CCMenuItemFont itemFromString:@"Retry" block:^(id sender) {
+	CCSprite *gameOverText = [CCSprite spriteWithFile:@"game-over.png"];
+	[gameOverText setPosition:ccp(windowSize.width / 2, windowSize.height / 2)];
+	[self addChild:gameOverText z:3];
+
+	CCMenuItemImage *retryButton = [CCMenuItemImage itemFromNormalImage:@"retry-button.png" selectedImage:@"retry-button-selected.png" block:^(id sender) {
 		// Reload this scene
 		CCTransitionFlipX *transition = [CCTransitionFlipX transitionWithDuration:0.5 scene:[HelloWorld node] orientation:kOrientationUpOver];
 		[[CCDirector sharedDirector] replaceScene:transition];
 	}];
 	
-	CCMenuItemFont *quitButton = [CCMenuItemFont itemFromString:@"Quit" block:^(id sender) {
+	CCMenuItemImage *quitButton = [CCMenuItemImage itemFromNormalImage:@"quit-button.png" selectedImage:@"quit-button-selected.png" block:^(id sender) {
 		// Go to title scene
 		CCTransitionFlipX *transition = [CCTransitionFlipX transitionWithDuration:0.5 scene:[TitleScene node] orientation:kOrientationUpOver];
 		[[CCDirector sharedDirector] replaceScene:transition];
 	}];
 	
 	CCMenu *gameOverMenu = [CCMenu menuWithItems:retryButton, quitButton, nil];
-	[gameOverMenu alignItemsVerticallyWithPadding:20];
-	[gameOverMenu setPosition:ccp(windowSize.width / 2, gameOverLabel.position.y - retryButton.contentSize.height * 3)];
-	[gameOverMenu setColor:ccc3(0, 0, 0)];
+	[gameOverMenu alignItemsVerticallyWithPadding:10];
+	[gameOverMenu setPosition:ccp(windowSize.width / 2, gameOverText.position.y - retryButton.contentSize.height * 3)];
 	[self addChild:gameOverMenu z:3];
 	
 	// Get scores array stored in user defaults

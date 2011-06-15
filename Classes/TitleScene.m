@@ -132,7 +132,7 @@
 	for (Block *b in grid)
 	{
 		// Slowly move blocks to the right
-		//b.position = ccp(b.position.x + 0.1, b.position.y);
+		b.position = ccp(b.position.x + 1, b.position.y);
 		
 		// If too far to the right, have them circle around again
 		if (b.position.x >= windowSize.width + b.contentSize.width * 1.5)
