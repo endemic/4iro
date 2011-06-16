@@ -14,6 +14,8 @@
 #import "CocosDenshion.h"
 #import "SimpleAudioEngine.h"
 
+#import "GameSingleton.h"
+
 @implementation TitleScene
 
 +(id) scene
@@ -41,6 +43,18 @@
 		// ask director the the window size
 		CGSize windowSize = [[CCDirector sharedDirector] winSize];
 	
+		// This string gets appended onto all image filenames based on whether the game is on iPad or not
+		if ([GameSingleton sharedGameSingleton].isPad)
+		{
+			hdSuffix = @"-hd";
+			fontMultiplier = 1;
+		}
+		else
+		{
+			hdSuffix = @"";
+			fontMultiplier = 2;
+		}
+		
 		CCSprite *bg = [CCSprite spriteWithFile:@"Default.png"];
 		[bg setPosition:ccp(windowSize.width / 2, windowSize.height / 2)];
 		[self addChild:bg];
@@ -114,7 +128,7 @@
 	
 	CCMenu *titleMenu = [CCMenu menuWithItems:startButton, scoresButton, nil];
 	[titleMenu alignItemsVerticallyWithPadding:10];
-	[titleMenu setPosition:ccp(windowSize.width / 2, logo.position.y - titleMenu.contentSize.height / 2)];
+	[titleMenu setPosition:ccp(windowSize.width / 2, logo.position.y - titleMenu.contentSize.height / 2.5)];
 	[self addChild:titleMenu z:3];
 	
 	CCLabelTTF *copyright = [CCLabelTTF labelWithString:@"© 2011 Ganbaru Games" fontName:@"Chalkduster.ttf" fontSize:16];
@@ -138,6 +152,33 @@
 		if (b.position.x >= windowSize.width + b.contentSize.width * 1.5)
 			b.position = ccp(-b.contentSize.width * 1.5 + 1, b.position.y);
 	}
+}
+
+- (void)flash
+{
+	// ask director the the window size
+	CGSize windowSize = [[CCDirector sharedDirector] winSize];
+	
+	CCSprite *bg = [CCSprite spriteWithFile:[NSString stringWithFormat:@"flash%@.png", hdSuffix]];
+	bg.position = ccp(windowSize.width / 2, windowSize.height / 2);
+	[self addChild:bg z:10];
+	
+	[bg runAction:[CCSequence actions:
+				   [CCFadeOut actionWithDuration:0.5],
+				   [CCCallFuncN actionWithTarget:self selector:@selector(removeNodeFromParent:)],
+				   nil]];
+}
+
+- (void)removeNodeFromParent:(CCNode *)node
+{
+	//[sprite.parent removeChild:sprite cleanup:YES];
+	
+	// Trying this from forum post http://www.cocos2d-iphone.org/forum/topic/981#post-5895
+	// Apparently fixes a memory error?
+	CCNode *parent = node.parent;
+	[node retain];
+	[parent removeChild:node cleanup:YES];
+	[node autorelease];
 }
 
 - (void)dealloc

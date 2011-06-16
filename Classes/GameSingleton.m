@@ -11,7 +11,7 @@
 
 @implementation GameSingleton
 
-@synthesize isTablet, restoreGame, points, combo, level, timeRemaining, timePlayed, hasGameCenter, unsentScores;
+@synthesize isPad, restoreGame, points, combo, level, timeRemaining, timePlayed, hasGameCenter, unsentScores;
 
 SYNTHESIZE_SINGLETON_FOR_CLASS(GameSingleton);
 
@@ -21,9 +21,9 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(GameSingleton);
 	{
 		// Check if running on iPad
 		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) 
-			isTablet = YES;
+			isPad = YES;
 		else
-			isTablet = NO;
+			isPad = NO;
 		
 		// Check if Game Center exists
 		if ([self isGameCenterAPIAvailable])
@@ -191,7 +191,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(GameSingleton);
 
 - (void)encodeWithCoder:(NSCoder *)coder
 {
-	[coder encodeBool:self.isTablet forKey:@"isTablet"];
+	[coder encodeBool:self.isPad forKey:@"isPad"];
 	[coder encodeBool:self.restoreGame forKey:@"restoreGame"];
 	
 	[coder encodeInt:self.points forKey:@"points"];
@@ -209,7 +209,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(GameSingleton);
 {
 	if ((self = [super init])) 
 	{
-		self.isTablet = [coder decodeBoolForKey:@"isTablet"];
+		self.isPad = [coder decodeBoolForKey:@"isPad"];
 		self.restoreGame = [coder decodeBoolForKey:@"restoreGame"];
 		
 		self.points = [coder decodeIntForKey:@"points"];

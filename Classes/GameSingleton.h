@@ -16,7 +16,7 @@
 @interface GameSingleton : NSObject <NSCoding, GKLeaderboardViewControllerDelegate> 
 {
 	// Boolean that's set to "true" if game is running on iPad!
-	bool isTablet;
+	bool isPad;
 	
 	// Variable we check to see if player quit in the middle of a level
 	bool restoreLevel;
@@ -31,7 +31,7 @@
 	UIViewController *myViewController;
 }
 
-@property (nonatomic) bool isTablet;
+@property (nonatomic) bool isPad;
 @property (nonatomic) bool restoreGame;
 
 @property (readwrite, nonatomic) int points;

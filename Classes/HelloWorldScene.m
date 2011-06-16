@@ -14,6 +14,8 @@
 #import "CocosDenshion.h"
 #import "SimpleAudioEngine.h"
 
+#import "GameSingleton.h"
+
 #define kAnimationDuration 0.2
 
 // HelloWorld implementation
@@ -46,38 +48,50 @@
 		// ask director the the window size
 		CGSize windowSize = [[CCDirector sharedDirector] winSize];
 		
+		// This string gets appended onto all image filenames based on whether the game is on iPad or not
+		if ([GameSingleton sharedGameSingleton].isPad)
+		{
+			hdSuffix = @"-hd";
+			fontMultiplier = 2;
+		}
+		else
+		{
+			hdSuffix = @"";
+			fontMultiplier = 1;
+		}
+		
 		// Add background for game status area
-		CCSprite *topBg = [CCSprite spriteWithFile:@"top-background.png"];
+		CCSprite *topBg = [CCSprite spriteWithFile:[NSString stringWithFormat:@"top-background%@.png", hdSuffix]];
 		[topBg setPosition:ccp(windowSize.width / 2, windowSize.height - topBg.contentSize.height / 2)];
 		[self addChild:topBg z:2];
 		
 		// Add game status UI
-		CCSprite *topUi = [CCSprite spriteWithFile:@"top-ui-background.png"];
+		CCSprite *topUi = [CCSprite spriteWithFile:[NSString stringWithFormat:@"top-ui-background%@.png", hdSuffix]];
 		[topUi setPosition:ccp(windowSize.width / 2, windowSize.height - topUi.contentSize.height / 2)];
 		[self addChild:topUi z:3];
 		
 		// Add background behind puzzle blocks
-		CCSprite *bottomBg = [CCSprite spriteWithFile:@"bottom-background.png"];
+		CCSprite *bottomBg = [CCSprite spriteWithFile:[NSString stringWithFormat:@"bottom-background%@.png", hdSuffix]];
 		[bottomBg setPosition:ccp(windowSize.width / 2, bottomBg.contentSize.height / 2)];
 		[self addChild:bottomBg z:0];
 		
 		// Set combo counter
 		combo = 0; 
-		comboLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%ix", combo] dimensions:CGSizeMake(97, 58) alignment:CCTextAlignmentRight fontName:@"Chalkduster.ttf" fontSize:36];
+		comboLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%ix", combo] dimensions:CGSizeMake(97, 58) alignment:CCTextAlignmentRight fontName:@"Chalkduster.ttf" fontSize:36 * fontMultiplier];
 		comboLabel.position = ccp(133, 30);
 		comboLabel.color = ccc3(0, 0, 0);
 		[topUi addChild:comboLabel z:4];
 		
 		// Set up level counter display
 		level = 1;
-		levelLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%02d", level] dimensions:CGSizeMake(97, 58) alignment:CCTextAlignmentCenter fontName:@"Chalkduster.ttf" fontSize:36];
+		levelLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%02d", level] dimensions:CGSizeMake(97, 58) alignment:CCTextAlignmentCenter fontName:@"Chalkduster.ttf" fontSize:36 * fontMultiplier];
 		levelLabel.position = ccp(258, 30);
 		levelLabel.color = ccc3(0, 0, 0);
 		[topUi addChild:levelLabel z:4];
 		
 		// Set up score int/label
 		score = 0;
-		scoreLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%08d", score] dimensions:CGSizeMake(210, 57) alignment:CCTextAlignmentRight fontName:@"Chalkduster.ttf" fontSize:32];
+		scoreLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%08d", score] dimensions:CGSizeMake(210, 57) alignment:CCTextAlignmentRight fontName:@"Chalkduster.ttf" fontSize:32 * fontMultiplier];
 		[scoreLabel setPosition:ccp(183, 100)];
 		[scoreLabel setColor:ccc3(0, 0, 0)];
 		[topUi addChild:scoreLabel z:4];
@@ -85,7 +99,7 @@
 		// Set up timer
 		timeRemaining = 30.0;
 		timePlayed = 0;
-		timeRemainingDisplay = [CCProgressTimer progressWithFile:@"timer-gradient.png"];
+		timeRemainingDisplay = [CCProgressTimer progressWithFile:[NSString stringWithFormat:@"timer-gradient%@.png", hdSuffix]];
 		timeRemainingDisplay.type = kCCProgressTimerTypeVerticalBarBT;
 		timeRemainingDisplay.percentage = 100.0;
 		[timeRemainingDisplay setPosition:ccp(48, 72)];
@@ -117,7 +131,7 @@
 		[self resetBuffer];
 		
 		// Preload the particle image
-		[[CCTextureCache sharedTextureCache] addImage:@"particle.png"];
+		[[CCTextureCache sharedTextureCache] addImage:[NSString stringWithFormat:@"particle%@.png", hdSuffix]];
 		
 		// Schedule an update method
 		[self scheduleUpdate];
@@ -161,6 +175,8 @@
 	
 	// ask director the the window size
 	CGSize windowSize = [[CCDirector sharedDirector] winSize];
+	
+	[self flash];
 	
 	// Game over, man!
 	CCSprite *gameOverText = [CCSprite spriteWithFile:@"game-over.png"];
@@ -882,6 +898,9 @@
 			
 			// Update score, using the current combo count as a multiplier
 			[self updateScore:10 * combo];
+			
+			if (combo < 1)
+				NSLog(@"ZOMG, combo is less than one!");
 		}
 	}
 
@@ -1065,6 +1084,21 @@
 	//NSLog(@"Tryin' to make a particle emitter at %f, %f", position.x, position.y);
 }
 
+- (void)flash
+{
+	// ask director the the window size
+	CGSize windowSize = [[CCDirector sharedDirector] winSize];
+	
+	CCSprite *bg = [CCSprite spriteWithFile:[NSString stringWithFormat:@"flash%@.png", hdSuffix]];
+	bg.position = ccp(windowSize.width / 2, windowSize.height / 2);
+	[self addChild:bg z:10];
+
+	[bg runAction:[CCSequence actions:
+					[CCFadeOut actionWithDuration:0.5],
+					[CCCallFuncN actionWithTarget:self selector:@selector(removeNodeFromParent:)],
+					nil]];
+}
+
 - (void)updateScore:(int)points
 {
 	score += points;
@@ -1086,8 +1120,13 @@
 
 - (void)comboCountdown
 {
+	// Speed at which counter counts down is dependent on how large the counter is
+	float interval = 2.0 / combo;
+	
+	NSLog(@"Combo countdown interval is %f", interval);
+	
 	// Schedule a method which counts down
-	[self schedule:@selector(updateCombo) interval:0.5];
+	[self schedule:@selector(updateCombo) interval:interval];
 }
 
 - (void)updateCombo
