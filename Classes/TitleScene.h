@@ -11,7 +11,8 @@
 
 @interface TitleScene : CCLayer 
 {
-	NSMutableArray *grid;
+	//NSMutableArray *grid;
+	CCSprite *background;
 	
 	// String to be appended to sprite filenames if required to use a high-rez file (e.g. iPhone 4 assests on iPad)
 	NSString *hdSuffix;
