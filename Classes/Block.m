@@ -51,11 +51,11 @@
 		case 3: shape = @"diamond"; break;
 	}
 	
-	Block *s = [self spriteWithFile:[NSString stringWithFormat:@"%@-%@.png", color, shape]];
-	[s setColour:color];
-	[s setShape:shape];
+	Block *b = [self spriteWithFile:[NSString stringWithFormat:@"%@-%@.png", color, shape]];
+	[b setColour:color];
+	[b setShape:shape];
 	
-	return s;
+	return b;
 }
 
 - (void)snapToGridPosition

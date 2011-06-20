@@ -57,63 +57,123 @@
 		
 		CCSprite *bg = [CCSprite spriteWithFile:@"Default.png"];
 		[bg setPosition:ccp(windowSize.width / 2, windowSize.height / 2)];
-		[self addChild:bg z:0];
+		[self addChild:bg];
 		
-		background = [CCSprite spriteWithFile:@"title-background.png"];
-		background.position = ccp(windowSize.width / 2, windowSize.height + background.contentSize.height / 2);
-		[self addChild:background z:1];
+		// Load UI graphics into texture cache
+		[[CCTextureCache sharedTextureCache] addImage:@"title-logo.png"];
+		[[CCTextureCache sharedTextureCache] addImage:@"play-button.png"];
+		[[CCTextureCache sharedTextureCache] addImage:@"scores-button.png"];
+		[[CCTextureCache sharedTextureCache] addImage:@"play-button-selected.png"];
+		[[CCTextureCache sharedTextureCache] addImage:@"scores-button-selected.png"];
 		
-		[background runAction:[CCSequence actions:
-							   [CCMoveTo actionWithDuration:2 position:ccp(windowSize.width / 2, windowSize.height / 2)],
-							   [CCMoveTo actionWithDuration:4 position:ccp(windowSize.width + bg.contentSize.width / 2, windowSize.height / 2)], 
-							   [CCCallFuncN actionWithTarget:self selector:@selector(removeNodeFromParent:)],
-							   nil]];
+		// Do one row, then have in each block's action a callback which adds another block, waits 
+		//a random amount of time, then animates to position
 		
-		[self runAction:[CCSequence actions:
-						 [CCDelayTime actionWithDuration:2],
-						 [CCCallFunc actionWithTarget:self selector:@selector(showUI)],
-						 nil]];
+		int rows = 13;
+		int cols = 13;
+		int gridSize = 13;
+		lastRow = 0;
 		
-		[self schedule:@selector(update:) interval:4];
+		grid = [[NSMutableArray arrayWithCapacity:rows * cols] retain];
+		for (int i = 0; i < rows * cols; i++)
+			[grid addObject:[NSNull null]];
 		
-//		int rows = 13;
-//		int cols = 13;
-//		grid = [[NSMutableArray arrayWithCapacity:rows*cols] retain];
-//		
-//		// Drop a bunch of blocks onto the screen
-//		for (int i = 0; i < rows * cols; i++)
-//		{
-//			Block *b = [Block random];
-//			
-//			int x = i % cols;
-//			int y = floor(i / rows);
-//			
-//			// Set where the block should be
-//			[b setGridPosition:ccp(x, y)];
-//			[b snapToGridPosition];
-//			
-//			// Move the block higher by a random value (0 - 49)
-//			[b setPosition:ccp(b.position.x, b.position.y + windowSize.height + (float)(arc4random() % 100) / 100 * 50)];
-//			
-//			// Add to layer
-//			[self addChild:b];
-//			
-//			// Add to grid
-//			[grid addObject:b];
-//			
-//			// Animate the block moving back to position
-//			[b animateToGridPositionSlowly];
-//		}
-//		
-//		// Display the UI after 2 seconds
+		// Drop a bunch of blocks onto the screen
+		for (int i = rows; i < rows * 2; i++)
+		{
+			Block *b = [Block random];
+			
+			int x = i % cols;
+			int y = floor(i / rows);
+			
+			// Set where the block should be
+			[b setGridPosition:ccp(x, y)];
+			[b snapToGridPosition];
+			
+			// Move the block higher by a random value (0 - 49)
+			[b setPosition:ccp(b.position.x, b.position.y + windowSize.height + (float)(arc4random() % 100) / 100 * 50)];
+			
+			// Add to layer
+			[self addChild:b];
+			
+			// Add to grid
+			[grid insertObject:b atIndex:x + y * gridSize];
+			
+			// Animate the block moving back to position
+			//[b animateToGridPositionSlowly];
+		
+			int blockSize = b.contentSize.width;
+			float randomTime = (float)(arc4random() % 40) / 100 + 0.25;
+			
+			id move = [CCMoveTo actionWithDuration:randomTime position:ccp(x * blockSize - blockSize / 2, y * blockSize - blockSize / 2)];
+			id recursive = [CCCallFuncN actionWithTarget:self selector:@selector(dropNextBlockAfter:)];
+			
+			[[grid objectAtIndex:x + y * gridSize] runAction:[CCSequence actions:move, recursive, nil]];
+		}
+		
+		// Display the UI after 2 seconds
 //		[self runAction:[CCSequence actions:
 //						 [CCDelayTime actionWithDuration:2],
+//						 [CCCallFunc actionWithTarget:self selector:@selector(flash)],
 //						 [CCCallFunc actionWithTarget:self selector:@selector(showUI)],
 //						 nil]];
 
 	}
 	
 	return self;
+}
+
+- (void)dropNextBlockAfter:(Block *)block
+{	
+	int rows = 13;
+	int cols = 13;
+	int gridSize = 13;
+	
+	CGSize windowSize = [[CCDirector sharedDirector] winSize];
+	
+	Block *b = [Block random];
+	
+	int x = block.gridPosition.x;
+	int y = block.gridPosition.y + 1;
+
+	// Set where the block should be
+	[b setGridPosition:ccp(x, y)];
+	[b snapToGridPosition];
+	
+	// Move the block higher by a random value (0 - 49)
+	[b setPosition:ccp(b.position.x, b.position.y + windowSize.height + (float)(arc4random() % 100) / 100 * 50)];
+	
+	// Add to layer
+	[self addChild:b];
+	
+	// Add to grid - array[x + y*size] === array[x][y]
+	[grid insertObject:b atIndex:x + y * gridSize];
+	
+	int blockSize = b.contentSize.width;
+	float randomTime = (float)(arc4random() % 40) / 100 + 0.25;
+	
+	id move = [CCMoveTo actionWithDuration:randomTime position:ccp(x * blockSize - blockSize / 2, y * blockSize - blockSize / 2)];
+	id recursive = [CCCallFuncN actionWithTarget:self selector:@selector(dropNextBlockAfter:)];
+	
+	if (y < gridSize)
+	{
+		// Column isn't full, so move the block down to its' place and run this method again
+		[[grid objectAtIndex:x + y * gridSize] runAction:[CCSequence actions:move, recursive, nil]];
+	}
+	else
+	{
+		// Column is full. Move block to place and check whether the entire top row is full
+		// If top row is full, show UI elements
+		[[grid objectAtIndex:x + y * gridSize] runAction:move];
+		
+		lastRow++;
+		
+		if (lastRow == gridSize)
+		{
+			[self flash];
+			[self showUI];
+		}
+	}
 }
 
 - (void)showUI
@@ -149,20 +209,26 @@
 	copyright.color = ccc3(0, 0, 0);
 	copyright.position = ccp(windowSize.width / 2, copyright.contentSize.height * 0.75);
 	[self addChild:copyright];
+	
+	[self scheduleUpdate];
 }
 
 - (void)update:(ccTime)dt
 {
 	CGSize windowSize = [[CCDirector sharedDirector] winSize];
-	
-	CCSprite *bg = [CCSprite spriteWithFile:@"title-background.png"];
-	bg.position = ccp(-bg.contentSize.width / 2, windowSize.height / 2);
-	[self addChild:bg z:1];
-	
-	[bg runAction:[CCSequence actions:
-				   [CCMoveTo actionWithDuration:8 position:ccp(windowSize.width + bg.contentSize.width / 2, windowSize.height / 2)], 
-				   [CCCallFuncN actionWithTarget:self selector:@selector(removeNodeFromParent:)],
-				   nil]];
+
+	for (Block *b in grid)
+	{
+		if (b != [NSNull null])
+		{
+			// Slowly move blocks to the right
+			b.position = ccp(b.position.x + 1, b.position.y);
+			
+			// If too far to the right, have them circle around again
+			if (b.position.x >= windowSize.width + b.contentSize.width * 1.5)
+				b.position = ccp(-b.contentSize.width * 1.5 + 1, b.position.y);
+		}
+	}
 }
 
 - (void)flash
@@ -175,7 +241,7 @@
 	[self addChild:bg z:10];
 	
 	[bg runAction:[CCSequence actions:
-				   [CCFadeOut actionWithDuration:0.5],
+				   [CCFadeOut actionWithDuration:1.0],
 				   [CCCallFuncN actionWithTarget:self selector:@selector(removeNodeFromParent:)],
 				   nil]];
 }
@@ -194,7 +260,7 @@
 
 - (void)dealloc
 {
-	//[grid release];
+	[grid release];
 	
 	[super dealloc];
 }
