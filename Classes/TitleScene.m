@@ -69,24 +69,18 @@
 		// Do one row, then have in each block's action a callback which adds another block, waits 
 		//a random amount of time, then animates to position
 		
-		int rows = 13;
-		int cols = 13;
-		int gridSize = 13;
+		int rows = 11;	// An extra row so there won't be a gap in animation
+		int cols = 12;
 		lastRow = 0;
 		
 		grid = [[NSMutableArray arrayWithCapacity:rows * cols] retain];
-		for (int i = 0; i < rows * cols; i++)
-			[grid addObject:[NSNull null]];
-		
+
 		// Drop a bunch of blocks onto the screen
-		for (int i = rows; i < rows * 2; i++)
+		for (int x = 0; x < rows; x++)
 		{
+			int y = 0;
 			Block *b = [Block random];
 			
-			int x = i % cols;
-			int y = floor(i / rows);
-			
-			// Set where the block should be
 			[b setGridPosition:ccp(x, y)];
 			[b snapToGridPosition];
 			
@@ -97,27 +91,16 @@
 			[self addChild:b];
 			
 			// Add to grid
-			[grid insertObject:b atIndex:x + y * gridSize];
+			[grid addObject:b];
 			
-			// Animate the block moving back to position
-			//[b animateToGridPositionSlowly];
-		
 			int blockSize = b.contentSize.width;
 			float randomTime = (float)(arc4random() % 40) / 100 + 0.25;
 			
-			id move = [CCMoveTo actionWithDuration:randomTime position:ccp(x * blockSize - blockSize / 2, y * blockSize - blockSize / 2)];
+			id move = [CCMoveTo actionWithDuration:randomTime position:ccp(x * blockSize - blockSize / 2, y * blockSize + blockSize / 2)];
 			id recursive = [CCCallFuncN actionWithTarget:self selector:@selector(dropNextBlockAfter:)];
 			
-			[[grid objectAtIndex:x + y * gridSize] runAction:[CCSequence actions:move, recursive, nil]];
+			[b runAction:[CCSequence actions:move, recursive, nil]];
 		}
-		
-		// Display the UI after 2 seconds
-//		[self runAction:[CCSequence actions:
-//						 [CCDelayTime actionWithDuration:2],
-//						 [CCCallFunc actionWithTarget:self selector:@selector(flash)],
-//						 [CCCallFunc actionWithTarget:self selector:@selector(showUI)],
-//						 nil]];
-
 	}
 	
 	return self;
@@ -125,10 +108,9 @@
 
 - (void)dropNextBlockAfter:(Block *)block
 {	
-	int rows = 13;
-	int cols = 13;
-	int gridSize = 13;
-	
+	int rows = 11;
+	int cols = 12;
+
 	CGSize windowSize = [[CCDirector sharedDirector] winSize];
 	
 	Block *b = [Block random];
@@ -146,29 +128,29 @@
 	// Add to layer
 	[self addChild:b];
 	
-	// Add to grid - array[x + y*size] === array[x][y]
-	[grid insertObject:b atIndex:x + y * gridSize];
+	// Add to grid
+	[grid addObject:b];
 	
 	int blockSize = b.contentSize.width;
 	float randomTime = (float)(arc4random() % 40) / 100 + 0.25;
 	
-	id move = [CCMoveTo actionWithDuration:randomTime position:ccp(x * blockSize - blockSize / 2, y * blockSize - blockSize / 2)];
+	id move = [CCMoveTo actionWithDuration:randomTime position:ccp(x * blockSize - blockSize / 2, y * blockSize + blockSize / 2)];
 	id recursive = [CCCallFuncN actionWithTarget:self selector:@selector(dropNextBlockAfter:)];
 	
-	if (y < gridSize)
+	if (y < cols)
 	{
 		// Column isn't full, so move the block down to its' place and run this method again
-		[[grid objectAtIndex:x + y * gridSize] runAction:[CCSequence actions:move, recursive, nil]];
+		[b runAction:[CCSequence actions:move, recursive, nil]];
 	}
 	else
 	{
 		// Column is full. Move block to place and check whether the entire top row is full
 		// If top row is full, show UI elements
-		[[grid objectAtIndex:x + y * gridSize] runAction:move];
+		[b runAction:move];
 		
 		lastRow++;
 		
-		if (lastRow == gridSize)
+		if (lastRow == rows)
 		{
 			[self flash];
 			[self showUI];
@@ -219,15 +201,12 @@
 
 	for (Block *b in grid)
 	{
-		if (b != [NSNull null])
-		{
-			// Slowly move blocks to the right
-			b.position = ccp(b.position.x + 1, b.position.y);
-			
-			// If too far to the right, have them circle around again
-			if (b.position.x >= windowSize.width + b.contentSize.width * 1.5)
-				b.position = ccp(-b.contentSize.width * 1.5 + 1, b.position.y);
-		}
+		// Slowly move blocks to the right
+		b.position = ccp(b.position.x + 1, b.position.y);
+		
+		// If too far to the right, have them circle around again
+		if (b.position.x >= windowSize.width + b.contentSize.width * 1.5)
+			b.position = ccp(-b.contentSize.width * 1.5 + 1, b.position.y);
 	}
 }
 
