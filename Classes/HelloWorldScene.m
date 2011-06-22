@@ -145,7 +145,8 @@
 	timePlayed += dt;
 	
 	// This value increases as the game is played longer
-	int multiplier = (level + 1) / 2;
+	//int multiplier = (level + 1) / 2;
+	int multiplier = 1;
 	
 	// Update timer
 	timeRemaining -= dt * multiplier;
@@ -266,50 +267,56 @@
 	if (!horizontalMove && !verticalMove)
 	{
 		if (startDiffX > startDiffY)
+		{
 			horizontalMove = YES;
+		}
 		else
+		{
 			verticalMove = YES;
+		}
 	}
 	
-//	// Allow some leniency if player moves slightly vertically, but then wants to move horizontally (or vice versa)
-//	if (horizontalMove && startDiffY > startDiffX && startDiffX < 5)
-//	{
-//		// Change to vertical move
-//		verticalMove = YES;
-//		horizontalMove = NO;
-//		
-//		// Reset the row/column being stored
-//		touchRow = touchPoint.y / blockSize + gridOffset;
-//		touchCol = touchPoint.x / blockSize + gridOffset;
-//		
-//		// Reset the starting touch
-//		touchStart = touchPoint;
-//		
-//		// Animate row back to position
-//		for (int i = (touchRow - gridOffset) * cols; i < touchRow * cols + cols; i++)
-//		{
-//			[[grid objectAtIndex:i] snapToGridPosition];
-//			NSLog(@"Snapping block %i back", i);
-//		}
-//			
-//	}
-//	else if (verticalMove && startDiffX > startDiffY && startDiffY < 5)
-//	{
-//		// Change to horizontal move
-//		verticalMove = NO;
-//		horizontalMove = YES;
-//		
-//		// Reset the row/column being stored
-//		touchRow = touchPoint.y / blockSize + gridOffset;
-//		touchCol = touchPoint.x / blockSize + gridOffset;
-//		
-//		// Reset the starting touch
-//		touchStart = touchPoint;
-//		
-//		// Move row back to position
-//		for (int i = touchCol; i < rows * (cols - gridOffset); i += 8)
-//			[[grid objectAtIndex:i] snapToGridPosition];
-//	}
+	// Allow some leniency if player moves slightly vertically, but then wants to move horizontally (or vice versa)
+	if (horizontalMove && startDiffY > startDiffX && startDiffX < 5)
+	{		
+		// Snap row back to position
+		for (int i = 0; i < cols; i++)
+		{
+			Block *s = [grid objectAtIndex:touchRow * cols + i];
+			[s snapToGridPosition];
+		}
+		
+		// Change to vertical move
+		verticalMove = YES;
+		horizontalMove = NO;
+		
+		// Reset the row/column being stored
+		touchRow = touchPoint.y / blockSize + gridOffset;
+		touchCol = touchPoint.x / blockSize + gridOffset;
+		
+		// Reset the starting touch
+		touchStart = touchPoint;
+	}
+	else if (verticalMove && startDiffX > startDiffY && startDiffY < 5)
+	{		
+		// Snap row back to position
+		for (int i = 0; i < cols; i++)
+		{
+			Block *s = [grid objectAtIndex:touchCol + cols * i];
+			[s snapToGridPosition];
+		}
+		
+		// Change to horizontal move
+		verticalMove = NO;
+		horizontalMove = YES;
+		
+		// Reset the row/column being stored
+		touchRow = touchPoint.y / blockSize + gridOffset;
+		touchCol = touchPoint.x / blockSize + gridOffset;
+		
+		// Reset the starting touch
+		touchStart = touchPoint;
+	}
 	
 	if (horizontalMove)
 	{
@@ -322,6 +329,8 @@
 		}
 		
 		int d = touchStart.x - touchPoint.x;
+		
+		// Move left
 		if (d >= blockSize)
 		{
 			// Handle very fast movement
@@ -342,6 +351,7 @@
 
 			[[SimpleAudioEngine sharedEngine] playEffect:@"move.caf"];
 		}
+		// Move right
 		else if (d <= -blockSize)
 		{
 			for (int i = 0; i > floor(d / blockSize); i--)
@@ -368,11 +378,13 @@
 		int touchDiffY = touchDiff.y;
 		for (int i = 0; i < cols; i++)
 		{
-			CCSprite *s = [grid objectAtIndex:touchCol + cols * i];
+			Block *s = [grid objectAtIndex:touchCol + cols * i];
 			[s setPosition:ccp(s.position.x, s.position.y + touchDiffY % blockSize)];
 		}
 		
 		int d = touchStart.y - touchPoint.y;
+		
+		// Move down
 		if (d >= blockSize)
 		{
 			for (int i = 0; i < floor(d / blockSize); i++)
@@ -392,6 +404,7 @@
 
 			[[SimpleAudioEngine sharedEngine] playEffect:@"move.caf"];
 		}
+		// Move up
 		else if (d <= -blockSize)
 		{
 			for (int i = 0; i > floor(d / blockSize); i--)
@@ -891,11 +904,6 @@
 			// Drop more blocks in to replace the ones that were removed
 			[self dropBlocks];
 			
-			//[self newBlockAtIndex:gridIndex];
-			
-			// Do some sort of effect here to show which blocks matched
-			//[remove flash];
-			
 			// Update score, using the current combo count as a multiplier
 			[self updateScore:10 * combo];
 			
@@ -973,49 +981,25 @@
 
 - (void)newBlockAtIndex:(int)index
 {
-	int randomColorNumber = (float)(arc4random() % 100) / 100 * 4;
-	int randomShapeNumber = (float)(arc4random() % 100) / 100 * 4;
-	NSString *color;
-	NSString *shape;
+	// Create new random block
+	Block *b = [Block random];
 	
-	switch (randomColorNumber)
-	{
-		case 0: color = @"red"; break;
-		case 1: color = @"green"; break;
-		case 2: color = @"blue"; break;
-		case 3: color = @"yellow"; break;
-	}
-	
-	switch (randomShapeNumber)
-	{
-		case 0: shape = @"star"; break;
-		case 1: shape = @"clover"; break;
-		case 2: shape = @"heart"; break;
-		case 3: shape = @"diamond"; break;
-	}
-	
-	Block *s = [Block spriteWithFile:[NSString stringWithFormat:@"%@-%@.png", color, shape]];
-	[s setColour:color];
-	[s setShape:shape];
-	
+	// Determine its x/y position within the game grid
 	int x = index % cols;
 	int y = floor(index / rows);
+	[b setGridPosition:ccp(x, y)];
 	
-	[s setGridPosition:ccp(x, y)];
-	[s snapToGridPosition];
-	//[s setPosition:ccp(x * blockSize - blockSize / 2, y * blockSize - blockSize / 2)];		// Extended grid
-	//[s setPosition:ccp(x * blockSize + blockSize / 2, y * blockSize + blockSize / 2)];	// "Fit" grid
+	// Move it to the correct location in grid
+	[b snapToGridPosition];
 
-	[self addChild:s z:1];
-	
-	// Do a "growing" animation on the new block
-	[s embiggen];
+	// Add to layer
+	[self addChild:b z:1];
 	
 	// Do a check here to see if we need to replace an object or insert
 	if ([grid count] > index && [grid objectAtIndex:index] != nil)
-		[grid replaceObjectAtIndex:index withObject:s];
+		[grid replaceObjectAtIndex:index withObject:b];
 	else
-		[grid insertObject:s atIndex:index];
+		[grid insertObject:b atIndex:index];
 }
 
 - (void)createParticlesAt:(CGPoint)position
@@ -1104,11 +1088,16 @@
 	score += points;
 	[scoreLabel setString:[NSString stringWithFormat:@"%08d", score]];
 	
-	// Do some sort of effect here
-	timeRemaining += 3;
-	if (timeRemaining > 30)
-		timeRemaining = 30;
+	// Do some sort of effect here... maybe create a label with the added time
+	timeRemaining += (1.0 / level) * combo;
 	
+	NSLog(@"Additional time: %f", (1.0 / level) * combo);
+	
+	if (timeRemaining > 30)
+	{
+		timeRemaining = 30;
+	}
+
 	// Increment the level count here
 	// Do some sort of effect here when the level changes
 	if (floor(score / 1000) + 1 > level)
@@ -1120,6 +1109,11 @@
 
 - (void)comboCountdown
 {
+//	if (combo < 1)
+//	{
+//		combo = 1;
+//	}
+	
 	// Speed at which counter counts down is dependent on how large the counter is
 	float interval = 2.0 / combo;
 	
@@ -1133,13 +1127,17 @@
 {
 	// Decrement and update display
 	if (combo > 0)
+	{	
 		combo--;
-	
+	}
+
 	[comboLabel setString:[NSString stringWithFormat:@"%ix", combo]];
 	
 	// Unschedule this if count is zero
 	if (combo < 1)
+	{
 		[self unschedule:@selector(updateCombo)];
+	}
 }
 
 - (void)removeNodeFromParent:(CCNode *)node

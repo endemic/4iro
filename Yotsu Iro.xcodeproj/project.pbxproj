@@ -78,7 +78,6 @@
 		7D3C817B13AA8B9B0008621E /* flash.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D3C817913AA8B9B0008621E /* flash.png */; };
 		7D3C819A13AA8FDA0008621E /* Default-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D3C819913AA8FDA0008621E /* Default-hd.png */; };
 		7D402124138D06E200490A3B /* TitleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D402123138D06E200490A3B /* TitleScene.m */; };
-		7D40212F138D09CA00490A3B /* LogoScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D40212E138D09CA00490A3B /* LogoScene.m */; };
 		7D402174138D11D700490A3B /* bottom-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D402172138D11D700490A3B /* bottom-background.png */; };
 		7D46C962138D7E3100D1F9C8 /* ScoreScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D46C961138D7E3100D1F9C8 /* ScoreScene.m */; };
 		7D496BAC139CDAD400B93823 /* timer-gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D496BAA139CDAD400B93823 /* timer-gradient.png */; };
@@ -415,8 +414,6 @@
 		7D3C819913AA8FDA0008621E /* Default-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-hd.png"; sourceTree = "<group>"; };
 		7D402122138D06E200490A3B /* TitleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleScene.h; sourceTree = "<group>"; };
 		7D402123138D06E200490A3B /* TitleScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleScene.m; sourceTree = "<group>"; };
-		7D40212D138D09CA00490A3B /* LogoScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogoScene.h; sourceTree = "<group>"; };
-		7D40212E138D09CA00490A3B /* LogoScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogoScene.m; sourceTree = "<group>"; };
 		7D402172138D11D700490A3B /* bottom-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bottom-background.png"; path = "images/bottom-background.png"; sourceTree = "<group>"; };
 		7D46C960138D7E3100D1F9C8 /* ScoreScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreScene.h; sourceTree = "<group>"; };
 		7D46C961138D7E3100D1F9C8 /* ScoreScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreScene.m; sourceTree = "<group>"; };
@@ -776,8 +773,6 @@
 				7DF090E81377E824005B6BC8 /* Block.m */,
 				7D402122138D06E200490A3B /* TitleScene.h */,
 				7D402123138D06E200490A3B /* TitleScene.m */,
-				7D40212D138D09CA00490A3B /* LogoScene.h */,
-				7D40212E138D09CA00490A3B /* LogoScene.m */,
 				7D46C960138D7E3100D1F9C8 /* ScoreScene.h */,
 				7D46C961138D7E3100D1F9C8 /* ScoreScene.m */,
 				7D4E1B9213A380C300CE9F3A /* SynthesizeSingleton.h */,
@@ -1524,7 +1519,6 @@
 				E0F80F60120A0182005866B8 /* RootViewController.m in Sources */,
 				7DF090E91377E824005B6BC8 /* Block.m in Sources */,
 				7D402124138D06E200490A3B /* TitleScene.m in Sources */,
-				7D40212F138D09CA00490A3B /* LogoScene.m in Sources */,
 				7D46C962138D7E3100D1F9C8 /* ScoreScene.m in Sources */,
 				7D4E1B9513A3810D00CE9F3A /* GameSingleton.m in Sources */,
 			);

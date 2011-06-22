@@ -11,8 +11,13 @@
 
 @interface TitleScene : CCLayer 
 {
+	// Variables for the grid of colored blocks used as a background for this scene
 	NSMutableArray *grid;
-	int lastRow;
+	int rows, cols, lastRow;
+	
+	// "Container" nodes used to move certain UI elements around
+	CCNode *titleNode;
+	CCNode *scoresNode;
 	
 	// String to be appended to sprite filenames if required to use a high-rez file (e.g. iPhone 4 assests on iPad)
 	NSString *hdSuffix;

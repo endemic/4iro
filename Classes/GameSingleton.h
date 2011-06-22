@@ -18,6 +18,9 @@
 	// Boolean that's set to "true" if game is running on iPad!
 	bool isPad;
 	
+	// Boolean that triggers intro animation
+	bool showIntroAnimation;
+	
 	// Variable we check to see if player quit in the middle of a level
 	bool restoreLevel;
 	
@@ -32,6 +35,7 @@
 }
 
 @property (nonatomic) bool isPad;
+@property (nonatomic) bool showIntroAnimation;
 @property (nonatomic) bool restoreGame;
 
 @property (readwrite, nonatomic) int points;

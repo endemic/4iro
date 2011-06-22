@@ -28,7 +28,7 @@
 	return self;
 }
 
-+ (id)random
++ (Block *)random
 {
 	int randomColorNumber = (float)(arc4random() % 100) / 100 * 4;
 	int randomShapeNumber = (float)(arc4random() % 100) / 100 * 4;
@@ -75,17 +75,8 @@
 	int blockSize = self.contentSize.width;
 
 	id action = [CCMoveTo actionWithDuration:0.2 position:ccp(x * blockSize - blockSize / 2, y * blockSize - blockSize / 2)];
-	[self runAction:action];
-}
-
-- (void)animateToGridPositionSlowly
-{
-	int x = self.gridPosition.x;
-	int y = self.gridPosition.y;
-	int blockSize = self.contentSize.width;
-	
-	id action = [CCMoveTo actionWithDuration:2 position:ccp(x * blockSize - blockSize / 2, y * blockSize - blockSize / 2)];
-	[self runAction:action];
+	id ease = [CCEaseBackOut actionWithAction:action];
+	[self runAction:ease];
 }
 
 // Debug helper method

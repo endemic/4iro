@@ -11,7 +11,7 @@
 
 @implementation GameSingleton
 
-@synthesize isPad, restoreGame, points, combo, level, timeRemaining, timePlayed, hasGameCenter, unsentScores;
+@synthesize isPad, showIntroAnimation, restoreGame, points, combo, level, timeRemaining, timePlayed, hasGameCenter, unsentScores;
 
 SYNTHESIZE_SINGLETON_FOR_CLASS(GameSingleton);
 
@@ -29,8 +29,10 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(GameSingleton);
 		if ([self isGameCenterAPIAvailable])
 			hasGameCenter = YES;
 		else
-			hasGameCenter = NO;	
-
+			hasGameCenter = NO;
+		
+		// Trigger the intro animation to be shown once
+		showIntroAnimation = YES;
 	}
 	return self;
 }

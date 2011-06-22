@@ -10,7 +10,6 @@
 
 #import "Yotsu_IroAppDelegate.h"
 #import "GameConfig.h"
-#import "LogoScene.h"
 #import "TitleScene.h"
 #import "HelloWorldScene.h"
 #import "RootViewController.h"
