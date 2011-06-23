@@ -56,6 +56,7 @@
 - (void)dropBlocks;
 - (void)newBlockAtIndex:(int)index;
 - (void)createParticlesAt:(CGPoint)position;
+- (void)createStatusMessageAt:(CGPoint)position withText:(NSString *)text;
 - (void)flash;
 
 - (void)updateScore:(int)points;

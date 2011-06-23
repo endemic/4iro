@@ -1068,6 +1068,25 @@
 	//NSLog(@"Tryin' to make a particle emitter at %f, %f", position.x, position.y);
 }
 
+/**
+ Create a bitmap font label, add to layer, then animate off the screen
+ */
+- (void)createStatusMessageAt:(CGPoint)position withText:(NSString *)text
+{
+	// Create a label and add it to the layer
+	int defaultFontSize = 32;
+	CCLabelBMFont *label = [CCLabelBMFont labelWithString:text fntFile:[NSString stringWithFormat:@"chalkduster-%i.fnt", defaultFontSize * fontMultiplier]];
+	label.position = position;
+	[self addChild:label z:10];		// Should be z-positioned on top of everything
+	
+	// Run some move/fade actions
+	CCMoveBy *move = [CCMoveBy actionWithDuration:3 position:ccp(0, label.contentSize.height)];
+	CCFadeOut *fade = [CCFadeOut actionWithDuration:2];
+	CCCallFuncN *remove = [CCCallFuncN actionWithTarget:self selector:@selector(removeNodeFromParent:)];
+	
+	[label runAction:[CCSequence actions:[CCSpawn actions:move, fade, nil], remove, nil]];
+}
+
 - (void)flash
 {
 	// ask director the the window size
@@ -1089,9 +1108,13 @@
 	[scoreLabel setString:[NSString stringWithFormat:@"%08d", score]];
 	
 	// Do some sort of effect here... maybe create a label with the added time
-	timeRemaining += (1.0 / level) * combo;
+	float additionalTime = (1.0 / level) * combo;
+	timeRemaining += additionalTime;
 	
-	NSLog(@"Additional time: %f", (1.0 / level) * combo);
+	// Create a "+1s" status message
+	[self createStatusMessageAt:ccp(50, 435) withText:[NSString stringWithFormat:@"+%0.1fs", additionalTime]];
+	
+	NSLog(@"Additional time: %f", additionalTime);
 	
 	if (timeRemaining > 30)
 	{

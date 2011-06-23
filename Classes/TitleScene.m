@@ -148,25 +148,22 @@
 		NSArray *highScores = [defaults arrayForKey:@"scores"];
 		
 		// Create title label
-		CCLabelTTF *title = [CCLabelTTF labelWithString:@"high scores" fontName:@"Chalkduster.ttf" fontSize:40];
-		[title setPosition:ccp(windowSize.width / 2, windowSize.height - title.contentSize.height)];
-		[title setColor:ccc3(0, 0, 0)];
+		CCSprite *title = [CCSprite spriteWithFile:[NSString stringWithFormat:@"high-scores%@.png", hdSuffix]];
+		title.position = ccp(windowSize.width / 2, windowSize.height - title.contentSize.height);
 		[scoresNode addChild:title];
 		
-		// Create a mutable string which will be used to store the score list
-		NSMutableString *scoresString = [NSMutableString stringWithString:@""];
+		int defaultFontSize = 32;
 		
 		// Iterate through array and print out high scores
 		for (int i = 0; i < [highScores count]; i++)
 		{
-			[scoresString appendFormat:@"%i. %i\n", i + 1, [[highScores objectAtIndex:i] intValue]];
+			// Create labels that will display the scores
+			CCLabelBMFont *label = [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%i.%i\n", i + 1, [[highScores objectAtIndex:i] intValue]] 
+														  fntFile:[NSString stringWithFormat:@"chalkduster-%i.fnt", defaultFontSize * fontMultiplier]];
+			label.anchorPoint = ccp(0, 0.5); 
+			label.position = ccp(windowSize.width / 2 - windowSize.width / 3, title.position.y - label.contentSize.height * (i + 1));
+			[scoresNode addChild:label z:2];
 		}
-		
-		// Create label that will display the scores - manually set the dimensions due to multi-line content
-		CCLabelTTF *scoresLabel = [CCLabelTTF labelWithString:scoresString dimensions:CGSizeMake(windowSize.width, windowSize.height / 2) alignment:CCTextAlignmentCenter fontName:@"Chalkduster.ttf" fontSize:32];
-		[scoresLabel setPosition:ccp(windowSize.width / 2, windowSize.height / 2)];
-		[scoresLabel setColor:ccc3(0, 0, 0)];
-		[scoresNode addChild:scoresLabel];
 		
 		// Create button that will take us back to the title screen
 		CCMenuItemFont *backButton = [CCMenuItemFont itemFromString:@"back" block:^(id sender) {
@@ -285,8 +282,11 @@
 	[titleMenu setPosition:ccp(windowSize.width / 2, logo.position.y - titleMenu.contentSize.height / 2.5)];
 	[titleNode addChild:titleMenu z:3];
 	
-	CCLabelTTF *copyright = [CCLabelTTF labelWithString:@"© 2011 Ganbaru Games" fontName:@"Chalkduster.ttf" fontSize:16];
-	copyright.color = ccc3(0, 0, 0);
+	int defaultFontSize = 16;
+	CCLabelBMFont *copyright = [CCLabelBMFont labelWithString:@"© 2011 Ganbaru Games" 
+													  fntFile:[NSString stringWithFormat:@"chalkduster-%i.fnt", defaultFontSize * fontMultiplier]];
+	
+	//CCLabelTTF *copyright = [CCLabelTTF labelWithString:@"© 2011 Ganbaru Games" fontName:@"Chalkduster.ttf" fontSize:16];
 	copyright.position = ccp(windowSize.width / 2, copyright.contentSize.height * 0.75);
 	[titleNode addChild:copyright];
 	
