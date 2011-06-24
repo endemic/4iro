@@ -24,5 +24,10 @@
 //
 #define GAME_AUTOROTATION kGameAutorotationNone
 
+#define kGameModeNormal 1
+#define kGameModeTimeAttack 2
+
+#define kAnimationDuration 0.2
+#define kMaxTimeLimit 30.0
 
 #endif // __GAME_CONFIG_H

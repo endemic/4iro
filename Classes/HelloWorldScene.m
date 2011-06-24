@@ -15,8 +15,7 @@
 #import "SimpleAudioEngine.h"
 
 #import "GameSingleton.h"
-
-#define kAnimationDuration 0.2
+#import "GameConfig.h"
 
 // HelloWorld implementation
 @implementation HelloWorld
@@ -97,7 +96,7 @@
 		[topUi addChild:scoreLabel z:4];
 		
 		// Set up timer
-		timeRemaining = 30.0;
+		timeRemaining = kMaxTimeLimit;
 		timePlayed = 0;
 		timeRemainingDisplay = [CCProgressTimer progressWithFile:[NSString stringWithFormat:@"timer-gradient%@.png", hdSuffix]];
 		timeRemainingDisplay.type = kCCProgressTimerTypeVerticalBarBT;
@@ -113,10 +112,6 @@
 		visibleRows = rows - gridOffset * 2;
 		visibleCols = cols - gridOffset * 2;
 
-//		rows = 8;
-//		cols = 8;
-//		gridOffset = 0;
-		
 		blockSize = 40;
 		
 		// Array w/ 100 spaces - 10x10
@@ -156,18 +151,18 @@
 	{
 		timeRemaining = 0;
 		
-		[self loseGame];
+		[self gameOver];
 	}
 	
 	// 30 seconds is max time limit; multipy by 100 to get value between 0 - 100
-	timeRemainingDisplay.percentage = timeRemaining / 30.0 * 100;
+	timeRemainingDisplay.percentage = timeRemaining / kMaxTimeLimit * 100;
 }
 
 
 /*
- Do all sorts of nonsense after the player loses the game
+ Do all sorts of nonsense after time runs out
  */
-- (void)loseGame
+- (void)gameOver
 {
 	[self setIsTouchEnabled:NO];
 	
@@ -185,12 +180,18 @@
 	[self addChild:gameOverText z:3];
 
 	CCMenuItemImage *retryButton = [CCMenuItemImage itemFromNormalImage:@"retry-button.png" selectedImage:@"retry-button-selected.png" block:^(id sender) {
+		// Play SFX
+		[[SimpleAudioEngine sharedEngine] playEffect:@"button.caf"];
+		
 		// Reload this scene
 		CCTransitionFlipX *transition = [CCTransitionFlipX transitionWithDuration:0.5 scene:[HelloWorld node] orientation:kOrientationUpOver];
 		[[CCDirector sharedDirector] replaceScene:transition];
 	}];
 	
 	CCMenuItemImage *quitButton = [CCMenuItemImage itemFromNormalImage:@"quit-button.png" selectedImage:@"quit-button-selected.png" block:^(id sender) {
+		// Play SFX
+		[[SimpleAudioEngine sharedEngine] playEffect:@"button.caf"];
+		
 		// Go to title scene
 		CCTransitionFlipX *transition = [CCTransitionFlipX transitionWithDuration:0.5 scene:[TitleScene node] orientation:kOrientationUpOver];
 		[[CCDirector sharedDirector] replaceScene:transition];
@@ -907,6 +908,9 @@
 			// Update score, using the current combo count as a multiplier
 			[self updateScore:10 * combo];
 			
+			// Update time limit
+			[self updateTime];
+			
 			if (combo < 1)
 				NSLog(@"ZOMG, combo is less than one!");
 		}
@@ -997,9 +1001,13 @@
 	
 	// Do a check here to see if we need to replace an object or insert
 	if ([grid count] > index && [grid objectAtIndex:index] != nil)
+	{
 		[grid replaceObjectAtIndex:index withObject:b];
+	}
 	else
+	{
 		[grid insertObject:b atIndex:index];
+	}
 }
 
 - (void)createParticlesAt:(CGPoint)position
@@ -1092,35 +1100,46 @@
 	// ask director the the window size
 	CGSize windowSize = [[CCDirector sharedDirector] winSize];
 	
+	// Add a white, screen-sized .png to scene
 	CCSprite *bg = [CCSprite spriteWithFile:[NSString stringWithFormat:@"flash%@.png", hdSuffix]];
 	bg.position = ccp(windowSize.width / 2, windowSize.height / 2);
 	[self addChild:bg z:10];
-
+	
+	// Fade the .png out, then remove it
 	[bg runAction:[CCSequence actions:
 					[CCFadeOut actionWithDuration:0.5],
 					[CCCallFuncN actionWithTarget:self selector:@selector(removeNodeFromParent:)],
 					nil]];
+	
+	// Play SFX
+	[[SimpleAudioEngine sharedEngine] playEffect:@"explode.caf"];
+}
+
+- (void)updateTime
+{
+	// Only allow player to gain back time if playing in "Normal" mode
+	if ([GameSingleton sharedGameSingleton].gameMode == kGameModeNormal)
+	{
+		// Calculate how much extra time the player gets
+		float additionalTime = (1.0 / level) * combo;
+		timeRemaining += additionalTime;
+		
+		// Create a "+1s" status message
+		[self createStatusMessageAt:ccp(50, 380) withText:[NSString stringWithFormat:@"+%0.1fs", additionalTime]];
+		
+		// Enforce max time limit
+		if (timeRemaining > kMaxTimeLimit)
+		{
+			timeRemaining = kMaxTimeLimit;
+		}
+	}
+	// In "Time Attack", player has to make the most matches within the set time limit
 }
 
 - (void)updateScore:(int)points
 {
 	score += points;
 	[scoreLabel setString:[NSString stringWithFormat:@"%08d", score]];
-	
-	// Do some sort of effect here... maybe create a label with the added time
-	float additionalTime = (1.0 / level) * combo;
-	timeRemaining += additionalTime;
-	
-	// Create a "+1s" status message
-	[self createStatusMessageAt:ccp(50, 380) withText:[NSString stringWithFormat:@"+%0.1fs", additionalTime]];
-	
-	//NSLog(@"Additional time: %f", additionalTime);
-	
-	// Enforce max time limit of 30 seconds
-	if (timeRemaining > 30)
-	{
-		timeRemaining = 30;
-	}
 
 	// Increment the level count here
 	// Do some sort of effect here when the level changes
@@ -1166,14 +1185,14 @@
 
 - (void)removeNodeFromParent:(CCNode *)node
 {
-	//[sprite.parent removeChild:sprite cleanup:YES];
+	[node.parent removeChild:node cleanup:YES];
 	
 	// Trying this from forum post http://www.cocos2d-iphone.org/forum/topic/981#post-5895
 	// Apparently fixes a memory error?
-	CCNode *parent = node.parent;
-	[node retain];
-	[parent removeChild:node cleanup:YES];
-	[node autorelease];
+//	CCNode *parent = node.parent;
+//	[node retain];
+//	[parent removeChild:node cleanup:YES];
+//	[node autorelease];
 }
 
 // on "dealloc" you need to release all your retained objects

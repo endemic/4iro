@@ -43,7 +43,7 @@
 + (id)scene;
 
 - (void)update:(ccTime)dt;
-- (void)loseGame;
+- (void)gameOver;
 
 - (void)shiftLeft;
 - (void)shiftRight;
@@ -59,6 +59,7 @@
 - (void)createStatusMessageAt:(CGPoint)position withText:(NSString *)text;
 - (void)flash;
 
+- (void)updateTime;
 - (void)updateScore:(int)points;
 - (void)comboCountdown;
 - (void)updateCombo;

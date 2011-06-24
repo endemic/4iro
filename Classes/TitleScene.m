@@ -15,6 +15,7 @@
 #import "SimpleAudioEngine.h"
 
 #import "GameSingleton.h"
+#import "GameConfig.h"
 
 @implementation TitleScene
 
@@ -65,7 +66,11 @@
 		[[CCTextureCache sharedTextureCache] addImage:@"scores-button.png"];
 		[[CCTextureCache sharedTextureCache] addImage:@"play-button-selected.png"];
 		[[CCTextureCache sharedTextureCache] addImage:@"scores-button-selected.png"];
-				
+		
+		// Set default SFX volume to be a bit lower for the intro animation
+		[[SimpleAudioEngine sharedEngine] setEffectsVolume:0.25];
+		
+		
 		rows = 11;	// An extra row so there won't be a gap in animation
 		cols = 12;
 		lastRow = 0;
@@ -99,10 +104,13 @@
 				float randomTime = (float)(arc4random() % 40) / 100 + 0.25;
 				
 				id move = [CCMoveTo actionWithDuration:randomTime position:ccp(x * blockSize - blockSize / 2, y * blockSize + blockSize / 2)];
-				id ease = [CCEaseBackOut actionWithAction:move];
+				id ease = [CCEaseIn actionWithAction:move rate:2];
+				id sfx = [CCCallBlock actionWithBlock:^{
+					[[SimpleAudioEngine sharedEngine] playEffect:@"block-fall.caf"];
+				}];
 				id recursive = [CCCallFuncN actionWithTarget:self selector:@selector(dropNextBlockAfter:)];
 				
-				[b runAction:[CCSequence actions:ease, recursive, nil]];
+				[b runAction:[CCSequence actions:ease, sfx, recursive, nil]];
 			}
 			
 			// Set "showIntroAnimation" bool false so this animation doesn't repeat itself
@@ -166,7 +174,7 @@
 		}
 		
 		// Create button that will take us back to the title screen
-		CCMenuItemFont *backButton = [CCMenuItemFont itemFromString:@"back" block:^(id sender) {
+		CCMenuItemFont *backButton = [CCMenuItemImage itemFromNormalImage:@"back-button.png" selectedImage:@"back-button-selected.png" block:^(id sender) {
 			[[SimpleAudioEngine sharedEngine] playEffect:@"button.caf"];
 			
 			// Ease the default logo node down into view, replacing the scores node
@@ -179,7 +187,6 @@
 		
 		// Set position of menu to be below the scores
 		[menu setPosition:ccp(windowSize.width / 2, backButton.contentSize.height)];
-		[menu setColor:ccc3(0, 0, 0)];
 		
 		// Add menu to layer
 		[scoresNode addChild:menu z:2];
@@ -216,8 +223,11 @@
 	
 	// A bunch of actions and crap
 	id move = [CCMoveTo actionWithDuration:randomTime position:ccp(x * blockSize - blockSize / 2, y * blockSize + blockSize / 2)];
-	id ease = [CCEaseBackOut actionWithAction:move];
+	id ease = [CCEaseIn actionWithAction:move rate:2];
 	id recursive = [CCCallFuncN actionWithTarget:self selector:@selector(dropNextBlockAfter:)];
+	id sfx = [CCCallBlock actionWithBlock:^{
+		[[SimpleAudioEngine sharedEngine] playEffect:@"block-fall.caf"];
+	}];
 	id flash = [CCCallBlock actionWithBlock:^{
 		[self flash];
 		[self showUI];
@@ -226,7 +236,7 @@
 	if (y < cols - 1)
 	{
 		// Column isn't full, so move the block down to its' place and run this method again
-		[b runAction:[CCSequence actions:ease, recursive, nil]];
+		[b runAction:[CCSequence actions:ease, sfx, recursive, nil]];
 	}
 	else
 	{
@@ -238,7 +248,7 @@
 		}
 		else 
 		{
-			[b runAction:ease];
+			[b runAction:[CCSequence actions:ease, sfx, nil]];
 		}
 
 	}
@@ -259,11 +269,14 @@
 	[titleNode addChild:logo z:3];
 	
 	CCMenuItemImage *startButton = [CCMenuItemImage itemFromNormalImage:@"play-button.png" selectedImage:@"play-button-selected.png" block:^(id sender) {
+		[GameSingleton sharedGameSingleton].gameMode = kGameModeNormal;
 		[[SimpleAudioEngine sharedEngine] playEffect:@"button.caf"];
 		
 		// Go to game scene
 		CCTransitionFlipX *transition = [CCTransitionFlipX transitionWithDuration:0.5 scene:[HelloWorld node] orientation:kOrientationUpOver];
 		[[CCDirector sharedDirector] replaceScene:transition];
+		
+		// Transition this menu off screen, and move "Game Type" selector menu on
 	}];
 	
 	CCMenuItemImage *scoresButton = [CCMenuItemImage itemFromNormalImage:@"scores-button.png" selectedImage:@"scores-button-selected.png" block:^(id sender) {
@@ -272,9 +285,6 @@
 		// Ease the scores node up into view, replacing the default logo, etc.
 		[scoresNode runAction:[CCEaseBackInOut actionWithAction:[CCMoveTo actionWithDuration:1.0 position:ccp(0, 0)]]];
 		[titleNode runAction:[CCEaseBackInOut actionWithAction:[CCMoveTo actionWithDuration:1.0 position:ccp(0, windowSize.height)]]];
-		
-		//CCTransitionFlipX *transition = [CCTransitionFlipX transitionWithDuration:0.5 scene:[ScoreScene node] orientation:kOrientationUpOver];
-		//[[CCDirector sharedDirector] replaceScene:transition];
 	}];
 	
 	CCMenu *titleMenu = [CCMenu menuWithItems:startButton, scoresButton, nil];
@@ -321,6 +331,11 @@
 				   [CCFadeOut actionWithDuration:1.0],
 				   [CCCallFuncN actionWithTarget:self selector:@selector(removeNodeFromParent:)],
 				   nil]];
+	
+	// Reset SFX volume back to normals
+	[[SimpleAudioEngine sharedEngine] setEffectsVolume:1.0];
+	
+	[[SimpleAudioEngine sharedEngine] playEffect:@"explode.caf"];
 }
 
 - (void)removeNodeFromParent:(CCNode *)node

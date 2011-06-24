@@ -21,8 +21,11 @@
 	// Boolean that triggers intro animation
 	bool showIntroAnimation;
 	
+	// Game mode - kGameModeNormal/kGameModeTimeAttack
+	int gameMode;
+	
 	// Variable we check to see if player quit in the middle of a level
-	bool restoreLevel;
+	bool restoreGame;
 	
 	// Info about the current play session
 	int points, combo, level;	
@@ -34,9 +37,10 @@
 	UIViewController *myViewController;
 }
 
-@property (nonatomic) bool isPad;
-@property (nonatomic) bool showIntroAnimation;
-@property (nonatomic) bool restoreGame;
+@property (readwrite, nonatomic) bool isPad;
+@property (readwrite, nonatomic) bool showIntroAnimation;
+@property (readwrite, nonatomic) int gameMode;
+@property (readwrite, nonatomic) bool restoreGame;
 
 @property (readwrite, nonatomic) int points;
 @property (readwrite, nonatomic) int combo;
