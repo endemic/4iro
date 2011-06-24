@@ -149,7 +149,7 @@
 		
 		// Create title label
 		CCSprite *title = [CCSprite spriteWithFile:[NSString stringWithFormat:@"high-scores%@.png", hdSuffix]];
-		title.position = ccp(windowSize.width / 2, windowSize.height - title.contentSize.height);
+		title.position = ccp(windowSize.width / 2, windowSize.height - title.contentSize.height / 2);
 		[scoresNode addChild:title];
 		
 		int defaultFontSize = 32;
@@ -161,7 +161,7 @@
 			CCLabelBMFont *label = [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%i.%i\n", i + 1, [[highScores objectAtIndex:i] intValue]] 
 														  fntFile:[NSString stringWithFormat:@"chalkduster-%i.fnt", defaultFontSize * fontMultiplier]];
 			label.anchorPoint = ccp(0, 0.5); 
-			label.position = ccp(windowSize.width / 2 - windowSize.width / 3, title.position.y - label.contentSize.height * (i + 1));
+			label.position = ccp(windowSize.width / 2 - windowSize.width / 3, title.position.y - label.contentSize.height * (i + 2));
 			[scoresNode addChild:label z:2];
 		}
 		

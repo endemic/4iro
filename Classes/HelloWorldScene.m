@@ -1074,14 +1074,14 @@
 - (void)createStatusMessageAt:(CGPoint)position withText:(NSString *)text
 {
 	// Create a label and add it to the layer
-	int defaultFontSize = 32;
+	int defaultFontSize = 16;
 	CCLabelBMFont *label = [CCLabelBMFont labelWithString:text fntFile:[NSString stringWithFormat:@"chalkduster-%i.fnt", defaultFontSize * fontMultiplier]];
 	label.position = position;
 	[self addChild:label z:10];		// Should be z-positioned on top of everything
 	
 	// Run some move/fade actions
-	CCMoveBy *move = [CCMoveBy actionWithDuration:3 position:ccp(0, label.contentSize.height)];
-	CCFadeOut *fade = [CCFadeOut actionWithDuration:2];
+	CCMoveBy *move = [CCMoveBy actionWithDuration:1.5 position:ccp(0, label.contentSize.height)];
+	CCFadeOut *fade = [CCFadeOut actionWithDuration:1];
 	CCCallFuncN *remove = [CCCallFuncN actionWithTarget:self selector:@selector(removeNodeFromParent:)];
 	
 	[label runAction:[CCSequence actions:[CCSpawn actions:move, fade, nil], remove, nil]];
@@ -1112,10 +1112,11 @@
 	timeRemaining += additionalTime;
 	
 	// Create a "+1s" status message
-	[self createStatusMessageAt:ccp(50, 435) withText:[NSString stringWithFormat:@"+%0.1fs", additionalTime]];
+	[self createStatusMessageAt:ccp(50, 380) withText:[NSString stringWithFormat:@"+%0.1fs", additionalTime]];
 	
-	NSLog(@"Additional time: %f", additionalTime);
+	//NSLog(@"Additional time: %f", additionalTime);
 	
+	// Enforce max time limit of 30 seconds
 	if (timeRemaining > 30)
 	{
 		timeRemaining = 30;

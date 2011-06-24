@@ -2,10 +2,10 @@ font.size=16
 font.bold=false
 font.italic=false
 
-pad.top=3
-pad.right=3
-pad.bottom=3
-pad.left=3
+pad.top=2
+pad.right=2
+pad.bottom=2
+pad.left=2
 pad.advance.x=0
 pad.advance.y=0
 
