@@ -177,6 +177,8 @@
 		7DD6422A13A8C0130076177A /* game-over-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DD6422813A8C0130076177A /* game-over-hd.png */; };
 		7DD6422B13A8C0130076177A /* game-over.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DD6422913A8C0130076177A /* game-over.png */; };
 		7DD6422F13A8C0970076177A /* timer-gradient-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DD6422E13A8C0970076177A /* timer-gradient-hd.png */; };
+		7DDFD01813BA75CC006F21CE /* particle-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DDFD01613BA75CC006F21CE /* particle-hd.png */; };
+		7DDFD01913BA75CC006F21CE /* particle-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DDFD01713BA75CC006F21CE /* particle-ipad.png */; };
 		7DE7B7E9137A9B8500050DE7 /* todo.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 7DE7B7E8137A9B8500050DE7 /* todo.rtf */; };
 		7DF090E91377E824005B6BC8 /* Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF090E81377E824005B6BC8 /* Block.m */; };
 		DC6640030F83B3EA000B3E49 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6640020F83B3EA000B3E49 /* AudioToolbox.framework */; };
@@ -546,6 +548,8 @@
 		7DD6422813A8C0130076177A /* game-over-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "game-over-hd.png"; path = "images/game-over-hd.png"; sourceTree = "<group>"; };
 		7DD6422913A8C0130076177A /* game-over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "game-over.png"; path = "images/game-over.png"; sourceTree = "<group>"; };
 		7DD6422E13A8C0970076177A /* timer-gradient-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "timer-gradient-hd.png"; path = "images/timer-gradient-hd.png"; sourceTree = "<group>"; };
+		7DDFD01613BA75CC006F21CE /* particle-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "particle-hd.png"; path = "images/particle-hd.png"; sourceTree = "<group>"; };
+		7DDFD01713BA75CC006F21CE /* particle-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "particle-ipad.png"; path = "images/particle-ipad.png"; sourceTree = "<group>"; };
 		7DE7B7E8137A9B8500050DE7 /* todo.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = todo.rtf; sourceTree = "<group>"; };
 		7DF090E71377E824005B6BC8 /* Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Block.h; sourceTree = "<group>"; };
 		7DF090E81377E824005B6BC8 /* Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Block.m; sourceTree = "<group>"; };
@@ -1038,6 +1042,8 @@
 				7D0C084113B0A105008ABFD5 /* bottom-background-hd.png */,
 				7D0C084213B0A105008ABFD5 /* top-background-hd.png */,
 				7D0024C8138C1E7D0026DDFB /* particle.png */,
+				7DDFD01613BA75CC006F21CE /* particle-hd.png */,
+				7DDFD01713BA75CC006F21CE /* particle-ipad.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -1623,6 +1629,8 @@
 				7DCE66A013BA1C60005EDE10 /* top-ui-background-ipad.png in Resources */,
 				7DCE66BB13BA1F23005EDE10 /* chalkduster-64.fnt in Resources */,
 				7DCE66BC13BA1F23005EDE10 /* chalkduster-64.png in Resources */,
+				7DDFD01813BA75CC006F21CE /* particle-hd.png in Resources */,
+				7DDFD01913BA75CC006F21CE /* particle-ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

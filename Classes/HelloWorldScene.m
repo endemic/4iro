@@ -41,7 +41,7 @@
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super" return value
 	if ((self = [super init]))
-	{
+	{h
 		[self setIsTouchEnabled:YES];
 		
 		// ask director the the window size
@@ -52,11 +52,13 @@
 		{
 			hdSuffix = @"-ipad";
 			fontMultiplier = 2;
+			blockSize = 96;
 		}
 		else
 		{
 			hdSuffix = @"";
 			fontMultiplier = 1;
+			blockSize = 40;
 		}
 		
 		// Add background for game status area
@@ -112,8 +114,6 @@
 		visibleRows = rows - gridOffset * 2;
 		visibleCols = cols - gridOffset * 2;
 
-		blockSize = 40;
-		
 		// Array w/ 100 spaces - 10x10
 		int gridCapacity = rows * cols;
 		grid = [[NSMutableArray arrayWithCapacity:gridCapacity] retain];
