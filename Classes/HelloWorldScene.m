@@ -50,7 +50,7 @@
 		// This string gets appended onto all image filenames based on whether the game is on iPad or not
 		if ([GameSingleton sharedGameSingleton].isPad)
 		{
-			hdSuffix = @"-hd";
+			hdSuffix = @"-ipad";
 			fontMultiplier = 2;
 		}
 		else

@@ -7,7 +7,7 @@
 //
 
 #import "Block.h"
-
+#import "GameSingleton.h"
 
 @implementation Block
 
@@ -51,7 +51,19 @@
 		case 3: shape = @"diamond"; break;
 	}
 	
-	Block *b = [self spriteWithFile:[NSString stringWithFormat:@"%@-%@.png", color, shape]];
+	Block *b;
+	
+	if ([GameSingleton sharedGameSingleton].isPad)
+	{
+		// Use different sprites for iPad
+		b = [self spriteWithFile:[NSString stringWithFormat:@"%@-%@-ipad.png", color, shape]];
+	}
+	else
+	{
+		// Use normal/Retina sprites
+		b = [self spriteWithFile:[NSString stringWithFormat:@"%@-%@.png", color, shape]];
+	}
+	
 	[b setColour:color];
 	[b setShape:shape];
 	

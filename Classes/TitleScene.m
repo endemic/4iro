@@ -56,7 +56,7 @@
 			fontMultiplier = 1;
 		}
 		
-		CCSprite *bg = [CCSprite spriteWithFile:@"Default.png"];
+		CCSprite *bg = [CCSprite spriteWithFile:[NSString stringWithFormat:@"Default%@.png", hdSuffix]];
 		[bg setPosition:ccp(windowSize.width / 2, windowSize.height / 2)];
 		[self addChild:bg];
 		
