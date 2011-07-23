@@ -41,7 +41,7 @@
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super" return value
 	if ((self = [super init]))
-	{h
+	{
 		[self setIsTouchEnabled:YES];
 		
 		// ask director the the window size
@@ -50,31 +50,47 @@
 		// This string gets appended onto all image filenames based on whether the game is on iPad or not
 		if ([GameSingleton sharedGameSingleton].isPad)
 		{
-			hdSuffix = @"-ipad";
+			hdSuffix = @"-hd";
 			fontMultiplier = 2;
-			blockSize = 96;
+			blockSize = 80;
+			touchOffset = CGPointMake(64, 32);
 		}
 		else
 		{
 			hdSuffix = @"";
 			fontMultiplier = 1;
 			blockSize = 40;
+			touchOffset = CGPointMake(0, 0);
 		}
 		
-		// Add background for game status area
-		CCSprite *topBg = [CCSprite spriteWithFile:[NSString stringWithFormat:@"top-background%@.png", hdSuffix]];
-		[topBg setPosition:ccp(windowSize.width / 2, windowSize.height - topBg.contentSize.height / 2)];
-		[self addChild:topBg z:2];
+		/*
+		 TODO: Add grid background
+		 
+		 Layer arrangement
+		 grid background: 0
+		 blocks: 1
+		 background: 2
+		 ui: 3
+		 */
+		
+		CCSprite *bg = [CCSprite spriteWithFile:[NSString stringWithFormat:@"background%@.png", hdSuffix]];
+		bg.position = ccp(windowSize.width / 2, windowSize.height / 2);
+		[self addChild:bg z:2];
+		
+//		// Add background for game status area
+//		CCSprite *topBg = [CCSprite spriteWithFile:[NSString stringWithFormat:@"top-background%@.png", hdSuffix]];
+//		[topBg setPosition:ccp(windowSize.width / 2, windowSize.height - topBg.contentSize.height / 2)];
+//		[self addChild:topBg z:2];
 		
 		// Add game status UI
 		CCSprite *topUi = [CCSprite spriteWithFile:[NSString stringWithFormat:@"top-ui-background%@.png", hdSuffix]];
 		[topUi setPosition:ccp(windowSize.width / 2, windowSize.height - topUi.contentSize.height / 2)];
 		[self addChild:topUi z:3];
 		
-		// Add background behind puzzle blocks
-		CCSprite *bottomBg = [CCSprite spriteWithFile:[NSString stringWithFormat:@"bottom-background%@.png", hdSuffix]];
-		[bottomBg setPosition:ccp(windowSize.width / 2, bottomBg.contentSize.height / 2)];
-		[self addChild:bottomBg z:0];
+//		// Add background behind puzzle blocks
+//		CCSprite *bottomBg = [CCSprite spriteWithFile:[NSString stringWithFormat:@"bottom-background%@.png", hdSuffix]];
+//		[bottomBg setPosition:ccp(windowSize.width / 2, bottomBg.contentSize.height / 2)];
+//		[self addChild:bottomBg z:0];
 		
 		// Set combo counter
 		combo = 0; 
@@ -105,7 +121,6 @@
 		timeRemainingDisplay.percentage = 100.0;
 		[timeRemainingDisplay setPosition:ccp(48, 72)];
 		[topUi addChild:timeRemainingDisplay z:4];
-		
 		
 		rows = 10;
 		cols = 10;
@@ -175,11 +190,11 @@
 	[self flash];
 	
 	// Game over, man!
-	CCSprite *gameOverText = [CCSprite spriteWithFile:@"game-over.png"];
+	CCSprite *gameOverText = [CCSprite spriteWithFile:[NSString stringWithFormat:@"game-over%@.png", hdSuffix]];
 	[gameOverText setPosition:ccp(windowSize.width / 2, windowSize.height / 2)];
 	[self addChild:gameOverText z:3];
 
-	CCMenuItemImage *retryButton = [CCMenuItemImage itemFromNormalImage:@"retry-button.png" selectedImage:@"retry-button-selected.png" block:^(id sender) {
+	CCMenuItemImage *retryButton = [CCMenuItemImage itemFromNormalImage:[NSString stringWithFormat:@"retry-button%@.png", hdSuffix] selectedImage:[NSString stringWithFormat:@"retry-button-selected%@.png", hdSuffix] block:^(id sender) {
 		// Play SFX
 		[[SimpleAudioEngine sharedEngine] playEffect:@"button.caf"];
 		
@@ -188,7 +203,7 @@
 		[[CCDirector sharedDirector] replaceScene:transition];
 	}];
 	
-	CCMenuItemImage *quitButton = [CCMenuItemImage itemFromNormalImage:@"quit-button.png" selectedImage:@"quit-button-selected.png" block:^(id sender) {
+	CCMenuItemImage *quitButton = [CCMenuItemImage itemFromNormalImage:[NSString stringWithFormat:@"quit-button%@.png", hdSuffix] selectedImage:[NSString stringWithFormat:@"quit-button-selected%@.png", hdSuffix] block:^(id sender) {
 		// Play SFX
 		[[SimpleAudioEngine sharedEngine] playEffect:@"button.caf"];
 		
@@ -242,8 +257,8 @@
 	touchStart = touchPrevious = touchPoint;
 	horizontalMove = verticalMove = NO;
 	
-	touchRow = touchPoint.y / blockSize + gridOffset;
-	touchCol = touchPoint.x / blockSize + gridOffset;
+	touchRow = (touchPoint.y - touchOffset.y) / blockSize + gridOffset;
+	touchCol = (touchPoint.x - touchOffset.x) / blockSize + gridOffset;
 	
 //	NSMutableString *tmp = [NSMutableString stringWithString:@""];
 //	for (int i = touchRow * rows; i < touchRow * rows + cols; i++)	// Check row values

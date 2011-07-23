@@ -49,11 +49,19 @@
 		{
 			hdSuffix = @"-hd";
 			fontMultiplier = 2;
+			
+			// These numbers define how many blocks appear in the intro animation
+			rows = 13;
+			cols = 13;
 		}
 		else
 		{
 			hdSuffix = @"";
 			fontMultiplier = 1;
+			
+			// These numbers define how many blocks appear in the intro animation
+			rows = 12;
+			cols = 12;
 		}
 		
 		CCSprite *bg = [CCSprite spriteWithFile:[NSString stringWithFormat:@"Default%@.png", hdSuffix]];
@@ -70,9 +78,6 @@
 		// Set default SFX volume to be a bit lower for the intro animation
 		[[SimpleAudioEngine sharedEngine] setEffectsVolume:0.25];
 		
-		
-		rows = 11;	// An extra row so there won't be a gap in animation
-		cols = 12;
 		lastRow = 0;
 		
 		grid = [[NSMutableArray arrayWithCapacity:rows * cols] retain];
@@ -174,7 +179,7 @@
 		}
 		
 		// Create button that will take us back to the title screen
-		CCMenuItemFont *backButton = [CCMenuItemImage itemFromNormalImage:@"back-button.png" selectedImage:@"back-button-selected.png" block:^(id sender) {
+		CCMenuItemFont *backButton = [CCMenuItemImage itemFromNormalImage:[NSString stringWithFormat:@"back-button%@.png", hdSuffix] selectedImage:[NSString stringWithFormat:@"back-button-selected%@.png", hdSuffix] block:^(id sender) {
 			[[SimpleAudioEngine sharedEngine] playEffect:@"button.caf"];
 			
 			// Ease the default logo node down into view, replacing the scores node
@@ -264,11 +269,11 @@
 	titleNode.position = ccp(0, 0);
 	[self addChild:titleNode z:3];
 	
-	CCSprite *logo = [CCSprite spriteWithFile:@"title-logo.png"];
+	CCSprite *logo = [CCSprite spriteWithFile:[NSString stringWithFormat:@"title-logo%@.png", hdSuffix]];
 	logo.position = ccp(windowSize.width / 2, windowSize.height - logo.contentSize.height / 1.5);
 	[titleNode addChild:logo z:3];
 	
-	CCMenuItemImage *startButton = [CCMenuItemImage itemFromNormalImage:@"play-button.png" selectedImage:@"play-button-selected.png" block:^(id sender) {
+	CCMenuItemImage *startButton = [CCMenuItemImage itemFromNormalImage:[NSString stringWithFormat:@"play-button%@.png", hdSuffix] selectedImage:[NSString stringWithFormat:@"play-button-selected%@.png", hdSuffix] block:^(id sender) {
 		[GameSingleton sharedGameSingleton].gameMode = kGameModeNormal;
 		[[SimpleAudioEngine sharedEngine] playEffect:@"button.caf"];
 		
@@ -276,10 +281,10 @@
 		CCTransitionFlipX *transition = [CCTransitionFlipX transitionWithDuration:0.5 scene:[HelloWorld node] orientation:kOrientationUpOver];
 		[[CCDirector sharedDirector] replaceScene:transition];
 		
-		// Transition this menu off screen, and move "Game Type" selector menu on
+		// TODO: Transition this menu off screen, and move "Game Type" selector menu on
 	}];
 	
-	CCMenuItemImage *scoresButton = [CCMenuItemImage itemFromNormalImage:@"scores-button.png" selectedImage:@"scores-button-selected.png" block:^(id sender) {
+	CCMenuItemImage *scoresButton = [CCMenuItemImage itemFromNormalImage:[NSString stringWithFormat:@"scores-button%@.png", hdSuffix] selectedImage:[NSString stringWithFormat:@"scores-button-selected%@.png", hdSuffix] block:^(id sender) {
 		[[SimpleAudioEngine sharedEngine] playEffect:@"button.caf"];
 		
 		// Ease the scores node up into view, replacing the default logo, etc.
@@ -293,12 +298,17 @@
 	[titleNode addChild:titleMenu z:3];
 	
 	int defaultFontSize = 16;
-	CCLabelBMFont *copyright = [CCLabelBMFont labelWithString:@"© 2011 Ganbaru Games" 
+	CCLabelBMFont *copyright = [CCLabelBMFont labelWithString:@"(c) 2011 Ganbaru Games" 
 													  fntFile:[NSString stringWithFormat:@"chalkduster-%i.fnt", defaultFontSize * fontMultiplier]];
 	
-	//CCLabelTTF *copyright = [CCLabelTTF labelWithString:@"© 2011 Ganbaru Games" fontName:@"Chalkduster.ttf" fontSize:16];
 	copyright.position = ccp(windowSize.width / 2, copyright.contentSize.height * 0.75);
 	[titleNode addChild:copyright];
+	
+	// Play some music!
+	if (![[SimpleAudioEngine sharedEngine] isBackgroundMusicPlaying])
+	{
+		[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"1.mp3"];
+	}
 	
 	[self scheduleUpdate];
 }
@@ -313,9 +323,18 @@
 		b.position = ccp(b.position.x + 1, b.position.y);
 		
 		// If too far to the right, have them circle around again
-		if (b.position.x >= windowSize.width + b.contentSize.width * 1.5)
-			b.position = ccp(-b.contentSize.width * 1.5 + 1, b.position.y);
-	}
+		if ([GameSingleton sharedGameSingleton].isPad)
+		{
+			if (b.position.x >= windowSize.width + b.contentSize.width * 1.5 + b.contentSize.width * 0.6)
+				b.position = ccp(-b.contentSize.width * 1.5 + b.contentSize.width * 0.2, b.position.y);
+		}
+		else
+		{
+			if (b.position.x >= windowSize.width + b.contentSize.width * 1.5 + b.contentSize.width * 0.6)
+				b.position = ccp(-b.contentSize.width * 1.5 + 1, b.position.y);
+		}
+		
+	} // End for (Block *b in grid)
 }
 
 - (void)flash

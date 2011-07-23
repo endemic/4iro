@@ -95,7 +95,7 @@
 //#endif
 	
 	[director setAnimationInterval:1.0/60];
-	[director setDisplayFPS:YES];
+	[director setDisplayFPS:NO];
 	
 	
 	// make the OpenGLView a child of the view controller
@@ -133,6 +133,9 @@
 	[[SimpleAudioEngine sharedEngine] preloadEffect:@"button.caf"];
 	[[SimpleAudioEngine sharedEngine] preloadEffect:@"move.caf"];
 	[[SimpleAudioEngine sharedEngine] preloadEffect:@"match2.caf"];
+	
+	// Preload a BGM track
+	[[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"1.mp3"];
 	
 	// Load the shared game singleton
 	[GameSingleton loadState];

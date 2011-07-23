@@ -21,7 +21,7 @@
 	
 	// Variables for user interaction
 	int touchRow, touchCol;
-	CGPoint touchStart, touchPrevious;
+	CGPoint touchStart, touchPrevious, touchOffset;
 	BOOL horizontalMove, verticalMove;
 	
 	// Various display bits
