@@ -53,7 +53,7 @@
 			hdSuffix = @"-hd";
 			fontMultiplier = 2;
 			blockSize = 80;
-			touchOffset = CGPointMake(64, 32);
+			touchOffset = CGPointMake(64, 64);
 		}
 		else
 		{
@@ -64,52 +64,53 @@
 		}
 		
 		/*
-		 TODO: Add grid background
-		 
 		 Layer arrangement
+		 
 		 grid background: 0
 		 blocks: 1
 		 background: 2
 		 ui: 3
 		 */
 		
+		// Background
 		CCSprite *bg = [CCSprite spriteWithFile:[NSString stringWithFormat:@"background%@.png", hdSuffix]];
 		bg.position = ccp(windowSize.width / 2, windowSize.height / 2);
 		[self addChild:bg z:2];
 		
-//		// Add background for game status area
-//		CCSprite *topBg = [CCSprite spriteWithFile:[NSString stringWithFormat:@"top-background%@.png", hdSuffix]];
-//		[topBg setPosition:ccp(windowSize.width / 2, windowSize.height - topBg.contentSize.height / 2)];
-//		[self addChild:topBg z:2];
+		// Grid/puzzle background
+		CCSprite *gridBg = [CCSprite spriteWithFile:[NSString stringWithFormat:@"grid-background%@.png", hdSuffix]];
+		gridBg.position = ccp(windowSize.width / 2, gridBg.contentSize.height / 2 + touchOffset.y);
+		[self addChild:gridBg z:0];
 		
 		// Add game status UI
 		CCSprite *topUi = [CCSprite spriteWithFile:[NSString stringWithFormat:@"top-ui-background%@.png", hdSuffix]];
 		[topUi setPosition:ccp(windowSize.width / 2, windowSize.height - topUi.contentSize.height / 2)];
 		[self addChild:topUi z:3];
 		
-//		// Add background behind puzzle blocks
-//		CCSprite *bottomBg = [CCSprite spriteWithFile:[NSString stringWithFormat:@"bottom-background%@.png", hdSuffix]];
-//		[bottomBg setPosition:ccp(windowSize.width / 2, bottomBg.contentSize.height / 2)];
-//		[self addChild:bottomBg z:0];
-		
 		// Set combo counter
 		combo = 0; 
-		comboLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%ix", combo] dimensions:CGSizeMake(97, 58) alignment:CCTextAlignmentRight fontName:@"Chalkduster.ttf" fontSize:36 * fontMultiplier];
+		comboLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%ix", combo] dimensions:CGSizeMake(97 * fontMultiplier, 58 * fontMultiplier) alignment:CCTextAlignmentRight fontName:@"Chalkduster.ttf" fontSize:36 * fontMultiplier];
 		comboLabel.position = ccp(133, 30);
+		if ([GameSingleton sharedGameSingleton].isPad)
+			comboLabel.position = ccp(260, 60);
 		comboLabel.color = ccc3(0, 0, 0);
 		[topUi addChild:comboLabel z:4];
 		
 		// Set up level counter display
 		level = 1;
-		levelLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%02d", level] dimensions:CGSizeMake(97, 58) alignment:CCTextAlignmentCenter fontName:@"Chalkduster.ttf" fontSize:36 * fontMultiplier];
+		levelLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%02d", level] dimensions:CGSizeMake(97 * fontMultiplier, 58 * fontMultiplier) alignment:CCTextAlignmentCenter fontName:@"Chalkduster.ttf" fontSize:36 * fontMultiplier];
 		levelLabel.position = ccp(258, 30);
+		if ([GameSingleton sharedGameSingleton].isPad)
+			levelLabel.position = ccp(516, 60);
 		levelLabel.color = ccc3(0, 0, 0);
 		[topUi addChild:levelLabel z:4];
 		
-		// Set up score int/label
+		// Set up score label
 		score = 0;
-		scoreLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%08d", score] dimensions:CGSizeMake(210, 57) alignment:CCTextAlignmentRight fontName:@"Chalkduster.ttf" fontSize:32 * fontMultiplier];
-		[scoreLabel setPosition:ccp(183, 100)];
+		scoreLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%08d", score] dimensions:CGSizeMake(210 * fontMultiplier, 57 * fontMultiplier) alignment:CCTextAlignmentRight fontName:@"Chalkduster.ttf" fontSize:32 * fontMultiplier];
+		scoreLabel.position = ccp(183, 100);
+		if ([GameSingleton sharedGameSingleton].isPad)
+			scoreLabel.position = ccp(365, 200);
 		[scoreLabel setColor:ccc3(0, 0, 0)];
 		[topUi addChild:scoreLabel z:4];
 		
@@ -119,7 +120,9 @@
 		timeRemainingDisplay = [CCProgressTimer progressWithFile:[NSString stringWithFormat:@"timer-gradient%@.png", hdSuffix]];
 		timeRemainingDisplay.type = kCCProgressTimerTypeVerticalBarBT;
 		timeRemainingDisplay.percentage = 100.0;
-		[timeRemainingDisplay setPosition:ccp(48, 72)];
+		timeRemainingDisplay.position = ccp(48, 72);
+		if ([GameSingleton sharedGameSingleton].isPad)
+			timeRemainingDisplay.position = ccp(95, 142);
 		[topUi addChild:timeRemainingDisplay z:4];
 		
 		rows = 10;

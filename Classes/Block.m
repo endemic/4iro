@@ -74,7 +74,7 @@
 	if ([GameSingleton sharedGameSingleton].isPad)
 	{
 		// Offset of the grid's position when using iPad
-		gridOffset = CGPointMake(64, 32);
+		gridOffset = CGPointMake(64, 64);
 	}
 	else
 	{
@@ -95,7 +95,7 @@
 	if ([GameSingleton sharedGameSingleton].isPad)
 	{
 		// Offset of the grid's position when using iPad
-		gridOffset = CGPointMake(64, 32);
+		gridOffset = CGPointMake(64, 64);
 	}
 	else
 	{
