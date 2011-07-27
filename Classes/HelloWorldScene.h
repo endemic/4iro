@@ -9,6 +9,7 @@
 
 // When you import this file, you import all the cocos2d classes
 #import "cocos2d.h"
+#import "GameConfig.h"
 
 // HelloWorld Layer
 @interface HelloWorld : CCLayer
@@ -34,7 +35,7 @@
 	float timePlayed;							// Records how long the player has been playing
 	CCProgressTimer *timeRemainingDisplay;		// kCCProgressTimerTypeVerticalBarBT
 	
-	// String to be appended to sprite filenames if required to use a high-rez file (e.g. iPhone 4 assests on iPad)
+	// String to be appended to sprite filenames if required to use a high-rez file (e.g. iPhone 4 assets on iPad)
 	NSString *hdSuffix;
 	int fontMultiplier;
 }

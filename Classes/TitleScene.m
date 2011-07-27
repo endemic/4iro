@@ -126,9 +126,9 @@
 		{
 			// Fill grid w/ blocks
 			// Arrgh, + 1 to cols here due to using the "snapToGridPosition" method which puts first row below screen
-			for (int y = 1; y < cols + 1; y++)
+			for (int x = 0; x < rows; x++)
 			{
-				for (int x = 0; x < rows; x++)
+				for (int y = 0; y <= cols; y++)
 				{
 					Block *b = [Block random];
 					
@@ -292,8 +292,25 @@
 		[titleNode runAction:[CCEaseBackInOut actionWithAction:[CCMoveTo actionWithDuration:1.0 position:ccp(0, windowSize.height)]]];
 	}];
 	
-	CCMenu *titleMenu = [CCMenu menuWithItems:startButton, scoresButton, nil];
-	[titleMenu alignItemsVerticallyWithPadding:10];
+	CCMenuItemImage *leaderboardsButton = [CCMenuItemImage itemFromNormalImage:[NSString stringWithFormat:@"leaderboards-button%@.png", hdSuffix] selectedImage:[NSString stringWithFormat:@"leaderboards-button-selected%@.png", hdSuffix] block:^(id sender) {
+		[[SimpleAudioEngine sharedEngine] playEffect:@"button.caf"];
+		
+		// Show the leaderboard for the "normal" category
+		[[GameSingleton sharedGameSingleton] showLeaderboardForCategory:@"com.ganbarugames.colorshape.normal"];
+	}];
+	
+	CCMenu *titleMenu;
+	if ([GameSingleton sharedGameSingleton].hasGameCenter)
+	{
+		titleMenu = [CCMenu menuWithItems:startButton, scoresButton, leaderboardsButton, nil];
+	}
+	else 
+	{
+		titleMenu = [CCMenu menuWithItems:startButton, scoresButton, nil];
+	}
+
+	
+	[titleMenu alignItemsVerticallyWithPadding:5 * fontMultiplier];
 	[titleMenu setPosition:ccp(windowSize.width / 2, logo.position.y - titleMenu.contentSize.height / 2.5)];
 	[titleNode addChild:titleMenu z:3];
 	
@@ -309,6 +326,9 @@
 	{
 		[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"1.mp3"];
 	}
+	
+	// Show Game Center authentication
+	[[GameSingleton sharedGameSingleton] authenticateLocalPlayer];
 	
 	[self scheduleUpdate];
 }
@@ -330,7 +350,7 @@
 		}
 		else
 		{
-			if (b.position.x >= windowSize.width + b.contentSize.width * 1.5 + b.contentSize.width * 0.6)
+			if (b.position.x >= windowSize.width + b.contentSize.width * 1.5)
 				b.position = ccp(-b.contentSize.width * 1.5 + 1, b.position.y);
 		}
 		

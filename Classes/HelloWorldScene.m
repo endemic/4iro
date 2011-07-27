@@ -220,6 +220,15 @@
 	[gameOverMenu setPosition:ccp(windowSize.width / 2, gameOverText.position.y - retryButton.contentSize.height * 3)];
 	[self addChild:gameOverMenu z:3];
 	
+	// Send score to Game Center based on game type
+	if ([GameSingleton sharedGameSingleton].gameMode == kGameModeNormal)
+	{
+		[[GameSingleton sharedGameSingleton] reportScore:score forCategory:@"com.ganbarugames.colorshape.normal"];
+	} else if ([GameSingleton sharedGameSingleton].gameMode == kGameModeTimeAttack)
+	{
+		[[GameSingleton sharedGameSingleton] reportScore:score forCategory:@"com.ganbarugames.colorshape.timeattack"];
+	}
+	
 	// Get scores array stored in user defaults
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	
