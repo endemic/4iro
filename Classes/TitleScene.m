@@ -292,32 +292,22 @@
 		[titleNode runAction:[CCEaseBackInOut actionWithAction:[CCMoveTo actionWithDuration:1.0 position:ccp(0, windowSize.height)]]];
 	}];
 	
-	CCMenuItemImage *leaderboardsButton = [CCMenuItemImage itemFromNormalImage:[NSString stringWithFormat:@"leaderboards-button%@.png", hdSuffix] selectedImage:[NSString stringWithFormat:@"leaderboards-button-selected%@.png", hdSuffix] block:^(id sender) {
+	leaderboardsButton = [CCMenuItemImage itemFromNormalImage:[NSString stringWithFormat:@"leaderboards-button%@.png", hdSuffix] selectedImage:[NSString stringWithFormat:@"leaderboards-button-selected%@.png", hdSuffix] disabledImage:[NSString stringWithFormat:@"leaderboards-button-disabled%@.png", hdSuffix] block:^(id sender) {
 		[[SimpleAudioEngine sharedEngine] playEffect:@"button.caf"];
 		
 		// Show the leaderboard for the "normal" category
 		[[GameSingleton sharedGameSingleton] showLeaderboardForCategory:@"com.ganbarugames.colorshape.normal"];
 	}];
 	
-	CCMenu *titleMenu;
-	if ([GameSingleton sharedGameSingleton].hasGameCenter)
-	{
-		titleMenu = [CCMenu menuWithItems:startButton, scoresButton, leaderboardsButton, nil];
-	}
-	else 
-	{
-		titleMenu = [CCMenu menuWithItems:startButton, scoresButton, nil];
-	}
-
-	
+	CCMenu *titleMenu = [CCMenu menuWithItems:startButton, scoresButton, leaderboardsButton, nil];
 	[titleMenu alignItemsVerticallyWithPadding:5 * fontMultiplier];
 	[titleMenu setPosition:ccp(windowSize.width / 2, logo.position.y - titleMenu.contentSize.height / 2.5)];
 	[titleNode addChild:titleMenu z:3];
 	
-	int defaultFontSize = 16;
-	CCLabelBMFont *copyright = [CCLabelBMFont labelWithString:@"(c) 2011 Ganbaru Games" 
-													  fntFile:[NSString stringWithFormat:@"chalkduster-%i.fnt", defaultFontSize * fontMultiplier]];
-	
+	//int defaultFontSize = 16;
+	//CCLabelBMFont *copyright = [CCLabelBMFont labelWithString:@"(c) 2011 Ganbaru Games" 
+	//												  fntFile:[NSString stringWithFormat:@"chalkduster-%i.fnt", defaultFontSize * fontMultiplier]];
+	CCSprite *copyright = [CCSprite spriteWithFile:[NSString stringWithFormat:@"copyright%@.png", hdSuffix]];
 	copyright.position = ccp(windowSize.width / 2, copyright.contentSize.height * 0.75);
 	[titleNode addChild:copyright];
 	
@@ -329,6 +319,12 @@
 	
 	// Show Game Center authentication
 	[[GameSingleton sharedGameSingleton] authenticateLocalPlayer];
+	
+	// Hide the "leaderboards" button if no Game Center
+	if (![GameSingleton sharedGameSingleton].hasGameCenter)
+	{
+		[leaderboardsButton setIsEnabled:NO];
+	}
 	
 	[self scheduleUpdate];
 }
@@ -353,8 +349,17 @@
 			if (b.position.x >= windowSize.width + b.contentSize.width * 1.5)
 				b.position = ccp(-b.contentSize.width * 1.5 + 1, b.position.y);
 		}
-		
 	} // End for (Block *b in grid)
+	
+	// Check to see if Game Center auth has happened; if so (and button was hidden) fade it into view
+	if ([GameSingleton sharedGameSingleton].hasGameCenter && leaderboardsButton.visible == NO)
+	{
+		[leaderboardsButton setIsEnabled:YES];
+	}
+	else if (![GameSingleton sharedGameSingleton].hasGameCenter && leaderboardsButton.visible == YES)
+	{
+		[leaderboardsButton setIsEnabled:NO];
+	}
 }
 
 - (void)flash

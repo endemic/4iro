@@ -55,13 +55,14 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(GameSingleton);
 
 - (void)authenticateLocalPlayer
 {
-	if (hasGameCenter)
+	if ([self isGameCenterAPIAvailable])
 	{
 		GKLocalPlayer *localPlayer = [GKLocalPlayer localPlayer];
 		[localPlayer authenticateWithCompletionHandler:^(NSError *error) {
 			if (localPlayer.isAuthenticated)
 			{
 				// Perform additional tasks for the authenticated player
+				hasGameCenter = YES;
 				
 				// If unsent scores array has length > 0, try to send saved scores here
 				if ([unsentScores count] > 0)

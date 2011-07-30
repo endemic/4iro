@@ -29,5 +29,6 @@
 
 #define kAnimationDuration 0.2
 #define kMaxTimeLimit 30.0
+#define kMinimumMatchCount 5
 
 #endif // __GAME_CONFIG_H

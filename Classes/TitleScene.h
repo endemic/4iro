@@ -19,6 +19,9 @@
 	CCNode *titleNode;
 	CCNode *scoresNode;
 	
+	// Button that shows Game Center leaderboards; hidden if no Game Center auth
+	CCMenuItemImage *leaderboardsButton;
+	
 	// String to be appended to sprite filenames if required to use a high-rez file (e.g. iPhone 4 assests on iPad)
 	NSString *hdSuffix;
 	int fontMultiplier;

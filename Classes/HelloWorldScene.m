@@ -741,7 +741,7 @@
 	NSMutableString *previousColor = [NSMutableString stringWithString:@""];
 	NSMutableString *previousShape = [NSMutableString stringWithString:@""];
 	
-	int minimumMatchCount = 4;		// Number of adjacent blocks needed to disappear
+	int minimumMatchCount = kMinimumMatchCount;		// Number of adjacent blocks needed to disappear
 	Block *b;
 	
 	// Find horizontal matches
@@ -1151,8 +1151,17 @@
 		float additionalTime = (1.0 / level) * combo;
 		timeRemaining += additionalTime;
 		
+		CGPoint location;
+		if ([GameSingleton sharedGameSingleton].isPad)
+		{
+			location = ccp(160, 770);
+		}
+		else
+		{
+			location = ccp(50, 380);
+		}
 		// Create a "+1s" status message
-		[self createStatusMessageAt:ccp(50, 380) withText:[NSString stringWithFormat:@"+%0.1fs", additionalTime]];
+		[self createStatusMessageAt:location withText:[NSString stringWithFormat:@"+%0.1fs", additionalTime]];
 		
 		// Enforce max time limit
 		if (timeRemaining > kMaxTimeLimit)

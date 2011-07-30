@@ -162,6 +162,8 @@
 }
 
 -(void) applicationWillEnterForeground:(UIApplication*)application {
+	[[GameSingleton sharedGameSingleton] authenticateLocalPlayer];
+	
 	[[CCDirector sharedDirector] startAnimation];
 }
 
