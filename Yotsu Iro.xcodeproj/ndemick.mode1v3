@@ -232,6 +232,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -271,6 +273,7 @@
 								<string>E02BB764126CC223006E46A2</string>
 								<string>2D500B1D0D5A766B00DBA0E3</string>
 								<string>50F414EB1069373D002A0D5E</string>
+								<string>7D965606136971D4009239E4</string>
 								<string>1C37FBAC04509CD000000102</string>
 								<string>1C37FABC05509CD000000102</string>
 							</array>
@@ -278,12 +281,13 @@
 							<array>
 								<array>
 									<integer>156</integer>
+									<integer>155</integer>
 									<integer>151</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 2062}, {191, 718}}</string>
+							<string>{{0, 2304}, {191, 718}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -313,8 +317,6 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -332,7 +334,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>7D9293E813E3BB80005238CF</string>
+										<string>7D94618B13E80BA00045A93F</string>
 										<key>history</key>
 										<array>
 											<string>7D82C268136ACD040054C229</string>
@@ -390,7 +392,7 @@
 											<string>7D9293D713E3B86D005238CF</string>
 											<string>7D9293DE13E3BAD8005238CF</string>
 											<string>7D9293E513E3BB7D005238CF</string>
-											<string>7D9293E613E3BB7D005238CF</string>
+											<string>7D9293E813E3BB80005238CF</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -448,9 +450,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>7D9293BD13E38719005238CF</string>
+				<string>7D94618C13E80BA00045A93F</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>7D9293BE13E38719005238CF</string>
+				<string>7D94618D13E80BA00045A93F</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -588,11 +590,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>7D9293D013E38F2D005238CF</string>
-		<string>7D9293D113E38F2D005238CF</string>
-		<string>1CD10A99069EF8BA00B06720</string>
 		<string>7D12CE8E1355B3AD003DBE39</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/ndemick/iPhone/4iro/Yotsu Iro.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -673,7 +671,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>7D12CE8E1355B3AD003DBE39</string>
-				<string>7D9293BF13E38719005238CF</string>
+				<string>7D94618E13E80BA00045A93F</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
