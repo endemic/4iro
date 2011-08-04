@@ -18,6 +18,9 @@
 	// Boolean that's set to "true" if game is running on iPad!
 	bool isPad;
 	
+	// Boolean that's set to "true" if Retina display (iPhone4)
+	bool isRetina;
+	
 	// Boolean that triggers intro animation
 	bool showIntroAnimation;
 	
@@ -38,6 +41,7 @@
 }
 
 @property (readwrite, nonatomic) bool isPad;
+@property (readwrite, nonatomic) bool isRetina;
 @property (readwrite, nonatomic) bool showIntroAnimation;
 @property (readwrite, nonatomic) int gameMode;
 @property (readwrite, nonatomic) bool restoreGame;

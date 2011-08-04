@@ -75,9 +75,14 @@
 	// attach the openglView to the director
 	[director setOpenGLView:glView];
 	
-//	// Enables High Res mode (Retina Display) on iPhone 4 and maintains low res on all other devices
-	if( ! [director enableRetinaDisplay:YES] )
-		CCLOG(@"Retina Display Not supported");
+	// Init the shared game singleton and load serialized data
+	[GameSingleton loadState];
+	
+	// Enables High Res mode (Retina Display) on iPhone 4 and maintains low res on all other devices
+	if([director enableRetinaDisplay:YES])
+	{
+		[GameSingleton sharedGameSingleton].isRetina = YES;
+	}
 	
 	//
 	// VERY IMPORTANT:
@@ -136,9 +141,6 @@
 	
 	// Preload a BGM track
 	[[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"1.mp3"];
-	
-	// Load the shared game singleton
-	[GameSingleton loadState];
 	
 	// Run the intro Scene
 	[[CCDirector sharedDirector] runWithScene:[TitleScene scene]];		

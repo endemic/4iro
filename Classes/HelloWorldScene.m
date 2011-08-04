@@ -63,22 +63,28 @@
 			touchOffset = CGPointMake(0, 0);
 		}
 		
-		/*
-		 Layer arrangement
-		 
-		 grid background: 0
-		 blocks: 1
-		 background: 2
-		 ui: 3
-		 */
+		// Initialize some gameplay variables
+		score = 0;
+		combo = 0;
+		level = 1;
+		timeRemaining = kMaxTimeLimit;
+		timePlayed = 0;
 		
 		// Background
-		CCSprite *bg = [CCSprite spriteWithFile:[NSString stringWithFormat:@"background%@.png", hdSuffix]];
+		bg = [CCSprite spriteWithFile:[NSString stringWithFormat:@"background-%i%@.png", level, hdSuffix]];
 		bg.position = ccp(windowSize.width / 2, windowSize.height / 2);
+		if ([GameSingleton sharedGameSingleton].isRetina == YES)
+		{
+			// This is a hacky workaround to allow the iPad/iPhone4 to share backgrounds
+			// MAGIC NUMBERS, SORRY
+			bg.position = ccp(windowSize.width / 2, windowSize.height / 2 - 16);
+			CCLOG(@"Trying to move the background position");
+		}
+			
 		[self addChild:bg z:2];
 		
 		// Grid/puzzle background
-		CCSprite *gridBg = [CCSprite spriteWithFile:[NSString stringWithFormat:@"grid-background%@.png", hdSuffix]];
+		gridBg = [CCSprite spriteWithFile:[NSString stringWithFormat:@"grid-background-%i%@.png", level, hdSuffix]];
 		gridBg.position = ccp(windowSize.width / 2, gridBg.contentSize.height / 2 + touchOffset.y);
 		[self addChild:gridBg z:0];
 		
@@ -88,7 +94,6 @@
 		[self addChild:topUi z:3];
 		
 		// Set combo counter
-		combo = 0; 
 		comboLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%ix", combo] dimensions:CGSizeMake(97 * fontMultiplier, 58 * fontMultiplier) alignment:CCTextAlignmentRight fontName:@"Chalkduster.ttf" fontSize:36 * fontMultiplier];
 		comboLabel.position = ccp(133, 30);
 		if ([GameSingleton sharedGameSingleton].isPad)
@@ -97,7 +102,6 @@
 		[topUi addChild:comboLabel z:4];
 		
 		// Set up level counter display
-		level = 1;
 		levelLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%02d", level] dimensions:CGSizeMake(97 * fontMultiplier, 58 * fontMultiplier) alignment:CCTextAlignmentCenter fontName:@"Chalkduster.ttf" fontSize:36 * fontMultiplier];
 		levelLabel.position = ccp(258, 30);
 		if ([GameSingleton sharedGameSingleton].isPad)
@@ -106,7 +110,6 @@
 		[topUi addChild:levelLabel z:4];
 		
 		// Set up score label
-		score = 0;
 		scoreLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%08d", score] dimensions:CGSizeMake(210 * fontMultiplier, 57 * fontMultiplier) alignment:CCTextAlignmentRight fontName:@"Chalkduster.ttf" fontSize:32 * fontMultiplier];
 		scoreLabel.position = ccp(183, 100);
 		if ([GameSingleton sharedGameSingleton].isPad)
@@ -115,8 +118,6 @@
 		[topUi addChild:scoreLabel z:4];
 		
 		// Set up timer
-		timeRemaining = kMaxTimeLimit;
-		timePlayed = 0;
 		timeRemainingDisplay = [CCProgressTimer progressWithFile:[NSString stringWithFormat:@"timer-gradient%@.png", hdSuffix]];
 		timeRemainingDisplay.type = kCCProgressTimerTypeVerticalBarBT;
 		timeRemainingDisplay.percentage = 100.0;
@@ -148,6 +149,10 @@
 		
 		// Schedule an update method
 		[self scheduleUpdate];
+		
+		// Play random music track
+		int trackNumber = (float)(arc4random() % 100) / 100 * 3 + 1;	// 1 - 3
+		[[SimpleAudioEngine sharedEngine] playBackgroundMusic:[NSString stringWithFormat:@"%i.mp3", trackNumber]];
 	}
 	return self;
 }
@@ -157,12 +162,19 @@
 	// Increment the total time played this game
 	timePlayed += dt;
 	
-	// This value increases as the game is played longer
-	//int multiplier = (level + 1) / 2;
-	int multiplier = 1;
-	
-	// Update timer
-	timeRemaining -= dt * multiplier;
+	// Increase the level every 60 seconds
+	if (timePlayed >= 60.0)
+	{
+		level++;
+		[levelLabel setString:[NSString stringWithFormat:@"%02d", level]];
+		
+		// Change game background!
+		[bg setTexture:[[CCTextureCache sharedTextureCache] addImage:[NSString stringWithFormat:@"background-%i%@.png", level % 10, hdSuffix]]];
+		[gridBg setTexture:[[CCTextureCache sharedTextureCache] addImage:[NSString stringWithFormat:@"grid-background-%i%@.png", level % 10, hdSuffix]]];
+		
+		// Reset the timePlayed counter back to zero
+		timePlayed = 0;
+	}
 	
 	// Game over condition
 	if (timeRemaining < 0)
@@ -377,7 +389,11 @@
 			// Reset the "start" position
 			touchStart = touchPoint;
 
+			// Play SFX
 			[[SimpleAudioEngine sharedEngine] playEffect:@"move.caf"];
+			
+			// Decrement the "move" counter
+			timeRemaining--;
 		}
 		// Move right
 		else if (d <= -blockSize)
@@ -397,7 +413,11 @@
 			// Reset the "start" position
 			touchStart = touchPoint;
 
+			// Play SFX
 			[[SimpleAudioEngine sharedEngine] playEffect:@"move.caf"];
+			
+			// Decrement the "move" counter
+			timeRemaining--;
 		}
 	}
 	else if (verticalMove)
@@ -430,7 +450,11 @@
 			// Reset the "start" position
 			touchStart = touchPoint;
 
+			// Play SFX
 			[[SimpleAudioEngine sharedEngine] playEffect:@"move.caf"];
+			
+			// Decrement the "move" counter
+			timeRemaining--;
 		}
 		// Move up
 		else if (d <= -blockSize)
@@ -450,7 +474,11 @@
 			// Reset the "start" position
 			touchStart = touchPoint;
 
+			// Play SFX
 			[[SimpleAudioEngine sharedEngine] playEffect:@"move.caf"];
+			
+			// Decrement the "move" counter
+			timeRemaining--;
 		}
 	}
 	
@@ -493,6 +521,12 @@
 				Block *s = [grid objectAtIndex:i];
 				[s animateToGridPosition];
 			}
+			
+			// Play SFX
+			[[SimpleAudioEngine sharedEngine] playEffect:@"move.caf"];
+			
+			// Decrement the "move" counter
+			timeRemaining--;
 		}
 		else if (touchDiff.x > blockSize / 2)
 		{
@@ -508,7 +542,13 @@
 			{
 				Block *s = [grid objectAtIndex:i];
 				[s animateToGridPosition];
-			}			
+			}
+			
+			// Play SFX
+			[[SimpleAudioEngine sharedEngine] playEffect:@"move.caf"];
+			
+			// Decrement the "move" counter
+			timeRemaining--;
 		}
 	}
 	else if (verticalMove)
@@ -538,6 +578,12 @@
 				Block *s = [grid objectAtIndex:i];
 				[s animateToGridPosition];
 			}
+			
+			// Play SFX
+			[[SimpleAudioEngine sharedEngine] playEffect:@"move.caf"];
+			
+			// Decrement the "move" counter
+			timeRemaining--;
 		}
 		else if (touchDiff.y > blockSize / 2)
 		{
@@ -554,6 +600,12 @@
 				Block *s = [grid objectAtIndex:i];
 				[s animateToGridPosition];
 			}
+			
+			// Play SFX
+			[[SimpleAudioEngine sharedEngine] playEffect:@"move.caf"];
+			
+			// Decrement the "move" counter
+			timeRemaining--;
 		}
 	}
 	
@@ -1128,12 +1180,12 @@
 	CGSize windowSize = [[CCDirector sharedDirector] winSize];
 	
 	// Add a white, screen-sized .png to scene
-	CCSprite *bg = [CCSprite spriteWithFile:[NSString stringWithFormat:@"flash%@.png", hdSuffix]];
-	bg.position = ccp(windowSize.width / 2, windowSize.height / 2);
-	[self addChild:bg z:10];
+	CCSprite *flash = [CCSprite spriteWithFile:[NSString stringWithFormat:@"flash%@.png", hdSuffix]];
+	flash.position = ccp(windowSize.width / 2, windowSize.height / 2);
+	[self addChild:flash z:10];
 	
 	// Fade the .png out, then remove it
-	[bg runAction:[CCSequence actions:
+	[flash runAction:[CCSequence actions:
 					[CCFadeOut actionWithDuration:0.5],
 					[CCCallFuncN actionWithTarget:self selector:@selector(removeNodeFromParent:)],
 					nil]];
@@ -1160,6 +1212,7 @@
 		{
 			location = ccp(50, 380);
 		}
+		
 		// Create a "+1s" status message
 		[self createStatusMessageAt:location withText:[NSString stringWithFormat:@"+%0.1fs", additionalTime]];
 		
@@ -1176,23 +1229,10 @@
 {
 	score += points;
 	[scoreLabel setString:[NSString stringWithFormat:@"%08d", score]];
-
-	// Increment the level count here
-	// Do some sort of effect here when the level changes
-	if (floor(score / 1000) + 1 > level)
-	{
-		level = floor(score / 1000) + 1;
-		[levelLabel setString:[NSString stringWithFormat:@"%02d", level]];
-	}
 }
 
 - (void)comboCountdown
-{
-//	if (combo < 1)
-//	{
-//		combo = 1;
-//	}
-	
+{	
 	// Speed at which counter counts down is dependent on how large the counter is
 	float interval = 2.0 / combo;
 	

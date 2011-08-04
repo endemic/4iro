@@ -90,14 +90,15 @@
 			// Drop a bunch of blocks onto the screen
 			for (int x = 0; x < rows; x++)
 			{
-				int y = 0;
 				Block *b = [Block random];
+				int y = 0;
+				int blockSize = b.contentSize.width;
 				
 				[b setGridPosition:ccp(x, y)];
-				[b snapToGridPosition];
+				//[b snapToGridPosition];
 				
 				// Move the block higher by a random value (0 - 49)
-				[b setPosition:ccp(b.position.x, b.position.y + windowSize.height + (float)(arc4random() % 100) / 100 * 50)];
+				b.position = ccp(x * blockSize - blockSize / 2, y * blockSize + blockSize / 2 + windowSize.height + (float)(arc4random() % 100) / 100 * 50);
 				
 				// Add to layer
 				[self addChild:b];
@@ -105,7 +106,6 @@
 				// Add to grid
 				[grid addObject:b];
 				
-				int blockSize = b.contentSize.width;
 				float randomTime = (float)(arc4random() % 40) / 100 + 0.25;
 				
 				id move = [CCMoveTo actionWithDuration:randomTime position:ccp(x * blockSize - blockSize / 2, y * blockSize + blockSize / 2)];
@@ -125,16 +125,18 @@
 		else 
 		{
 			// Fill grid w/ blocks
-			// Arrgh, + 1 to cols here due to using the "snapToGridPosition" method which puts first row below screen
 			for (int x = 0; x < rows; x++)
 			{
-				for (int y = 0; y <= cols; y++)
+				// Arrgh, + 1 to cols here due to using the "snapToGridPosition" method which puts first row below screen
+				for (int y = 0; y < cols + 1; y++)
 				{
 					Block *b = [Block random];
 					
 					// Move to correct location on screen
 					[b setGridPosition:ccp(x, y)];
-					[b snapToGridPosition];
+					//[b snapToGridPosition];
+					int blockSize = b.contentSize.width;
+					b.position = ccp(x * blockSize - blockSize / 2, y * blockSize + blockSize / 2);
 					
 					// Add to layer
 					[self addChild:b];
@@ -206,16 +208,17 @@
 	CGSize windowSize = [[CCDirector sharedDirector] winSize];
 	
 	Block *b = [Block random];
-	
+	int blockSize = b.contentSize.width;
 	int x = block.gridPosition.x;
 	int y = block.gridPosition.y + 1;
 
 	// Set where the block should be
 	[b setGridPosition:ccp(x, y)];
-	[b snapToGridPosition];
+	//[b snapToGridPosition];
 	
 	// Move the block higher by a random value (0 - 49)
-	[b setPosition:ccp(b.position.x, b.position.y + windowSize.height + (float)(arc4random() % 100) / 100 * 50)];
+	//[b setPosition:ccp(b.position.x, b.position.y + windowSize.height + (float)(arc4random() % 100) / 100 * 50)];
+	b.position = ccp(x * blockSize - blockSize / 2, y * blockSize + blockSize / 2 + windowSize.height + (float)(arc4random() % 100) / 100 * 50);
 	
 	// Add to layer
 	[self addChild:b];
@@ -223,7 +226,6 @@
 	// Add to grid
 	[grid addObject:b];
 	
-	int blockSize = b.contentSize.width;
 	float randomTime = (float)(arc4random() % 40) / 100 + 0.25;
 	
 	// A bunch of actions and crap
@@ -276,6 +278,9 @@
 	CCMenuItemImage *startButton = [CCMenuItemImage itemFromNormalImage:[NSString stringWithFormat:@"play-button%@.png", hdSuffix] selectedImage:[NSString stringWithFormat:@"play-button-selected%@.png", hdSuffix] block:^(id sender) {
 		[GameSingleton sharedGameSingleton].gameMode = kGameModeNormal;
 		[[SimpleAudioEngine sharedEngine] playEffect:@"button.caf"];
+		
+		// Stop the BGM in preparation for the new BGM to load
+		[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
 		
 		// Go to game scene
 		CCTransitionFlipX *transition = [CCTransitionFlipX transitionWithDuration:0.5 scene:[HelloWorld node] orientation:kOrientationUpOver];

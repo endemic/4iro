@@ -11,7 +11,7 @@
 
 @implementation GameSingleton
 
-@synthesize isPad, showIntroAnimation, gameMode, restoreGame, points, combo, level, timeRemaining, timePlayed, hasGameCenter, unsentScores;
+@synthesize isPad, isRetina, showIntroAnimation, gameMode, restoreGame, points, combo, level, timeRemaining, timePlayed, hasGameCenter, unsentScores;
 
 SYNTHESIZE_SINGLETON_FOR_CLASS(GameSingleton);
 
@@ -20,7 +20,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(GameSingleton);
 	if ((self = [super init]))
 	{
 		// Check if running on iPad
-		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) 
+		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 			isPad = YES;
 		else
 			isPad = NO;
@@ -33,6 +33,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(GameSingleton);
 		
 		// Trigger the intro animation to be shown once
 		showIntroAnimation = YES;
+		
+		isRetina = NO;
 	}
 	return self;
 }

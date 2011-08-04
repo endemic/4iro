@@ -31,6 +31,10 @@
 	CCLabelTTF *comboLabel;
 	CCLabelTTF *levelLabel;
 	
+	// Patterned backgrounds that change as the game progresses
+	CCSprite *bg;
+	CCSprite *gridBg;
+	
 	float timeRemaining;						// Say a maximum of 30 seconds
 	float timePlayed;							// Records how long the player has been playing
 	CCProgressTimer *timeRemainingDisplay;		// kCCProgressTimerTypeVerticalBarBT
