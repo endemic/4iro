@@ -277,13 +277,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>144</integer>
-									<integer>133</integer>
+									<integer>156</integer>
+									<integer>151</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 2196}, {283, 718}}</string>
+							<string>{{0, 2199}, {283, 718}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -320,7 +320,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>TitleScene.m</string>
+								<string>todo.rtf</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -328,11 +328,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>TitleScene.m</string>
+										<string>todo.rtf</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>7DFFDE8B13EA2EA800E5C100</string>
+										<string>7DFE0F2913F01C82006796E2</string>
 										<key>history</key>
 										<array>
 											<string>7D82C268136ACD040054C229</string>
@@ -373,8 +373,6 @@
 											<string>7DA5C94813DB613600B33F81</string>
 											<string>7DA5C94913DB613600B33F81</string>
 											<string>7DA5C94A13DB613600B33F81</string>
-											<string>7DA5C94D13DB613600B33F81</string>
-											<string>7DA5C94E13DB613600B33F81</string>
 											<string>7DFD829B13E1623800225A7C</string>
 											<string>7D15148913E2EC270037BDB6</string>
 											<string>7D9293DE13E3BAD8005238CF</string>
@@ -388,7 +386,6 @@
 											<string>7DC9FB5113E9A62B00E6FFA2</string>
 											<string>7DC9FB5613E9A62B00E6FFA2</string>
 											<string>7DC9FB5713E9A62B00E6FFA2</string>
-											<string>7DC9FB6313E9A7BF00E6FFA2</string>
 											<string>7DFFDDDE13EA1A8400E5C100</string>
 											<string>7DFFDDFA13EA1B6F00E5C100</string>
 											<string>7DFFDE0013EA1D9500E5C100</string>
@@ -411,7 +408,6 @@
 											<string>7DFFDE3913EA239600E5C100</string>
 											<string>7DFFDE3A13EA239600E5C100</string>
 											<string>7DFFDE3B13EA239600E5C100</string>
-											<string>7DFFDE3E13EA239600E5C100</string>
 											<string>7DFFDE4513EA25EC00E5C100</string>
 											<string>7DFFDE4C13EA268800E5C100</string>
 											<string>7DFFDE5513EA271D00E5C100</string>
@@ -419,8 +415,12 @@
 											<string>7DFFDE6813EA2DB000E5C100</string>
 											<string>7DFFDE6913EA2DB000E5C100</string>
 											<string>7DFFDE8313EA2E7500E5C100</string>
-											<string>7DFFDE8813EA2EA600E5C100</string>
-											<string>7DFFDE8913EA2EA600E5C100</string>
+											<string>7D13437013EC27C900ADABF6</string>
+											<string>7DFE0F2013EE291D006796E2</string>
+											<string>7DFE0F2113EE291D006796E2</string>
+											<string>7DFE0F2213EE291D006796E2</string>
+											<string>7DFE0F2313EE291D006796E2</string>
+											<string>7DFE0F0D13EE0DBF006796E2</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -478,9 +478,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>7DFFDDE413EA1A8400E5C100</string>
+				<string>7DFE0F0F13EE0DBF006796E2</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>7DFFDDE513EA1A8400E5C100</string>
+				<string>7DFE0F1013EE0DBF006796E2</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -618,6 +618,8 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>7DFE0F2613EE291D006796E2</string>
+		<string>7DFE0F2713EE291D006796E2</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>7D12CE8E1355B3AD003DBE39</string>
 		<string>1C78EAAD065D492600B07095</string>
@@ -701,7 +703,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>7D12CE8E1355B3AD003DBE39</string>
-				<string>7DFFDDE613EA1A8400E5C100</string>
+				<string>7DFE0F1113EE0DBF006796E2</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -823,13 +825,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>7DFFDDE713EA1A8400E5C100</string>
+				<string>7DFE0F1813EE270B006796E2</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>7DFFDDE813EA1A8400E5C100</string>
-				<string>7DFFDDE913EA1A8400E5C100</string>
-				<string>7DFFDDEA13EA1A8400E5C100</string>
-				<string>7DFFDDEB13EA1A8400E5C100</string>
-				<string>7DFFDDEC13EA1A8400E5C100</string>
+				<string>7DFE0F1913EE270B006796E2</string>
+				<string>7DFE0F1A13EE270B006796E2</string>
+				<string>7DFE0F1B13EE270B006796E2</string>
+				<string>7DFE0F1C13EE270B006796E2</string>
+				<string>7DFE0F1D13EE270B006796E2</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -970,7 +972,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {650, 209}}</string>
 								<key>RubberWindowFrame</key>
-								<string>-720 43 650 250 -1440 -100 1440 900 </string>
+								<string>522 122 650 250 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXDebugCLIModule</string>
@@ -993,13 +995,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>7DFFDDED13EA1A8400E5C100</string>
+				<string>7DFE0F1213EE0DBF006796E2</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.consoleV3</string>
 			<key>WindowString</key>
-			<string>-720 43 650 250 -1440 -100 1440 900 </string>
+			<string>522 122 650 250 0 0 1280 778 </string>
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
